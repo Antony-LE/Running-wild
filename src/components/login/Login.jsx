@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import './login.css';
 
 // Import of npm icons and font from fontawesome.com
-import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
@@ -69,9 +69,6 @@ function Login() {
             {/* ********************************email input******************************* */}
             <label htmlFor="email">
               Votre Email:
-              <FontAwesomeIcon icon={faCheck} className={validEmail ? 'valid' : 'hide'} />
-              {/* If we want to display or not the regex */}
-              <FontAwesomeIcon icon={faTimes} className={validEmail || !userEmail ? 'hide' : 'invalid'} />
             </label>
             <input
               type="text"
@@ -88,9 +85,6 @@ function Login() {
             {/* ********************************password input******************************* */}
             <label htmlFor="password">
               Mot de passe:
-              <FontAwesomeIcon icon={faCheck} className={validPwd ? 'valid' : 'hide'} />
-              {/* If we want to display or not the regex */}
-              <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? 'hide' : 'invalid'} />
             </label>
             <input
               type="password"
@@ -99,25 +93,6 @@ function Login() {
               value={pwd}
               required
             />
-            <p id="pwdnote" className={pwd && !validPwd ? 'instructions' : 'offscreen'}>
-              <FontAwesomeIcon icon={faInfoCircle} />
-              8-24 caractères.
-              <br />
-              Votre mot de passe doit inclure au moins une lettre en majuscule
-              et minuscule ainsi qu&apos;un caractère spécial
-              <br />
-              caractères spéciaux autorisés:
-              {' '}
-              <span>!</span>
-              {' '}
-              <span>@</span>
-              {' '}
-              <span>#</span>
-              {' '}
-              <span>$</span>
-              {' '}
-              <span>%</span>
-            </p>
             {/* ********************************Sign in button******************************* */}
             <button
               type="submit"
