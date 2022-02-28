@@ -57,7 +57,7 @@ function Login() {
   return (
     <>
       {success ? (
-        <section className="runningWild__registration">
+        <section className="runningWild__login">
           <h1>Vous êtes connecté !</h1>
           <p>
             <a href="#">Aller vers la page d&apos;accueil</a>
