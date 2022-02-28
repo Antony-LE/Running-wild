@@ -8,9 +8,14 @@ import './registration.css';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// Import of axios
+import axios from '../../api/axios';
+
+const REGISTER_URL = '/user';
+
 /* Regex for the firstname, lastname, pseudo validation (must start with lower or uppercase letter,
 following with lower or uppercase letter or digits or underscore, at least 3 to 23 characters  ) */
-const USER_REGEX = /^[A-z][A-z0-9-_]{2,23}$/;
+const USER_REGEX = /^[a-zA-Z\u00C0-\u00FF]*$/;
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
@@ -25,7 +30,7 @@ const GENDER_REGEX = /^(?:h|H|homme|Homme|f|F|femme|Femme|n|N|neutre|Neutre)$/;
 one character upper, one digit ,one special characters and 8 to 24 characters ) */
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-function Register() {
+function Registration() {
   // handle states related to user
   const [userFirstname, setUserFirstname] = useState('');
   const [validFirstname, setValidFirstname] = useState(false);
@@ -68,53 +73,53 @@ function Register() {
   // Handle the user's inputs with regex for each input
   useEffect(() => {
     setValidFirstname(USER_REGEX.test(userFirstname));
-    console.log(userFirstname);
+    // console.log(userFirstname);
   }, [userFirstname]);
 
   useEffect(() => {
     setValidLastname(USER_REGEX.test(userLastname));
-    console.log(userLastname);
+    // console.log(userLastname);
   }, [userLastname]);
 
   useEffect(() => {
     setValidPseudo(USER_REGEX.test(userPseudo));
-    console.log(userLastname);
+    // console.log(userLastname);
   }, [userPseudo]);
 
   useEffect(() => {
     setValidPostalCode(ZIPCODE_REGEX.test(userPostalcode));
-    console.log(userPostalcode);
+    // console.log(userPostalcode);
   }, [userPostalcode]);
 
   useEffect(() => {
     setValidCity(CITY_REGEX.test(userCity));
-    console.log(userCity);
+    // console.log(userCity);
   }, [userCity]);
 
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(userEmail));
-    console.log(userEmail);
+    // console.log(userEmail);
   }, [userEmail]);
 
   useEffect(() => {
     setValidDateOfBirth(BIRTHDATE_REGEX.test(userDateOfBirth));
-    console.log(userDateOfBirth);
+    // console.log(userDateOfBirth);
   }, [userDateOfBirth]);
 
   useEffect(() => {
     setValidGender(GENDER_REGEX.test(userGender));
-    console.log(userGender);
+    // console.log(userGender);
   }, [userGender]);
 
   // Handle both password and confirmed password validation
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log(pwd);
+    // console.log(pwd);
     setValidPwd(result);
     // check if the confirmed password matches the password (boolean)
     const match = pwd === matchPwd;
     setValidMatch(match);
-    console.log(match);
+    // console.log(match);
   }, [pwd, matchPwd]);
 
   // check if the matchpassword matches the password (boolean)
@@ -133,7 +138,30 @@ function Register() {
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSuccess(true);
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          userFirstname,
+          userLastname,
+          userEmail,
+          userPseudo,
+          userPostalcode,
+          userCity,
+          userGender,
+          pwd,
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        },
+      );
+      console.log(JSON.stringify(response?.data));
+      setSuccess(true);
+    } catch (err) {
+      console.log('registration error');
+    }
   };
 
   return (
@@ -148,7 +176,7 @@ function Register() {
       ) : (
         <section className="runningWild__registration">
           <p className={!errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-          <h1>Running Wild - Connexion</h1>
+          <h1>Running Wild - S&apos;enregistrer</h1>
           <form className="runningWild__registration-form" onSubmit={handleSubmit}>
             {/* ********************************firstname input******************************* */}
             <label htmlFor="firstname">
@@ -160,7 +188,6 @@ function Register() {
             <input
               type="text"
               id="firstname"
-              // ref={userRef}
               autoComplete="off"
               onChange={(e) => setUserFirstname(e.target.value)}
               value={userFirstname}
@@ -174,7 +201,6 @@ function Register() {
               <br />
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
-
             {/* ********************************lastname input******************************* */}
             <label htmlFor="lastname">
               Votre Nom:
@@ -198,7 +224,6 @@ function Register() {
               <br />
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
-
             {/* ********************************email input******************************* */}
             <label htmlFor="email">
               Votre Email:
@@ -241,7 +266,6 @@ function Register() {
               <br />
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
-
             {/* ********************************postalcode input******************************* */}
             <label htmlFor="postalcode">
               Votre Code Postal:
@@ -263,7 +287,6 @@ function Register() {
               <br />
               Votre code postal doit comporter 5 chiffres.
             </p>
-
             {/* ********************************city input******************************* */}
             <label htmlFor="city">
               Votre ville de résidence:
@@ -285,7 +308,6 @@ function Register() {
               <br />
               Votre ville doit comporter uniquement des lettres.
             </p>
-
             {/* ********************************Birthdate input******************************* */}
             <label htmlFor="birthdate">
               Votre date de naissance:
@@ -359,7 +381,6 @@ function Register() {
               {' '}
               <span>%</span>
             </p>
-
             {/* ********************************Confirm password input************************* */}
             <label htmlFor="confirm_pwd">
               Confirmez votre mot de passe:
@@ -378,7 +399,6 @@ function Register() {
               <FontAwesomeIcon icon={faInfoCircle} />
               Vos mots de passe doivent être identiques.
             </p>
-
             {/* ********************************Sign up button******************************* */}
             <button
               type="submit"
@@ -394,7 +414,6 @@ function Register() {
             || !validMatch)}
             >
               Sign Up
-
             </button>
           </form>
           <p>
@@ -411,4 +430,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Registration;
