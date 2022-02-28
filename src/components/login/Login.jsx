@@ -25,6 +25,8 @@ function Login() {
   const [validPwd, setValidPwd] = useState(false);
   // handle error
   const [errMsg, setErrMsg] = useState(false);
+  // handle wether the user has succefully logged in or not
+  const [success, setSuccess] = useState(false);
 
   // Handle the user's inputs with regex for each input
   useEffect(() => {
@@ -49,74 +51,85 @@ function Login() {
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSuccess(true);
   };
 
   return (
-    <div className="runningwild__login-container">
-      <section className="runningwild__login-left">
-        <p className={!errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-        <h1>Running Wild - Connexion</h1>
-        <form className="runningwild__login-form" onSubmit={handleSubmit}>
-          {/* ********************************email input******************************* */}
-          <label
-            className="runningwild__login-form-label"
-            htmlFor="email"
-          >
-            Votre Email:
-          </label>
-          <input
-            type="text"
-            className="runningwild__login-form-input"
-            id="email"
-            autoComplete="off"
-            onChange={(e) => setUserEmail(e.target.value)}
-            value={userEmail}
-            required
-          />
-          <p id="uidnote" className={userEmail && !validEmail ? 'instructions' : 'offscreen'}>
-            <FontAwesomeIcon icon={faInfoCircle} />
-            Format d&apos;email invalide
+    <>
+      {success ? (
+        <section className="runningWild__registration">
+          <h1>Vous êtes connecté !</h1>
+          <p>
+            <a href="#">Aller vers la page d&apos;accueil</a>
           </p>
-          {/* ********************************password input******************************* */}
-          <label
-            className="runningwild__login-form-label"
-            htmlFor="password"
-          >
-            Mot de passe:
-          </label>
-          <input
-            type="password"
-            className="runningwild__login-form-input"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
-            required
-          />
-          {/* ********************************Sign in button******************************* */}
-          <button
-            className="runningwild__login-form-buton"
-            type="submit"
-            disabled={!!(!validEmail || !validPwd)}
-          >
-            Connexion
-          </button>
-        </form>
-        <p>
-          Mot de passe oublié ?
-          <br />
-          <span className="line">
-            {/* put router link here */}
-            <a href="#">Recevoir mes informations de connexion</a>
-          </span>
-        </p>
-      </section>
-      <section className="runningwild__login-right">
-        <video alt="video of a runner in a field" autoPlay controls loop>
-          <source src={runningVideo} type="video/webm" />
-        </video>
-      </section>
-    </div>
+        </section>
+      ) : (
+        <div className="runningwild__login-container">
+          <section className="runningwild__login-left">
+            <p className={!errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+            <h1>Running Wild - Connexion</h1>
+            <form className="runningwild__login-form" onSubmit={handleSubmit}>
+              {/* ********************************email input******************************* */}
+              <label
+                className="runningwild__login-form-label"
+                htmlFor="email"
+              >
+                Votre Email:
+              </label>
+              <input
+                type="text"
+                className="runningwild__login-form-input"
+                id="email"
+                autoComplete="off"
+                onChange={(e) => setUserEmail(e.target.value)}
+                value={userEmail}
+                required
+              />
+              <p id="uidnote" className={userEmail && !validEmail ? 'instructions' : 'offscreen'}>
+                <FontAwesomeIcon icon={faInfoCircle} />
+                Format d&apos;email invalide
+              </p>
+              {/* ********************************password input******************************* */}
+              <label
+                className="runningwild__login-form-label"
+                htmlFor="password"
+              >
+                Mot de passe:
+              </label>
+              <input
+                type="password"
+                className="runningwild__login-form-input"
+                id="password"
+                onChange={(e) => setPwd(e.target.value)}
+                value={pwd}
+                required
+              />
+              {/* ********************************Sign in button******************************* */}
+              <button
+                className="runningwild__login-form-buton"
+                type="submit"
+                disabled={!!(!validEmail || !validPwd)}
+              >
+                Connexion
+              </button>
+            </form>
+            <p>
+              Mot de passe oublié ?
+              <br />
+              <span className="line">
+                {/* put router link here */}
+                <a href="#">Recevoir mes informations de connexion</a>
+              </span>
+            </p>
+          </section>
+          <section className="runningwild__login-right">
+            <video alt="video of a runner in a field" autoPlay controls loop>
+              <source src={runningVideo} type="video/webm" />
+            </video>
+          </section>
+        </div>
+      )}
+    </>
   );
 }
-
 export default Login;
