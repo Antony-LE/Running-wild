@@ -15,7 +15,7 @@ const REGISTER_URL = '/user';
 
 /* Regex for the firstname, lastname, pseudo validation (must start with lower or uppercase letter,
 following with lower or uppercase letter or digits or underscore, at least 3 to 23 characters  ) */
-const USER_REGEX = /^[a-zA-Z\u00C0-\u00FF]*$/;
+const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{2,23}$/;
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
