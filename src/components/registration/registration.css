@@ -10,6 +10,11 @@
   text-align: center;
 }
 
+.runningWild__registration h1 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
 .runningWild__registration-form {
   display: flex;
   flex-direction: column;
@@ -18,7 +23,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   text-align: left;
-  width: 30vw;
+  width: 25rem;
   border-radius: 10px;
 }
 
@@ -69,23 +74,30 @@
   display: inline-block;
 }
 
-input[type="text"],
-input[type="password"],
-button,
-textarea {
+.runningwild__registration-form-input {
   font-family: var(--font-family);
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
 }
 
-label,
-button {
+.runningwild__registration-form-label {
   margin-top: 1rem;
 }
 
-button {
+.runningwild__registration-form-button {
+  font-family: var(--font-family);
+  font-size: 22px;
+  margin-top: 1rem;
   padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: black;
+  background-color: #afefff;
+}
+
+.runningWild__registration a {
+  margin-top: 0.5rem;
 }
 
 .gradient__bg {

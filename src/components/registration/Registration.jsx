@@ -177,7 +177,7 @@ function Registration() {
       ) : (
         <section className="runningWild__registration gradient__bg">
           <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-          <h1>Running Wild - S&apos;enregistrer</h1>
+          <h1>Running Wild - S&apos;inscrire</h1>
           <form className="runningWild__registration-form" onSubmit={handleSubmit}>
             {/* ********************************firstname input******************************* */}
             <label className="runningwild__registration-form-label" htmlFor="firstname">
@@ -455,14 +455,8 @@ function Registration() {
               S&apos;inscrire
             </button>
           </form>
-          <p>
-            Déja enregistré?
-            <br />
-            <span className="line">
-              {/* put router link here */}
-              <a href="#">Se connecter</a>
-            </span>
-          </p>
+          <a href="#"> CGU</a>
+          <a href="#"> Déjà enregistré ?</a>
         </section>
       )}
     </>
