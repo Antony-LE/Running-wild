@@ -29,7 +29,7 @@ function Login() {
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
   // handle error
-  const [errMsg, setErrMsg] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
   // handle wether the user has succefully logged in or not
   const [success, setSuccess] = useState(false);
 
@@ -44,14 +44,6 @@ function Login() {
     console.log(pwd);
     setValidPwd(result);
   }, [pwd]);
-
-  // check if the matchpassword matches the password (boolean)
-  useEffect(() => {
-    setErrMsg('Something went wrong !');
-  }, [
-    userEmail,
-    pwd,
-  ]);
 
   // Handle the form submission
   const handleSubmit = async (e) => {
@@ -72,7 +64,8 @@ function Login() {
       console.log(JSON.stringify(response?.data));
       setSuccess(true);
     } catch (err) {
-      console.log('login error');
+      console.log(errMsg);
+      setErrMsg('Login error');
     }
   };
 
@@ -88,7 +81,7 @@ function Login() {
       ) : (
         <div className="runningwild__login-container">
           <section className="runningwild__login-left">
-            <p className={!errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+            <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
             <h1>Running Wild - Connexion</h1>
             <form className="runningwild__login-form" onSubmit={handleSubmit}>
               {/* ********************************email input******************************* */}
