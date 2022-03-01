@@ -1,0 +1,20 @@
+.runningwild__footer {
+    font-size: 1em;
+    background-color: #1F2937;
+    color: #717d97;
+    font-weight: bold;
+    text-align: center;
+    padding: 2em;
+    margin-top: 2em;
+}
+
+.runningwild__footer a {
+    margin-top: 1em;
+    text-decoration: underline;
+    font-size: 0.8em;
+}
+
+.runningwild__footer a:visited {
+    color: white;
+}
+
