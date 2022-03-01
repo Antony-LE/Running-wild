@@ -45,6 +45,11 @@ function Login() {
     setValidPwd(result);
   }, [pwd]);
 
+  // Reboot the error message
+  useEffect(() => {
+    setErrMsg('');
+  }, [userEmail, pwd]);
+
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +84,7 @@ function Login() {
           </p>
         </section>
       ) : (
-        <div className="runningwild__login-container">
+        <div className="runningwild__login-container gradient__bg">
           <section className="runningwild__login-left">
             <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
             <h1>Running Wild - Connexion</h1>
@@ -129,11 +134,10 @@ function Login() {
               </button>
             </form>
             <p>
-              Mot de passe oublié ?
+              <a href="#">Mot de passe oublié ?</a>
               <br />
               <span className="line">
                 {/* put router link here */}
-                <a href="#">Recevoir mes informations de connexion</a>
               </span>
             </p>
           </section>
