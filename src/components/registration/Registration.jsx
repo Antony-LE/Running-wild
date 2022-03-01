@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useEffect } from 'react';
@@ -20,8 +21,8 @@ const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{2,23}$/;
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
 const ZIPCODE_REGEX = /^\d{5}/;
-// Regex for the birthdate validation (DD/MM/YYYY format)
-const BIRTHDATE_REGEX = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+// Regex for the birthdate validation (YYYY//MM/DD format)
+const BIRTHDATE_REGEX = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
 // Regex for the city validation (1 to 45 letters only)
 const CITY_REGEX = /^[A-z--]{1,45}$/;
 // Regex for the gender validation ("man", "women", "neutral")
@@ -55,6 +56,9 @@ function Registration() {
 
   const [userGender, setUserGender] = useState('');
   const [validGender, setValidGender] = useState(false);
+
+  const [userRank, setUserRank] = useState(1);
+  const [userRole, setUserRole] = useState(1);
 
   // handle states related to paswword
   const [pwd, setPwd] = useState('');
@@ -143,18 +147,23 @@ function Registration() {
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
-          userFirstname,
-          userLastname,
-          userEmail,
-          userPseudo,
-          userPostalcode,
-          userCity,
-          userGender,
-          pwd,
+          role_id: userRole,
+          rank_id: userRank,
+          name: userFirstname,
+          surname: userLastname,
+          email: userEmail,
+          pseudo: userPseudo,
+          postcode: userPostalcode,
+          city: userCity,
+          sex: userGender,
+          password: pwd,
         }),
         {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+          },
         },
       );
       console.log(JSON.stringify(response?.data));
@@ -344,7 +353,7 @@ function Registration() {
               type="text"
               className="runningwild__registration-form-input"
               id="birthdate"
-              placeholder="jj/mm/aaaa"
+              placeholder="aaaa/mm/jj"
               autoComplete="off"
               onChange={(e) => setUserDateOfBirth(e.target.value)}
               value={userDateOfBirth}
