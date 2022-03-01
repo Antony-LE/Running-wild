@@ -10,6 +10,11 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import runningVideo from '../../Assets/running.webm';
 
+// Import of axios
+import axios from '../../api/axios';
+
+const REGISTER_URL = 'user/login';
+
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 /* Regex for the username validation (at least one character lower,
@@ -51,7 +56,24 @@ function Login() {
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSuccess(true);
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          userEmail,
+          pwd,
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        },
+      );
+      console.log(JSON.stringify(response?.data));
+      setSuccess(true);
+    } catch (err) {
+      console.log('login error');
+    }
   };
 
   return (
