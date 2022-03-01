@@ -18,146 +18,129 @@
 }
 
 .runningwild__login-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    min-width: 30vw;
-    padding: 1rem 0.5rem;
-    font-family: var(--font-family);
-    text-align: center;
-    padding-top: 20rem;
-  }
+  display: flex;    
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 35vw;
+  padding: 1rem 0.5rem;
+  font-family: var(--font-family);
+  text-align: center;
+  color: white;
+  justify-content: center;
+}
 
-  .runningwild__login-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 70vw;
-    height: 100%; 
-    overflow: hidden;
-  }
+.runningwild__login-left h1 {
+  margin-bottom: 1.4rem;
+  font-size: 1.7rem;
+}
 
-  .runningwild__login-right video {
-    min-width: 100%; 
-    min-height: 100%; 
-    width: auto;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
+.runningwild__login-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 65vw;
+  height: 100%; 
+  overflow: hidden;
+}
 
-  .runningwild__login-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    text-align: left;
-    border-radius: 10px;
-  }
+.runningwild__login-right video {
+  min-width: 100%; 
+  min-height: 100%; 
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.runningwild__login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: left;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
   
-  .instructions {
-    display: flex;
-    font-size: 0.75rem;
-    border-radius: 0.5rem;
-    background: #000;
-    color: #fff;
-    padding: 0.25rem;
-    position: relative;
-    bottom: -10px;
-  }
+.instructions {
+  display: flex;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
   
-  .instructions > svg {
-    margin-right: 0.25rem;
-  }
+.errmsg {
+  background-color: lightpink;
+  border-radius: 0.5rem;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+}
   
-  .offscreen {
-    position: absolute;
-    left: -9999px;
-  }
-  
-  .hide {
-    display: none;
-  }
-  
-  .valid {
-    color: limegreen;
-    margin-left: 0.25rem;
-  }
-  
-  .invalid {
-    color: red;
-    margin-left: 0.25rem;
-  }
-  
-  .errmsg {
-    background-color: lightpink;
-    color: firebrick;
-    font-weight: bold;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .line {
-    display: inline-block;
-  }
+.line {
+  display: inline-block;
+}
+
+.runningwild__login-left hr {
+  display: inline-block;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
 
 .runningwild__login-form-input,
-.runningwild__login-form-buton {
+.runningwild__login-form-button {
   font-family: var(--font-family);
-  font-size: 22px;
+  font-size: 1.5em;
   padding: 0.25rem;
   border-radius: 0.5rem;
 }
 
+.runningwild__login-form-button-registration {
+  font-family: var(--font-family);
+  font-size: 1.2em;
+  border-radius: 0.5rem;
+  background-color: #afefff;
+  color: black;
+  border: none;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+
+.runningwild__login-form-label {
+  margin-left: 0.2rem;
+}
+
 .runningwild__login-form-label,
-.runningwild__login-form-buton {
+.runningwild__login-form-button {
   margin-top: 1rem;
 }
 
-.runningwild__login-form-buton {
-  padding: 0.5rem;
+.runningwild__login-form-button {
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.runningwild__login-left a {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gradient__bg {
-  /* Created using https://angrytools.com/gradient/ */
-
-  /* ff 3.6+ */
-  background: -moz-radial-gradient(
-    circle at 5% 25%,
-    rgba(0, 40, 83, 1) 0%,
-    rgb(200, 20, 100) 100%
-  );
-  /* safari 5.1+,chrome 10+ */
-  background: -webkit-radial-gradient(
-    circle at 5% 25%,
-    rgba(0, 40, 83, 1) 0%,
-    rgb(200, 20, 100) 100%
-  );
-  /* opera 11.10+ */
-  background: -o-radial-gradient(
-    circle at 5% 25%,
-    rgba(0, 40, 83, 1) 0%,
-    rgb(200, 20, 100) 100%
-  );
-  /* ie 10+ */
-  background: -ms-radial-gradient(
-    circle at 5% 25%,
-    rgba(0, 40, 83, 1) 0%,
-    rgb(200, 20, 100) 100%
-  );
-  /* global 92%+ browsers support */
-  background: radial-gradient(
-    circle at 5% 25%,
-    rgba(0, 40, 83, 1) 0%,
-    rgb(200, 20, 100) 100%
-  );
+  /* https://uigradients.com/ */
+ /* Moonlit Asteroid */
+ background: #0F2027;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-  
-
-  

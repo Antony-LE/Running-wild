@@ -5,10 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
 
-// Import of npm icons and font from fontawesome.com
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import runningVideo from '../../Assets/running.webm';
+import runningVideo from '../../Assets/runnerback.webm';
 
 // Import of axios
 import axios from '../../api/axios';
@@ -84,9 +81,9 @@ function Login() {
           </p>
         </section>
       ) : (
-        <div className="runningwild__login-container gradient__bg">
-          <section className="runningwild__login-left">
-            <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+        <div className="runningwild__login-container">
+          <section className="runningwild__login-left gradient__bg">
+            <p className={errMsg ? 'errmsg' : ''}>{errMsg}</p>
             <h1>Running Wild - Connexion</h1>
             <form className="runningwild__login-form" onSubmit={handleSubmit}>
               {/* ********************************email input******************************* */}
@@ -94,7 +91,7 @@ function Login() {
                 className="runningwild__login-form-label"
                 htmlFor="email"
               >
-                Votre Email:
+                Email
               </label>
               <input
                 type="text"
@@ -105,16 +102,12 @@ function Login() {
                 value={userEmail}
                 required
               />
-              <p id="uidnote" className={userEmail && !validEmail ? 'instructions' : 'offscreen'}>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                Format d&apos;email invalide
-              </p>
               {/* ********************************password input******************************* */}
               <label
                 className="runningwild__login-form-label"
                 htmlFor="password"
               >
-                Mot de passe:
+                Mot de passe
               </label>
               <input
                 type="password"
@@ -126,15 +119,22 @@ function Login() {
               />
               {/* ********************************Sign in button******************************* */}
               <button
-                className="runningwild__login-form-buton"
+                className="runningwild__login-form-button"
                 type="submit"
                 disabled={!!(!validEmail || !validPwd)}
               >
                 Connexion
               </button>
+              <a href="#">Mot de passe oublié ?</a>
+              <hr />
+              <button
+                className="runningwild__login-form-button-registration"
+                type="submit"
+              >
+                Créer un compte
+              </button>
             </form>
             <p>
-              <a href="#">Mot de passe oublié ?</a>
               <br />
               <span className="line">
                 {/* put router link here */}
@@ -142,7 +142,7 @@ function Login() {
             </p>
           </section>
           <section className="runningwild__login-right">
-            <video alt="video of a runner in a field" autoPlay controls loop>
+            <video alt="video of a runner from the back" controls autoPlay muted loop>
               <source src={runningVideo} type="video/webm" />
             </video>
           </section>
