@@ -16,7 +16,7 @@ const REGISTER_URL = '/user';
 
 /* Regex for the firstname, lastname, pseudo validation (must start with lower or uppercase letter,
 following with lower or uppercase letter or digits or underscore, at least 3 to 23 characters  ) */
-const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{2,23}$/;
+const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{1,23}$/;
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
@@ -136,6 +136,7 @@ function Registration() {
     userPostalcode,
     userCity,
     userGender,
+    userDateOfBirth,
     pwd,
     matchPwd]);
 
@@ -149,27 +150,27 @@ function Registration() {
         JSON.stringify({
           role_id: userRole,
           rank_id: userRank,
+          email: userEmail,
           name: userFirstname,
           surname: userLastname,
-          email: userEmail,
-          pseudo: userPseudo,
-          postcode: userPostalcode,
-          city: userCity,
+          dob: userDateOfBirth,
           sex: userGender,
+          pseudo: userPseudo,
           password: pwd,
+          city: userCity,
+          postcode: userPostalcode,
         }),
         {
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
+            withCredentials: true,
           },
         },
       );
-      console.log(JSON.stringify(response?.data));
+      console.log(response);
       setSuccess(true);
-    } catch (err) {
-      console.log(errMsg);
+    } catch (error) {
+      console.log(error);
       setErrMsg('Registration error !');
     }
   };
