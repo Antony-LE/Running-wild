@@ -68,7 +68,7 @@ function Registration() {
   const [success, setSuccess] = useState(false);
 
   // handle error
-  const [errMsg, setErrMsg] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
 
   // Handle the user's inputs with regex for each input
   useEffect(() => {
@@ -124,7 +124,7 @@ function Registration() {
 
   // check if the matchpassword matches the password (boolean)
   useEffect(() => {
-    setErrMsg('Something went wrong !');
+    setErrMsg('');
   }, [userFirstname,
     userLastname,
     userEmail,
@@ -160,7 +160,8 @@ function Registration() {
       console.log(JSON.stringify(response?.data));
       setSuccess(true);
     } catch (err) {
-      console.log('registration error');
+      console.log(errMsg);
+      setErrMsg('Registration error !');
     }
   };
 
@@ -174,12 +175,12 @@ function Registration() {
           </p>
         </section>
       ) : (
-        <section className="runningWild__registration">
-          <p className={!errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+        <section className="runningWild__registration gradient__bg">
+          <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
           <h1>Running Wild - S&apos;enregistrer</h1>
           <form className="runningWild__registration-form" onSubmit={handleSubmit}>
             {/* ********************************firstname input******************************* */}
-            <label htmlFor="firstname">
+            <label className="runningwild__registration-form-label" htmlFor="firstname">
               Votre Prénom:
               <FontAwesomeIcon icon={faCheck} className={validFirstname ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -187,6 +188,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="firstname"
               autoComplete="off"
               onChange={(e) => setUserFirstname(e.target.value)}
@@ -202,7 +204,10 @@ function Registration() {
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
             {/* ********************************lastname input******************************* */}
-            <label htmlFor="lastname">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="lastname"
+            >
               Votre Nom:
               <FontAwesomeIcon icon={faCheck} className={validLastname ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -210,6 +215,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="lastname"
               autoComplete="off"
               onChange={(e) => setUserLastname(e.target.value)}
@@ -225,7 +231,10 @@ function Registration() {
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
             {/* ********************************email input******************************* */}
-            <label htmlFor="email">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="email"
+            >
               Votre Email:
               <FontAwesomeIcon icon={faCheck} className={validEmail ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -233,6 +242,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="email"
               autoComplete="off"
               onChange={(e) => setUserEmail(e.target.value)}
@@ -244,7 +254,10 @@ function Registration() {
               Format d&apos;email invalide
             </p>
             {/* ********************************pseudo input******************************* */}
-            <label htmlFor="pseudo">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="pseudo"
+            >
               Votre Pseudo:
               <FontAwesomeIcon icon={faCheck} className={validPseudo ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -252,6 +265,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="pseudo"
               autoComplete="off"
               onChange={(e) => setUserPseudo(e.target.value)}
@@ -267,7 +281,10 @@ function Registration() {
               Les lettres, chiffres, underscores et traits d&apos;union sont autorisés
             </p>
             {/* ********************************postalcode input******************************* */}
-            <label htmlFor="postalcode">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="postalcode"
+            >
               Votre Code Postal:
               <FontAwesomeIcon icon={faCheck} className={validPostalCode ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -275,6 +292,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="postalcode"
               autoComplete="off"
               onChange={(e) => setUserPostalcode(e.target.value)}
@@ -288,7 +306,10 @@ function Registration() {
               Votre code postal doit comporter 5 chiffres.
             </p>
             {/* ********************************city input******************************* */}
-            <label htmlFor="city">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="city"
+            >
               Votre ville de résidence:
               <FontAwesomeIcon icon={faCheck} className={validCity ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -296,6 +317,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="city"
               autoComplete="off"
               onChange={(e) => setUserCity(e.target.value)}
@@ -309,7 +331,10 @@ function Registration() {
               Votre ville doit comporter uniquement des lettres.
             </p>
             {/* ********************************Birthdate input******************************* */}
-            <label htmlFor="birthdate">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="birthdate"
+            >
               Votre date de naissance:
               <FontAwesomeIcon icon={faCheck} className={validDateOfBirth ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -317,6 +342,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="birthdate"
               placeholder="jj/mm/aaaa"
               autoComplete="off"
@@ -329,7 +355,10 @@ function Registration() {
               format JJ/MM/AAAA
             </p>
             {/* ********************************gender input******************************* */}
-            <label htmlFor="gender">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="gender"
+            >
               Genre:
               <FontAwesomeIcon icon={faCheck} className={validGender ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -337,6 +366,7 @@ function Registration() {
             </label>
             <input
               type="text"
+              className="runningwild__registration-form-input"
               id="gender"
               placeholder="Homme / Femme / Neutre"
               autoComplete="off"
@@ -349,7 +379,10 @@ function Registration() {
               Homme / Femme / Neutre
             </p>
             {/* ********************************password input******************************* */}
-            <label htmlFor="password">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="password"
+            >
               Mot de passe:
               <FontAwesomeIcon icon={faCheck} className={validPwd ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -357,6 +390,7 @@ function Registration() {
             </label>
             <input
               type="password"
+              className="runningwild__registration-form-input"
               id="password"
               onChange={(e) => setPwd(e.target.value)}
               value={pwd}
@@ -382,7 +416,10 @@ function Registration() {
               <span>%</span>
             </p>
             {/* ********************************Confirm password input************************* */}
-            <label htmlFor="confirm_pwd">
+            <label
+              className="runningwild__registration-form-label"
+              htmlFor="confirm_pwd"
+            >
               Confirmez votre mot de passe:
               <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
@@ -390,6 +427,7 @@ function Registration() {
             </label>
             <input
               type="password"
+              className="runningwild__registration-form-input"
               id="confirm_pwd"
               onChange={(e) => setMatchPwd(e.target.value)}
               value={matchPwd}
@@ -401,6 +439,7 @@ function Registration() {
             </p>
             {/* ********************************Sign up button******************************* */}
             <button
+              className="runningwild__registration-form-button"
               type="submit"
               disabled={!!(!validFirstname
             || !validLastname
@@ -413,7 +452,7 @@ function Registration() {
             || !validPwd
             || !validMatch)}
             >
-              Sign Up
+              S&apos;inscrire
             </button>
           </form>
           <p>

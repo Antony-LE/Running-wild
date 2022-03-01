@@ -58,9 +58,10 @@
 
 .errmsg {
   background-color: lightpink;
+  border-radius: 0.5rem;
   color: firebrick;
   font-weight: bold;
-  padding: 0.5rem;
+  padding: 0.7rem;
   margin-bottom: 0.5rem;
 }
 
@@ -85,4 +86,12 @@ button {
 
 button {
   padding: 0.5rem;
+}
+
+.gradient__bg {
+  /* https://uigradients.com/ */
+ /* Moonlit Asteroid */
+ background: #0F2027;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
