@@ -1,0 +1,21 @@
+.runningwild__navbar {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: left;
+    width: 35vw;
+    text-decoration: none;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.runningwild__navbar li {
+    display: inline;
+    margin-right: 1em;
+    color: #717d97;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.runningwild__navbar li:hover {
+    color: white;
+}
