@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useEffect } from 'react';
-
+import { NavLink } from 'react-router-dom';
 import './registration.css';
 
 // Import of npm icons and font from fontawesome.com
@@ -174,7 +174,12 @@ function Registration() {
     <>
       {success ? (
         <section className="runningWild__registration">
-          <h1>Bienvenue sur Running Wild !</h1>
+          <h1>
+            Bienvenue sur Running Wild
+            {' '}
+            {userFirstname}
+            !
+          </h1>
           <p>
             <a href="#">Se connecter</a>
           </p>
@@ -460,8 +465,12 @@ function Registration() {
               S&apos;inscrire
             </button>
           </form>
-          <a href="#"> CGU</a>
-          <a href="#"> Déjà enregistré ?</a>
+          <NavLink to="/CGU">
+            CGU
+          </NavLink>
+          <NavLink to="/">
+            Déjà inscrit ?
+          </NavLink>
         </section>
       )}
     </>

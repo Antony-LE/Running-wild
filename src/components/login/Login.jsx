@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-useless-fragment */
-
+import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './login.css';
 
@@ -12,7 +13,7 @@ import runningVideo from '../../Assets/runnerback.webm';
 // Import of axios
 import axios from '../../api/axios';
 
-const REGISTER_URL = '/user/login';
+const REGISTER_URL = '/user/recovery';
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -81,7 +82,7 @@ function Login() {
         <section className="runningwild__login">
           <h1>Vous êtes connecté !</h1>
           <p>
-            <a href="#">Aller vers la page d&apos;accueil</a>
+            <a href="/homepage">Aller vers la page d&apos;accueil</a>
           </p>
         </section>
       ) : (
@@ -129,15 +130,16 @@ function Login() {
               >
                 Connexion
               </button>
-              <a href="#">Mot de passe oublié ?</a>
-              <hr />
+              <a href="/">Mot de passe oublié ?</a>
+            </form>
+            <NavLink to="/inscription">
               <button
                 className="runningwild__login-form-button-registration"
                 type="submit"
               >
                 Créer un compte
               </button>
-            </form>
+            </NavLink>
             <p>
               <br />
               <span className="line">
