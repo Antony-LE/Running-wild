@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
 
-import runningVideo from '../../Assets/runnerback.webm';
+import runningVideo from '../../assets/runnerback.webm';
 
 // Import of axios
 import axios from '../../api/axios';
