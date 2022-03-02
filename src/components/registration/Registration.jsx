@@ -57,9 +57,6 @@ function Registration() {
   const [userGender, setUserGender] = useState('');
   const [validGender, setValidGender] = useState(false);
 
-  const [userRank, setUserRank] = useState(1);
-  const [userRole, setUserRole] = useState(1);
-
   // handle states related to paswword
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
@@ -148,8 +145,6 @@ function Registration() {
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
-          role_id: userRole,
-          rank_id: userRank,
           email: userEmail,
           name: userFirstname,
           surname: userLastname,
@@ -158,7 +153,7 @@ function Registration() {
           pseudo: userPseudo,
           password: pwd,
           city: userCity,
-          postcode: parseInt(userPostalcode, 10),
+          postcode: userPostalcode,
         }),
         {
           headers: {
@@ -362,7 +357,7 @@ function Registration() {
             />
             <p id="uidnote" className={userDateOfBirth && !validDateOfBirth ? 'instructions' : 'offscreen'}>
               <FontAwesomeIcon icon={faInfoCircle} />
-              format JJ/MM/AAAA
+              format AAAA/MM/JJ
             </p>
             {/* ********************************gender input******************************* */}
             <label
