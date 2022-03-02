@@ -10,11 +10,14 @@ Use the command line `yarn start` in the root directory to launch the project
 
 ## Available Scripts
 
+# `yarn start`
 
-### `yarn start`
+# `yarn build`
 
+## Technologies
 
-### `yarn build`
+Create-react-app (https://create-react-app.dev/)
+Font-awesome (https://fontawesome.com/)
 
 
 

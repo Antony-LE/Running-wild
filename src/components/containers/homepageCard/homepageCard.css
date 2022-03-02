@@ -1,0 +1,13 @@
+.runningwild__homepage-content-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid white 2px;
+    border-radius: 0.3rem;
+    margin: 0.5rem;
+}
+
+.runningwild__homepage-content-card img {
+    height: 300px;
+    width: 450px;
+}
