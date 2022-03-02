@@ -46,7 +46,7 @@ function Login() {
 
   // Reboot the error message
   useEffect(() => {
-    setErrMsg('Login Error');
+    setErrMsg('');
   }, [userEmail, pwd]);
 
   // Handle the form submission
