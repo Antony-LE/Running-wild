@@ -1,7 +1,7 @@
 import React from 'react';
 import './homepage.css';
 import HomepageCardList from '../containers/homepageCardList/HomepageCardList';
-import cardData from '../../data/cardData';
+import cardData from '../../Data/cardData';
 
 function Homepage() {
   return (

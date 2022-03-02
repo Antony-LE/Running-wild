@@ -1,4 +1,4 @@
-import illustrationFake from '../assets/photoTest.jpg';
+import illustrationFake from '../Assets/photoTest.jpg';
 
 export default [
   {
