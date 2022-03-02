@@ -20,7 +20,7 @@ const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{1,23}$/;
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
-const ZIPCODE_REGEX = /^\d{5}/;
+const ZIPCODE_REGEX = /^[0-9]*$/;
 // Regex for the birthdate validation (YYYY//MM/DD format)
 const BIRTHDATE_REGEX = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
 // Regex for the city validation (1 to 45 letters only)
@@ -48,7 +48,7 @@ function Registration() {
   const [userDateOfBirth, setUserDateOfBirth] = useState('');
   const [validDateOfBirth, setValidDateOfBirth] = useState(false);
 
-  const [userPostalcode, setUserPostalcode] = useState('');
+  const [userPostalcode, setUserPostalcode] = useState();
   const [validPostalCode, setValidPostalCode] = useState(false);
 
   const [userCity, setUserCity] = useState('');
@@ -158,7 +158,7 @@ function Registration() {
           pseudo: userPseudo,
           password: pwd,
           city: userCity,
-          postcode: userPostalcode,
+          postcode: parseInt(userPostalcode, 10),
         }),
         {
           headers: {
