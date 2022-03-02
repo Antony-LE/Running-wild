@@ -6,12 +6,13 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
 
-import runningVideo from '../../assets/runnerback.webm';
+import runningVideo from '../../Assets/runnerback.webm';
 
+// Import of axios
 // Import of axios
 import axios from '../../api/axios';
 
-const REGISTER_URL = 'user/login';
+const REGISTER_URL = '/user/login';
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -45,7 +46,7 @@ function Login() {
 
   // Reboot the error message
   useEffect(() => {
-    setErrMsg('');
+    setErrMsg('Login Error');
   }, [userEmail, pwd]);
 
   // Handle the form submission
@@ -56,12 +57,14 @@ function Login() {
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
-          userEmail,
-          pwd,
+          email: userEmail,
+          password: pwd,
         }),
         {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            withCredentials: true,
+          },
         },
       );
       console.log(JSON.stringify(response?.data));
@@ -75,7 +78,7 @@ function Login() {
   return (
     <>
       {success ? (
-        <section className="runningWild__login">
+        <section className="runningwild__login">
           <h1>Vous êtes connecté !</h1>
           <p>
             <a href="#">Aller vers la page d&apos;accueil</a>
