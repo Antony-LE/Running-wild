@@ -5,6 +5,7 @@ import Login from './Components/login/Login';
 import Registration from './Components/registration/Registration';
 import Homepage from './Components/homepage/Homepage';
 import cardData from './data/cardData';
+import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/inscription" element={<Registration />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -6,6 +6,7 @@
 
 a, a:visited {
   color: #fff;
+  text-decoration: none;
 }
 
 .gradient__bg {

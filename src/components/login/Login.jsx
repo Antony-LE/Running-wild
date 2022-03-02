@@ -13,7 +13,7 @@ import runningVideo from '../../Assets/runnerback.webm';
 // Import of axios
 import axios from '../../api/axios';
 
-const REGISTER_URL = '/user/recovery';
+const LOGIN_URL = '/user/login';
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -56,7 +56,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        REGISTER_URL,
+        LOGIN_URL,
         JSON.stringify({
           email: userEmail,
           password: pwd,
@@ -130,7 +130,9 @@ function Login() {
               >
                 Connexion
               </button>
-              <a href="/">Mot de passe oublié ?</a>
+              <NavLink to="/forgot-password">
+                Mot de passe oublié ?
+              </NavLink>
             </form>
             <NavLink to="/inscription">
               <button

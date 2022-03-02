@@ -1,25 +1,42 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './navbar.css';
 
-function Navbar() {
+function Navbar({ className }) {
   return (
-    <nav className="runningwild__navbar">
-      <ul>
-        <li>
-          Home
-        </li>
-        <li>
-          Parcours
-        </li>
-        <li>
-          Challenges
-        </li>
-        <li>
-          Classements
-        </li>
-      </ul>
-    </nav>
+    <div className="runningwild__navbar-container">
+      <NavLink className={({ isActive }) => (isActive ? `${className}-active` : className)} to="/homepage">
+        Accueil
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? `${className}-active` : className)}
+        to="/parcours"
+      >
+        Parcours
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? `${className}-active` : className)}
+        to="/challenges"
+      >
+        Challenges
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? `${className}-active` : className)}
+        to="/classements"
+      >
+        Classements
+      </NavLink>
+    </div>
   );
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  className: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  className: 'runningwild__navbar-link',
+};
+
+export default React.memo(Navbar);

@@ -1,11 +1,11 @@
 .runningwild__homepage-container {
     font-family: var(--font-family);
+    min-height: 100vh;
 }
 
 .runningwild__homepage-header {
     text-align: center;
     color: white;
-    margin-top: 5rem;
 }
 
 .runningwild__homepage-main {
@@ -13,8 +13,3 @@
     color: white;
 }
 
-.runningwild__homepage-footer {
-    text-align: center;
-    color: white;
-    padding-bottom: 1rem;
-}

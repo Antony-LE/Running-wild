@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './footer.css';
 
 function Footer() {
@@ -10,12 +11,16 @@ function Footer() {
         {' '}
         {new Date().getFullYear()}
         {' '}
-        Running Wild
+        <h2>Running Wild</h2>
       </span>
-      <br />
-      <a href="#">CGU</a>
-      <br />
-      <a href="#">FAQ</a>
+      <div className="runningwild__footer-links">
+        <NavLink className="runningwild__footer-link" to="/CGU">
+          CGU
+        </NavLink>
+        <NavLink className="runningwild__footer-link" to="/FAQ">
+          FAQ
+        </NavLink>
+      </div>
     </div>
   );
 }
