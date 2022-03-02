@@ -1,0 +1,109 @@
+.runningWild__registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem 0.5rem;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.runningWild__registration h1 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.runningWild__registration-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: left;
+  width: 25rem;
+  border-radius: 10px;
+}
+
+.instructions {
+  display: flex;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  border-radius: 0.5rem;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.runningwild__registration-form-input {
+  font-family: var(--font-family);
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.runningwild__registration-form-label {
+  margin-top: 1rem;
+}
+
+.runningwild__registration-form-button {
+  font-family: var(--font-family);
+  font-size: 22px;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: black;
+  background-color: #afefff;
+}
+
+.runningWild__registration a {
+  margin-top: 0.5rem;
+}
+
+.gradient__bg {
+  /* https://uigradients.com/ */
+ /* Moonlit Asteroid */
+ background: #0F2027;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
