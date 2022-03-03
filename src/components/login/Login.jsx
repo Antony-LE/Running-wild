@@ -79,10 +79,12 @@ function Login() {
   return (
     <>
       {success ? (
-        <section className="runningwild__login">
+        <section className="runningwild__login-success gradient__bg">
           <h1>Vous êtes connecté !</h1>
           <p>
-            <a href="/homepage">Aller vers la page d&apos;accueil</a>
+            <NavLink to="/homepage">
+              Aller vers la page d&apos;accueil
+            </NavLink>
           </p>
         </section>
       ) : (

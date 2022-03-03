@@ -20,11 +20,11 @@ const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{1,23}$/;
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
-const ZIPCODE_REGEX = /^[0-9]*$/;
+const ZIPCODE_REGEX = /^0[1-9]\d{3}$|^20[1-2]\d{2}$|^20300$|^[13-8]\d{4}$|^9[0-6]\d{3}$|^97[1-6]\d{2}$|^98[4678]\d{2}$|^9{5}$/;
 // Regex for the birthdate validation (YYYY//MM/DD format)
 const BIRTHDATE_REGEX = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
 // Regex for the city validation (1 to 45 letters only)
-const CITY_REGEX = /^[A-z--]{1,45}$/;
+const CITY_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ-]{1,45}$/;
 // Regex for the gender validation ("man", "women", "neutral")
 const GENDER_REGEX = /^(?:h|H|homme|Homme|f|F|femme|Femme|n|N|neutre|Neutre)$/;
 /* Regex for the username validation (at least one character lower,
@@ -173,7 +173,7 @@ function Registration() {
   return (
     <>
       {success ? (
-        <section className="runningWild__registration">
+        <section className="runningWild__registration-success gradient__bg">
           <h1>
             Bienvenue sur Running Wild
             {' '}
@@ -181,7 +181,9 @@ function Registration() {
             !
           </h1>
           <p>
-            <a href="#">Se connecter</a>
+            <NavLink to="/">
+              Me connecter
+            </NavLink>
           </p>
         </section>
       ) : (

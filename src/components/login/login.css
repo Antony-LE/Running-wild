@@ -5,6 +5,29 @@
   min-width: 100vw;
 }
 
+.runningwild__login-success{
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem 0.5rem;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.runningwild__login-success h1 {
+  font-size: 2.5em;
+  color: white;
+  margin-top: 30vh;
+}
+
+.runningWild__login-success p {
+  margin-top: 1.5em;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
+
+
 .runningwild__login-left {
   display: flex;    
   flex-direction: column;
