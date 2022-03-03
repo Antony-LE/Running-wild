@@ -80,12 +80,14 @@ function Login() {
   return (
     <>
       {success ? (
-        <section className="runningwild__login-success gradient__bg">
+        <section className="runningwild__login-success">
           <img src={logo} alt="logo running wild" />
-          <p>Vous êtes connecté !</p>
-          <NavLink to="/homepage">
-            <h1>Aller vers la page d&apos;accueil</h1>
-          </NavLink>
+          <div className="runningwild__login-success-text">
+            <p>Vous êtes connecté !</p>
+            <NavLink to="/homepage">
+              <h1>Aller vers la page d&apos;accueil</h1>
+            </NavLink>
+          </div>
         </section>
       ) : (
         <div className="runningwild__login-container">

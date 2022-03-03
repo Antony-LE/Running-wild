@@ -11,6 +11,7 @@ const homepageCard = ({
   <div className={className}>
     <img src={illustration} alt="description" />
     <h1>{title}</h1>
+    <hr />
     <p>{text}</p>
   </div>
 );

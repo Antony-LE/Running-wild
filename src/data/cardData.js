@@ -9,12 +9,12 @@ export default [
     text: 'Are you ready ? Running Wild c\'est parti ! Montez en rank, grimpez le ladder, débloquez vos succès...',
   },
   {
-    title: 'Running Wild : nos valeurs',
+    title: 'Nos valeurs',
     illustration: illustrationA,
-    text: 'Se motiver, se dépasser et s\'amuser ! Running Wild est la solution parfaite pour courir !',
+    text: 'Se motiver, se dépasser et s\'amuser ! Running Wild est la solution parfaite pour pratiquer la course à pieds !',
   },
   {
-    title: 'Les parcours spéciaux',
+    title: 'Run Free, run Wild !',
     illustration: illustrationB,
     text: 'Testez l\'un des parcours les plus likés par la communauté et donnez votre avis ! Chez Running Wild on adore les retours des utilisateurs ;)',
   },
