@@ -1,6 +1,9 @@
 .runningwild__navbar-container {
     padding-top: 0.7rem;
     padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
 }
 
 .runningwild__navbar-link {
@@ -23,4 +26,9 @@
     line-height: 2rem;
     text-decoration: underline;
     color: whitesmoke;
+}
+
+.runningwild__navbar-container img {
+    height: 100px;
+    width: 100px;
 }

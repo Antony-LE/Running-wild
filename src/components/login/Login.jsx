@@ -6,6 +6,7 @@
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './login.css';
+import logo from '../../Assets/wildwhite.png';
 
 import runningVideo from '../../Assets/runnerback.webm';
 
@@ -80,16 +81,16 @@ function Login() {
     <>
       {success ? (
         <section className="runningwild__login-success gradient__bg">
-          <h1>Vous êtes connecté !</h1>
-          <p>
-            <NavLink to="/homepage">
-              Aller vers la page d&apos;accueil
-            </NavLink>
-          </p>
+          <img src={logo} alt="logo running wild" />
+          <p>Vous êtes connecté !</p>
+          <NavLink to="/homepage">
+            <h1>Aller vers la page d&apos;accueil</h1>
+          </NavLink>
         </section>
       ) : (
         <div className="runningwild__login-container">
           <section className="runningwild__login-left gradient__bg">
+            <img src={logo} alt="logo running wild" />
             <p className={errMsg ? 'errmsg' : ''}>{errMsg}</p>
             <h1>Running Wild - Connexion</h1>
             <form className="runningwild__login-form" onSubmit={handleSubmit}>

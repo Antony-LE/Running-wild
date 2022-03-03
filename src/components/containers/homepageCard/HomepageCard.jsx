@@ -9,8 +9,8 @@ const homepageCard = ({
   text,
 }) => (
   <div className={className}>
-    <h1>{title}</h1>
     <img src={illustration} alt="description" />
+    <h1>{title}</h1>
     <p>{text}</p>
   </div>
 );

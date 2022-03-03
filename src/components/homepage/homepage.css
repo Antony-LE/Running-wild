@@ -6,6 +6,9 @@
 .runningwild__homepage-header {
     text-align: center;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .runningwild__homepage-main {
