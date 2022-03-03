@@ -64,27 +64,31 @@ function ForgotPassword() {
   return (
     <>
       {success ? (
-        <section className="runningwild__forgotpassword-success gradient__bg">
-          <h1>
-            Un nouveau mot de passe vous a été envoyé à l&apos;adresse suivante:
-            {' '}
-            <span>
-              {userEmail}
-            </span>
-            , n&apos;oubliez pas de vérifier vos spams !
-            {' '}
-          </h1>
-          <p>
-            <NavLink to="/">
-              Retour à la page de connexion
-            </NavLink>
-          </p>
+        <section className="runningwild__forgotpassword-success">
+          <div className="runningwild__forgotpassword-success_text gradient__bg">
+            <h1>
+              Un nouveau mot de passe vous a été envoyé
+              <br />
+              à l&apos;adresse suivante:
+              <br />
+              <span>
+                {userEmail}
+              </span>
+              <br />
+              n&apos;oubliez pas de vérifier vos spams !
+            </h1>
+            <p>
+              <NavLink to="/">
+                Retour à la page de connexion
+              </NavLink>
+            </p>
+          </div>
         </section>
       ) : (
-        <div className="runningwild__forgotpassword gradient">
+        <div className="runningwild__forgotpassword">
           <p className={errMsg ? 'errmsg' : ''}>{errMsg}</p>
-          <h1>Running Wild - Mot de passe oublié</h1>
-          <form className="runningwild__forgotpassword-form" onSubmit={handleSubmit}>
+          <form className="runningwild__forgotpassword-form gradient__bg" onSubmit={handleSubmit}>
+            <h1>Running Wild - Mot de passe oublié</h1>
             {/* ********************************email input******************************* */}
             <label
               className="runningwild__forgotpassword-form-label"

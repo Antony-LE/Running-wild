@@ -6,13 +6,19 @@
   min-height: 100vh;
   padding: 1rem 0.5rem;
   font-family: var(--font-family);
-  background-color: var(--background-color);
   text-align: center;
+  background-image: url(../../Assets/background2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .runningWild__registration h1 {
   color: white;
   margin-bottom: 0.5rem;
+}
+
+.runningWild__registration h1, p {
+  text-align: center;
 }
 
 .runningWild__registration-success  {
@@ -41,7 +47,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   text-align: left;
   width: 25rem;

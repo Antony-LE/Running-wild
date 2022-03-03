@@ -22,7 +22,7 @@ const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
 const ZIPCODE_REGEX = /^0[1-9]\d{3}$|^20[1-2]\d{2}$|^20300$|^[13-8]\d{4}$|^9[0-6]\d{3}$|^97[1-6]\d{2}$|^98[4678]\d{2}$|^9{5}$/;
 // Regex for the birthdate validation (YYYY//MM/DD format)
-const BIRTHDATE_REGEX = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
+const BIRTHDATE_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 // Regex for the city validation (1 to 45 letters only)
 const CITY_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ-]{1,45}$/;
 // Regex for the gender validation ("man", "women", "neutral")
@@ -187,10 +187,10 @@ function Registration() {
           </p>
         </section>
       ) : (
-        <section className="runningWild__registration gradient__bg">
+        <section className="runningWild__registration">
           <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-          <h1>Running Wild - S&apos;inscrire</h1>
-          <form className="runningWild__registration-form" onSubmit={handleSubmit}>
+          <form className="runningWild__registration-form gradient__bg" onSubmit={handleSubmit}>
+            <h1>Running Wild - S&apos;inscrire</h1>
             {/* ********************************firstname input******************************* */}
             <label className="runningwild__registration-form-label" htmlFor="firstname">
               Votre Prénom:
@@ -364,7 +364,7 @@ function Registration() {
             />
             <p id="uidnote" className={userDateOfBirth && !validDateOfBirth ? 'instructions' : 'offscreen'}>
               <FontAwesomeIcon icon={faInfoCircle} />
-              format AAAA/MM/JJ
+              format AAAA-MM-JJ
             </p>
             {/* ********************************gender input******************************* */}
             <label
@@ -466,13 +466,13 @@ function Registration() {
             >
               S&apos;inscrire
             </button>
+            <NavLink to="/CGU">
+              <p>CGU</p>
+            </NavLink>
+            <NavLink to="/">
+              <p>Déjà inscrit ?</p>
+            </NavLink>
           </form>
-          <NavLink to="/CGU">
-            CGU
-          </NavLink>
-          <NavLink to="/">
-            Déjà inscrit ?
-          </NavLink>
         </section>
       )}
     </>
