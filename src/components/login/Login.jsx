@@ -70,10 +70,14 @@ function Login() {
         },
       );
       console.log(JSON.stringify(response?.data));
-      setSuccess(true);
+      if (response.data.result !== true) {
+        setSuccess(false);
+        setErrMsg(response.data.description);
+      } else {
+        setSuccess(true);
+      }
     } catch (err) {
       console.log(errMsg);
-      setErrMsg('Login error');
     }
   };
 
