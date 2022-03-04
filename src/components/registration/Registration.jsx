@@ -164,7 +164,6 @@ function Registration() {
         },
       );
       console.log(response);
-      setSuccess(true);
     } catch (error) {
       console.log(error);
       setErrMsg('Registration error !');
@@ -354,7 +353,7 @@ function Registration() {
               <FontAwesomeIcon icon={faTimes} className={validDateOfBirth || !userDateOfBirth ? 'hide' : 'invalid'} />
             </label>
             <input
-              type="text"
+              type="date"
               className="runningwild__registration-form-input"
               id="birthdate"
               placeholder="aaaa/mm/jj"

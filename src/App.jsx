@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/media-has-caption */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -7,6 +12,10 @@ import Homepage from './Components/homepage/Homepage';
 import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
+// Import of axios
+import axios from './api/axios';
+
+const LOGIN_URL = '/user/login';
 
 function App() {
   return (
@@ -15,9 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/inscription" element={<Registration />} />
-          <Route path="/homepage" element={<Homepage cardData={cardData} />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/homepage" element={<Homepage cardData={cardData} />} />
         </Routes>
       </div>
     </BrowserRouter>

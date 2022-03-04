@@ -113,6 +113,9 @@ function ForgotPassword() {
             >
               Récupérer un nouveau mot de passe
             </button>
+            <NavLink to="/">
+              <p>Retour à la page de connexion</p>
+            </NavLink>
           </form>
         </div>
       )}
