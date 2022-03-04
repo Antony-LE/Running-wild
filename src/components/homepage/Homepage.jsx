@@ -18,7 +18,7 @@ function Homepage() {
   const [logout, setLogout] = useState(false);
   // Handle the form submission
   const handleClick = async (e) => {
-    const response = axios.get(LOGOUT_URL);
+    const response = await axios.get(LOGOUT_URL);
     setLogout(true);
     console.log(response);
   };

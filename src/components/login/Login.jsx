@@ -65,15 +65,20 @@ function Login() {
         {
           headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
             withCredentials: true,
           },
         },
       );
       console.log(JSON.stringify(response?.data));
-      setSuccess(true);
+      if (response.data.result === true) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+        setErrMsg(response.data.description);
+      }
     } catch (err) {
       console.log(errMsg);
-      setErrMsg('Login error');
     }
   };
 
