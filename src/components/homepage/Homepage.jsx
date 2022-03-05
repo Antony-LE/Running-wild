@@ -7,6 +7,7 @@ import HomepageCardList from '../containers/homepageCardList/HomepageCardList';
 import cardData from '../../data/cardData';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
+import ProfileCardList from '../containers/profileCardList/ProfileCardList';
 
 // Import of axios
 import axios from '../../api/axios';
@@ -19,7 +20,7 @@ function Homepage() {
   // handle wether the user has succefully logged in or not
   const [isLogged, setIsLogged] = useState(false);
   // Handle the form submission
-  const handleClick = async (e) => {
+  const handleLogoutClick = async (e) => {
     const response = await axios.get(LOGOUT_URL);
     setLogout(true);
     setIsLogged(response.data.result);
@@ -42,7 +43,10 @@ function Homepage() {
         <div className="runningwild__homepage-container">
           <header className="runningwild__homepage-header">
             <Navbar />
-            <button className="runningwild__logout-button" type="button" onClick={handleClick}>Se déconnecter</button>
+            <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+            <NavLink to="/profile">
+              <button className="runningwild__profile-button" type="button">Mon profil</button>
+            </NavLink>
           </header>
           <main className="runningwild__homepage-main">
             <HomepageCardList cardData={cardData} />

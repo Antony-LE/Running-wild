@@ -12,10 +12,7 @@ import Homepage from './Components/homepage/Homepage';
 import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
-// Import of axios
-import axios from './api/axios';
-
-const LOGIN_URL = '/user/login';
+import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
 
 function App() {
   return (
@@ -25,6 +22,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/inscription" element={<Registration />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/profile" element={<ProfileCardList />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
         </Routes>
