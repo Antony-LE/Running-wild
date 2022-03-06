@@ -1,11 +1,12 @@
 .runningwild_profileCard {
-    width: 300px;
-    height: 480px;
+    width: 18.75em;
+    height: 26em;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
     font-family: var(--font-family);
     overflow: hidden;
+    text-align: center;
 }
 
 .runningwild_profileCard p {
@@ -25,9 +26,23 @@
     transform: translate(95px, 40px);
 }
 
+.runningwild_profileCard-lowerContainer h2 {
+    font-size: 1.2em;
+    text-align: center;
+    color: #1c0e57;
+    font-weight: bold;
+    font: 1.5em;
+    margin-bottom: 0.3em;
+}
+
 .runningwild_profileCard-lowerContainer h3 {
-    margin-top: 3em;
-    
+    font-size: 1.2em;
+    text-align: center;
+    color: #1c0e57;
+    font-weight: bold;
+    font: 1.5em;
+    margin-bottom: 0.3em;
+    padding-right: 1em;
 }
 
 .runningwild_profileCard-imageContainer img {
@@ -42,26 +57,15 @@
     margin-top: 60px;
 }
 
-.runningwild_profileCard-lowerContainer h3, h4, p {
-    margin: 0;
-    padding: 0;
-}
-
-.runningwild_profileCard-lowerContainer h3 {
-    color: #1c0e57;
-    font-weight: bold;
-    font: 1.5em;
-    margin: 2em;
-}
-
 .runningwild_profileCard-lowerContainer h4 {
     color: rgb(175, 12, 112);
     font-weight: bold;
     font: 1.2em;
-    margin-top: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
 }
 
-.runningwild_profileCard-lowerContainer p {
+.runningwild_profileCard-lowerContainer hr {
     margin: 2em;
     font-size: 0.9em;
     text-align: justify;
