@@ -4,9 +4,29 @@
 import React, { useState } from 'react';
 import './profileCard.css';
 
+// Import of axios
+import axios from '../../../api/axios';
+
+/* Use the variable id from localStorage (previsously stored in the login page)
+to dynamically get the user's datas */
+const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
+
 function ProfileCard({
-  name, rank, dateOfBirth, city, pseudo, about,
+  className, name, role, rank, dateOfBirth, city, pseudo, about,
 }) {
+  const handleLocalStorage = async (e) => {
+    const response = await axios.get(USER_ID_URL);
+    // Stored all the datas relative to the user into the localStorage
+    // localStorage.setItem('name', JSON.stringify(response.data.user_name));
+    // localStorage.setItem('rank', JSON.stringify(response.data.user_rank_id));
+    // localStorage.setItem('date Of Birth', JSON.stringify(response.data.user.dob));
+    // localStorage.setItem('city', JSON.stringify(response.data.user.city));
+    // localStorage.setItem('pseudo', JSON.stringify(response.data.user.pseudo));
+    // localStorage.setItem('about', JSON.stringify(response.data.user.about));
+    // localStorage.setItem('role', JSON.stringify(response.data.user.role_id));
+    // console.log(response);
+  };
+  handleLocalStorage();
   return (
     <div className="runningwild_profileCard">
       <div className="runningwild_profileCard-upperContainer">
