@@ -1,45 +1,36 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './profileCard.css';
 
-function ProfileCard() {
-  const [name, setName] = useState('Your Name');
-  const [rank, setRank] = useState(0);
-  const [pseudo, setPseudo] = useState('Your Pseudo');
-  const [dateOfBirth, setDateOfBirth] = useState('Your DOB');
-  const [city, setCity] = useState('Your City');
-  const [about, setAbout] = useState('Lorem ipsum dolor sit amet. Et perspiciatis molestias et autem ratione sed velit explicabo. Eos voluptates dolor 33 velit doloremque aut dignissimos culpa hic molestias repellat qui nihil veritatis sit galisum corrupti nam placeat voluptatem.');
-
+function ProfileCard({
+  name, rank, dateOfBirth, city, pseudo, about,
+}) {
   return (
     <div className="runningwild_profileCard">
       <div className="runningwild_profileCard-upperContainer">
         <div className="runningwild_profileCard-imageContainer">
-          <img src="" alt="" height="100px" width="100px" />
+          <img src="https://www.infomoney.com.br/wp-content/uploads/2019/06/homer-simpson.jpg?fit=900%2C734&quality=75&strip=all" alt="" height="100px" width="100px" />
         </div>
       </div>
       <div className="runningwild_profileCard-lowerContainer">
         <h3>
-          Your name :
-          {' '}
           {name}
-          , Your rank :
-          {' '}
+          <br />
+          Your rank :
           {rank}
-          , Your DOB :
-          {' '}
+          <br />
           {dateOfBirth}
-          , Your city :
-          {' '}
+          <br />
           {city}
-          {' '}
+          <br />
         </h3>
         <h4>
-          {' '}
-          Your Pseudo :
-          {' '}
           {pseudo}
         </h4>
         <p>{about}</p>
+        <button type="button" className="runningwild-profile-card-lower-container-button">Détails...</button>
       </div>
     </div>
   );

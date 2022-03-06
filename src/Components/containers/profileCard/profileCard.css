@@ -4,4 +4,86 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
+    font-family: var(--font-family);
+    overflow: hidden;
 }
+
+.runningwild_profileCard p {
+  color: black; 
+}
+
+.runningwild_profileCard-upperContainer {
+    height: 100px;
+    background: linear-gradient(to left, #1c0e57, rgb(175, 12, 112));
+}
+
+.runningwild_profileCard-imageContainer {
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(95px, 40px);
+}
+
+.runningwild_profileCard-lowerContainer h3 {
+    margin-top: 3em;
+    
+}
+
+img {
+    border: 2px solid #1c0e57 ;
+    border-radius: 50%;
+}
+
+.runningwild_profileCard-lowerContainer {
+    height: 300px;
+    background-color: white;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.runningwild_profileCard-lowerContainer h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+.runningwild_profileCard-lowerContainer h3 {
+    color: #1c0e57;
+    font-weight: bold;
+    font: 1.5em;
+    margin: 2em;
+}
+
+.runningwild_profileCard-lowerContainer h4 {
+    color: rgb(175, 12, 112);
+    font-weight: bold;
+    font: 1.2em;
+    margin-top: 1em;
+}
+
+.runningwild_profileCard-lowerContainer p {
+    margin: 2em;
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+.runningwild-profile-card-lower-container-button {
+    margin: 1em;
+    margin-top: 0;
+    color: #1c0e57;
+    font-weight: bold ;
+    background-color: white;
+    border: 2px solid rgb(175, 12, 112) ;
+    padding: 0.6em;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    animation: ease-in-out;
+}
+
+button:hover {
+    background-image: linear-gradient(to left, #1c0e57, rgb(175, 12, 112));
+    transform: scale(1.2);
+    border: none;
+    color: white;
+}
+
