@@ -30,7 +30,7 @@
     
 }
 
-img {
+.runningwild_profileCard-imageContainer img {
     border: 2px solid #1c0e57 ;
     border-radius: 50%;
 }
@@ -80,7 +80,7 @@ img {
     animation: ease-in-out;
 }
 
-button:hover {
+.runningwild-profile-card-lower-container-button:hover {
     background-image: linear-gradient(to left, #1c0e57, rgb(175, 12, 112));
     transform: scale(1.2);
     border: none;
