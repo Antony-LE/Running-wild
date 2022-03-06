@@ -66,8 +66,8 @@ function Login() {
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            withCredentials: true,
           },
+
         },
       );
       console.log(JSON.stringify(response?.data));
