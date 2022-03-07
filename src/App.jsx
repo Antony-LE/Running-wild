@@ -13,6 +13,7 @@ import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
+import Classements from './Components/classements/Classements';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profile" element={<ProfileCardList />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
+          <Route path="/classements" element={<Classements />} />
         </Routes>
       </div>
     </BrowserRouter>
