@@ -79,22 +79,6 @@ function Login() {
         console.log(response.data.connection.user_id);
         // Store the user's id into the browser's localStorage.
         localStorage.setItem('id', JSON.stringify(response.data.connection.user_id));
-        const handleLocalStorage = async () => {
-          const responses = await axios.get(USER_ID_URL);
-          localStorage.setItem('name', JSON.stringify(responses.data.user.name));
-          localStorage.setItem('rank', JSON.stringify(responses.data.user.rank_id));
-          localStorage.setItem('date Of Birth', JSON.stringify(responses.data.user.dob));
-          localStorage.setItem('city', JSON.stringify(responses.data.user.city));
-          localStorage.setItem('pseudo', JSON.stringify(responses.data.user.pseudo));
-          localStorage.setItem('about', JSON.stringify(responses.data.user.about));
-          localStorage.setItem('role', JSON.stringify(responses.data.user.role_id));
-          localStorage.setItem('avatar', JSON.stringify(responses.data.user.avatar));
-          localStorage.setItem('surname', JSON.stringify(responses.data.user.surname));
-          localStorage.setItem('email', JSON.stringify(responses.data.user.email));
-          localStorage.setItem('subscription_date', JSON.stringify(responses.data.user.subscription_date));
-          console.log(responses);
-        };
-        handleLocalStorage();
       } else {
         setSuccess(false);
         setErrMsg(response.data.description);

@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import './profileCardList.css';
 import ProfileCard from '../profileCard/ProfileCard';
+import Navbar from '../../navbar/Navbar';
+import Footer from '../../footer/Footer';
 
 // Import of axios
 import axios from '../../../api/axios';
@@ -12,37 +14,50 @@ to dynamically get the user's datas */
 const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
 
 function ProfileCardList() {
+  const [Name, setName] = useState('');
+  const [rank, setRank] = useState(1);
+  const [dob, setDob] = useState('');
+  const [city, setCity] = useState('');
+  const [pseudo, setPseudo] = useState('');
+  const [role, setRole] = useState(1);
+  const [avatar, setAvatar] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [subscription, setSubscription] = useState('');
   const handleLocalStorage = async () => {
-    const responses = await axios.get(USER_ID_URL);
-    localStorage.setItem('name', JSON.stringify(responses.data.user.name));
-    localStorage.setItem('rank', JSON.stringify(responses.data.user.rank_id));
-    localStorage.setItem('date Of Birth', JSON.stringify(responses.data.user.dob));
-    localStorage.setItem('city', JSON.stringify(responses.data.user.city));
-    localStorage.setItem('pseudo', JSON.stringify(responses.data.user.pseudo));
-    localStorage.setItem('about', JSON.stringify(responses.data.user.about));
-    localStorage.setItem('role', JSON.stringify(responses.data.user.role_id));
-    localStorage.setItem('avatar', JSON.stringify(responses.data.user.avatar));
-    localStorage.setItem('surname', JSON.stringify(responses.data.user.surname));
-    localStorage.setItem('email', JSON.stringify(responses.data.user.email));
-    localStorage.setItem('subscription_date', JSON.stringify(responses.data.user.subscription_date));
-    console.log(responses);
+    const response = await axios.get(USER_ID_URL);
+    setName(response.data.user.name);
+    setRank(response.data.user.rank_id);
+    setDob(response.data.user.dob);
+    setCity(response.data.user.city);
+    setPseudo(response.data.user.pseudo);
+    setRole(response.data.user.role_id);
+    setAvatar(response.data.user.avatar);
+    setSurname(response.data.user.surname);
+    setEmail(response.data.user.email);
+    setSubscription(response.data.user.subscription_date);
+    console.log(response);
   };
   handleLocalStorage();
   return (
-    <div className="profileCardList">
-      <ProfileCard
-        name={localStorage.getItem('name')}
-        rank={localStorage.getItem('rank')}
-        pseudo={localStorage.getItem('pseudo')}
-        dateOfBirth={localStorage.getItem('date Of Birth')}
-        city={localStorage.getItem('city')}
-        about={localStorage.getItem('about')}
-        surname={localStorage.getItem('surname')}
-        avatar={localStorage.getItem('avatar')}
-        email={localStorage.getItem('email')}
-        subscription={localStorage.getItem('subscription_date')}
-      />
-    </div>
+    <>
+      <Navbar />
+      <div className="profileCardList">
+        <ProfileCard
+          name={Name}
+          rank={rank}
+          pseudo={pseudo}
+          dateOfBirth={dob}
+          city={city}
+          surname={surname}
+          avatar={avatar}
+          email={email}
+          subscription={subscription}
+          role={role}
+        />
+      </div>
+      <Footer />
+    </>
   );
 }
 
