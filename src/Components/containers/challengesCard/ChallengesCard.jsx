@@ -8,9 +8,12 @@ function ChallengesCard({
   title,
   illustration,
   text,
+  currentValue,
+  maxValue,
+  inscription,
 }) {
   const [showButton, setShowButton] = useState(true);
-  const [showProgression, setShowProgression] = useState(false);
+  const [showProgression, setShowProgression] = useState(inscription);
   const onButtonClick = () => {
     setShowProgression(true);
     setShowButton(false);
@@ -22,7 +25,7 @@ function ChallengesCard({
       <p>{text}</p>
       <hr />
       {showButton ? <button className="runningwild__profile-button" type="button" onClick={onButtonClick}>Accepter le challenge</button> : null }
-      {showProgression ? <ProgressBar key={title} value={40} max={100} /> : null}
+      {showProgression ? <ProgressBar key={title} value={currentValue} max={maxValue} /> : null}
     </div>
   );
 }
@@ -32,10 +35,15 @@ ChallengesCard.propTypes = {
   title: PropTypes.string.isRequired,
   illustration: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  currentValue: PropTypes.string.isRequired,
+  maxValue: PropTypes.string.isRequired,
+  inscription: PropTypes.bool,
+
 };
 
 ChallengesCard.defaultProps = {
   className: 'runningwild__challenges-content-card',
+  inscription: false,
 };
 
 export default ChallengesCard;

@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './progressBar.css';
 
 function ProgressBar({ value, max }) {
   return (
-    <div>
+    <div className="runningwild__progressBar-container">
       <progress value={value} max={max} />
-      <span>
+      <p>
         {(value / max) * 100}
         %
-      </span>
+      </p>
     </div>
   );
 }

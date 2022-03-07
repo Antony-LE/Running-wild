@@ -10,12 +10,17 @@ function ChallengesCardList({ className, cardChallengesData }) {
         title,
         illustration,
         text,
+        currentValue,
+        maxValue,
+        id,
       }) => (
         <ChallengesCard
           title={title}
-          key={title}
+          key={id}
           illustration={illustration}
           text={text}
+          currentValue={currentValue}
+          maxValue={maxValue}
         />
       ))}
     </div>
@@ -29,6 +34,9 @@ ChallengesCardList.propTypes = {
       title: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       illustration: PropTypes.string.isRequired,
+      currentValue: PropTypes.number.isRequired,
+      maxValue: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };
