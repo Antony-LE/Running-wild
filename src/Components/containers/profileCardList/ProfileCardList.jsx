@@ -23,6 +23,8 @@ function ProfileCardList() {
     localStorage.setItem('role', JSON.stringify(responses.data.user.role_id));
     localStorage.setItem('avatar', JSON.stringify(responses.data.user.avatar));
     localStorage.setItem('surname', JSON.stringify(responses.data.user.surname));
+    localStorage.setItem('email', JSON.stringify(responses.data.user.email));
+    localStorage.setItem('subscription_date', JSON.stringify(responses.data.user.subscription_date));
     console.log(responses);
   };
   handleLocalStorage();
@@ -37,6 +39,8 @@ function ProfileCardList() {
         about={localStorage.getItem('about')}
         surname={localStorage.getItem('surname')}
         avatar={localStorage.getItem('avatar')}
+        email={localStorage.getItem('email')}
+        subscription={localStorage.getItem('subscription_date')}
       />
     </div>
   );
