@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import './classementItems.css';
 import ClassementItem from '../classementItem/ClassementItem';
 
-function ClassementItems({ className, classementData }) {
+function ClassementItems({ classementData }) {
   return (
-    <table className={className}>
+    <>
       {classementData.map(({
         position,
         pseudo,
@@ -24,12 +24,11 @@ function ClassementItems({ className, classementData }) {
           succes={succes}
         />
       ))}
-    </table>
+    </>
   );
 }
 
 ClassementItems.propTypes = {
-  className: PropTypes.string,
   classementData: PropTypes.arrayOf(
     PropTypes.shape({
       position: PropTypes.number.isRequired,
@@ -40,10 +39,6 @@ ClassementItems.propTypes = {
       succes: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-};
-
-ClassementItems.defaultProps = {
-  className: 'runningwild__classements-table',
 };
 
 export default ClassementItems;

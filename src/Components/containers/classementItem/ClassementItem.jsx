@@ -13,16 +13,14 @@ function ClassementItem({
   succes,
 }) {
   return (
-    <tbody className={className}>
-      <tr>
-        <td className={itemClassName}>{position}</td>
-        <td className={itemClassName}>{pseudo}</td>
-        <td className={itemClassName}>{rank}</td>
-        <td className={itemClassName}>{km}</td>
-        <td className={itemClassName}>{challenges}</td>
-        <td className={itemClassName}>{succes}</td>
-      </tr>
-    </tbody>
+    <ul className={className}>
+      <li className={itemClassName}>{position}</li>
+      <li className={itemClassName}>{pseudo}</li>
+      <li className={itemClassName}>{rank}</li>
+      <li className={itemClassName}>{km}</li>
+      <li className={itemClassName}>{challenges}</li>
+      <li className={itemClassName}>{succes}</li>
+    </ul>
   );
 }
 
@@ -38,8 +36,8 @@ ClassementItem.propTypes = {
 };
 
 ClassementItem.defaultProps = {
-  className: 'runningwild__classements-table-items',
-  itemClassName: 'runningwild__classements-table_item',
+  className: 'runningwild__classements-items',
+  itemClassName: 'runningwild__classements-item',
 };
 
 export default ClassementItem;

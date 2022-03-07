@@ -1,5 +1,9 @@
-.runningwild__classements-table-items {
+.runningwild__classements-items {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.runningwild__classements-item {
+    background-color: aliceblue;
 }
