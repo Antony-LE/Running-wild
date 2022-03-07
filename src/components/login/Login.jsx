@@ -11,10 +11,13 @@ import logo from '../../Assets/wildwhite.png';
 import runningVideo from '../../Assets/runnerback.webm';
 
 // Import of axios
-// Import of axios
 import axios from '../../api/axios';
 
 const LOGIN_URL = '/user/login';
+
+/* Use the variable id from localStorage (previsously stored in the login page)
+to dynamically get the user's datas */
+const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -76,6 +79,20 @@ function Login() {
         console.log(response.data.connection.user_id);
         // Store the user's id into the browser's localStorage.
         localStorage.setItem('id', JSON.stringify(response.data.connection.user_id));
+        const handleLocalStorage = async () => {
+          const responses = await axios.get(USER_ID_URL);
+          localStorage.setItem('name', JSON.stringify(responses.data.user.name));
+          localStorage.setItem('rank', JSON.stringify(responses.data.user.rank_id));
+          localStorage.setItem('date Of Birth', JSON.stringify(responses.data.user.dob));
+          localStorage.setItem('city', JSON.stringify(responses.data.user.city));
+          localStorage.setItem('pseudo', JSON.stringify(responses.data.user.pseudo));
+          localStorage.setItem('about', JSON.stringify(responses.data.user.about));
+          localStorage.setItem('role', JSON.stringify(responses.data.user.role_id));
+          localStorage.setItem('avatar', JSON.stringify(responses.data.user.avatar));
+          localStorage.setItem('surname', JSON.stringify(responses.data.user.surname));
+          console.log(responses);
+        };
+        handleLocalStorage();
       } else {
         setSuccess(false);
         setErrMsg(response.data.description);
