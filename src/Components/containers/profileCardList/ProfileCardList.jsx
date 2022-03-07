@@ -5,6 +5,7 @@ import './profileCardList.css';
 import ProfileCard from '../profileCard/ProfileCard';
 import Navbar from '../../navbar/Navbar';
 import Footer from '../../footer/Footer';
+import AdminCard from '../adminCard/AdminCard';
 
 // Import of axios
 import axios from '../../../api/axios';
@@ -43,18 +44,34 @@ function ProfileCardList() {
     <>
       <Navbar />
       <div className="profileCardList">
-        <ProfileCard
-          name={Name}
-          rank={rank}
-          pseudo={pseudo}
-          dateOfBirth={dob}
-          city={city}
-          surname={surname}
-          avatar={avatar}
-          email={email}
-          subscription={subscription}
-          role={role}
-        />
+        {role === 1 ? (
+          <ProfileCard
+            name={Name}
+            rank={rank}
+            pseudo={pseudo}
+            dateOfBirth={dob}
+            city={city}
+            surname={surname}
+            avatar={avatar}
+            email={email}
+            subscription={subscription}
+            role={role}
+          />
+        ) : (
+          <AdminCard
+            name={Name}
+            rank={rank}
+            pseudo={pseudo}
+            dateOfBirth={dob}
+            city={city}
+            surname={surname}
+            avatar={avatar}
+            email={email}
+            subscription={subscription}
+            role={role}
+          />
+        ) }
+
       </div>
       <Footer />
     </>
