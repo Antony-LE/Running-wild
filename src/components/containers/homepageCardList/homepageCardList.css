@@ -1,5 +1,6 @@
 .runningwild__homepage-content-cardList {
     display: flex;
+    overflow-x: scroll;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;

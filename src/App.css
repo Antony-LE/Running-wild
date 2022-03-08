@@ -9,6 +9,10 @@ a, a:visited {
   text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 .gradient__bg {
   /* https://uigradients.com/ */
   /* Moonlit Asteroid */

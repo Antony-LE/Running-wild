@@ -1,9 +1,22 @@
-.runningwild__homepage-content-cardList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    min-height: 81vh;
+.runningwild__challenges-content-cardList {
+  display: flex;
+  overflow-x: scroll;
+  padding: 1rem 0;
+  margin-top: 5rem;
+  max-width: 65vw;
+  align-items: center;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3d4852;
+    border-radius: 3px;
 }
