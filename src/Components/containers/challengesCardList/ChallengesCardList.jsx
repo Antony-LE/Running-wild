@@ -4,10 +4,16 @@ import './challengesCardList.css';
 import ChallengesCard from '../challengesCard/ChallengesCard';
 import axios from '../../../api/axios';
 
+// eslint-disable-next-line max-len
+// Route progression non fonctionnelle, besoin d'accéder à cette donnée pour mettre à jour la currentvalue
+// il faut accéder à la table user_challenge
+
 const CHALLENGE_URL = '/challenge/all';
+const PROGRESSION_URL = '/user/:id/challenges';
 
 function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
+  const [progression, setProgression] = useState([]);
 
   const getChallenges = async () => {
     const response = await axios.get(CHALLENGE_URL);
@@ -15,18 +21,25 @@ function ChallengesCardList() {
     setChallenges(myChallenges);
   };
 
+  const getProgression = async () => {
+    const response = await axios.get(PROGRESSION_URL);
+    const myProgression = response.data.progression;
+    console.log(myProgression);
+    setProgression(myProgression);
+  };
+
   useEffect(() => getChallenges(), []);
+  useEffect(() => getProgression(), []);
 
   return (
     <ul className="runningwild__challenges-content-cardList">
       {challenges.map((challenge) => (
-        <li>
+        <li key={challenge.challenge_id}>
           <ChallengesCard
             title={challenge.name}
-            key={challenge.challenge_id}
             illustration={challenge.challenge_image}
             text={challenge.description}
-            currentValue={challenge.distance}
+            currentValue={progression}
             maxValue={challenge.distance}
           />
         </li>

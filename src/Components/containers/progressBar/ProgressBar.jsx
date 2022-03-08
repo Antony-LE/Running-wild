@@ -15,11 +15,8 @@ function ProgressBar({ value, max }) {
 }
 
 ProgressBar.propTypes = {
-  value: PropTypes.number.isRequired,
-  max: PropTypes.number,
+  value: PropTypes.string.isRequired,
+  max: PropTypes.string.isRequired,
 };
 
-ProgressBar.defaultProps = {
-  max: 100,
-};
 export default ProgressBar;
