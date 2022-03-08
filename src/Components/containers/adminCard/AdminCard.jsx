@@ -14,6 +14,8 @@ import axios from '../../../api/axios';
 const ACHIEVEMENTS_ALL_URL = '/achievement/all';
 // Endpoint for all challenges
 const CHALLENGES_ALL_URL = '/challenge/all';
+// Endpoint for all visitors
+const VISITORS_ALL_URL = '/user/connections';
 
 function AdminCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
@@ -25,6 +27,10 @@ function AdminCard({
   const [displayChallenges, setDisplayChallenges] = useState(false);
   const [challenges, setChallenges] = useState([]);
   const [challengesButtonDetails, setChallengesButtonDetails] = useState(false);
+
+  const [displayVisitors, setDisplayVisitors] = useState(false);
+  const [visitors, setVisitors] = useState([]);
+  const [visitorsButtonDetails, setVisitorsButtonDetails] = useState(false);
 
   const handleDisplayAchievements = async (e) => {
     const responses = await axios.get(ACHIEVEMENTS_ALL_URL);
@@ -40,6 +46,14 @@ function AdminCard({
     setChallenges(responses.data.challenges);
     setDisplayChallenges(!displayChallenges);
     setChallengesButtonDetails(!challengesButtonDetails);
+  };
+
+  const handleDisplayVisitors = async (e) => {
+    const responses = await axios.get(VISITORS_ALL_URL);
+    console.log(responses.data.connections);
+    setVisitors(responses.data.connections.length);
+    setDisplayVisitors(!displayVisitors);
+    setVisitorsButtonDetails(!visitorsButtonDetails);
   };
   return (
     <div className="runningwild_adminCard">
@@ -161,9 +175,19 @@ function AdminCard({
             ))}
           </div>
         ) : ('')}
-        <button type="button" className="runningwild-admin-card-lower-container-button">
-          Voir le nombre de visiteurs
+        <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayVisitors}>
+          {visitorsButtonDetails ? ('Cacher les visiteurs') : ('Consulter tous les visiteurs')}
         </button>
+        {displayVisitors ? (
+          <div className="visitors">
+            <h2>
+              {' '}
+              Nombre de visites à ce jours :
+              {' '}
+              {visitors}
+            </h2>
+          </div>
+        ) : ('')}
       </div>
     </div>
   );
