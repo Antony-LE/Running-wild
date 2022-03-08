@@ -13,10 +13,7 @@ function ChallengesCardList({ className }) {
     const response = await axios.get(CHALLENGE_URL);
     const myChallenges = response.data.challenges;
     setChallenges(myChallenges);
-    console.log(myChallenges);
   };
-
-  getChallenges();
 
   useEffect(() => getChallenges(), []);
 
@@ -28,7 +25,7 @@ function ChallengesCardList({ className }) {
           key={challenge.challenge_id}
           illustration={challenge.challenge_image}
           text={challenge.description}
-          currentValue={challenge.progression}
+          currentValue={challenge.distance}
           maxValue={challenge.distance}
         />
       ))}

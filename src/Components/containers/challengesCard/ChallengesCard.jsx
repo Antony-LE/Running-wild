@@ -33,11 +33,11 @@ function ChallengesCard({
 
 ChallengesCard.propTypes = {
   className: PropTypes.string,
-  // title: PropTypes.string.isRequired,
-  // illustration: PropTypes.string.isRequired,
-  // text: PropTypes.string.isRequired,
-  // currentValue: PropTypes.number.isRequired,
-  // maxValue: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  illustration: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  currentValue: PropTypes.string.isRequired,
+  maxValue: PropTypes.string.isRequired,
   inscription: PropTypes.bool,
 };
 
