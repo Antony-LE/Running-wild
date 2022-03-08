@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './adminCard.css';
+import uniqid from 'uniqid';
 import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
 // Import of axios
@@ -17,12 +18,14 @@ function AdminCard({
 }) {
   const [displayAchievements, setDisplayAchievements] = useState(false);
   const [achievements, setAchievements] = useState([]);
+  const [achievementsButtonDetails, setAchievementsButtonDetails] = useState(false);
 
   const handleDisplayAchievements = async (e) => {
     const responses = await axios.get(ACHIEVEMENTS_ALL_URL);
     console.log(responses.data.achievements);
     setAchievements(responses.data.achievements);
     setDisplayAchievements(!displayAchievements);
+    setAchievementsButtonDetails(!achievementsButtonDetails);
   };
   return (
     <div className="runningwild_adminCard">
@@ -51,27 +54,27 @@ function AdminCard({
         </h4>
         <hr />
         <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayAchievements}>
-          Consulter tous les succès
+          {achievementsButtonDetails ? ('Cacher les succès') : ('Consulter tous les succès')}
         </button>
         {displayAchievements ? (
-          <>
+          <div className="achievements">
             <h2>Liste des succès</h2>
             { achievements.map((achievement) => (
               <>
                 <span>
-                  id:
+                  ID :
                   {' '}
                   {achievement.achievement_id}
                   {' '}
                 </span>
                 <span>
-                  titre:
+                  Titre:
                   {' '}
                   {achievement.title}
                   {' '}
                 </span>
                 <span>
-                  description:
+                  Description :
                   {' '}
                   {achievement.description}
                   {' '}
@@ -83,9 +86,10 @@ function AdminCard({
                   {' '}
                 </span>
                 <span />
+                <hr />
               </>
             ))}
-          </>
+          </div>
         ) : ('')}
         <button type="button" className="runningwild-admin-card-lower-container-button">
           Consulter tous les challenges
