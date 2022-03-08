@@ -182,7 +182,7 @@ function AdminCard({
           <div className="visitors">
             <h2>
               {' '}
-              Nombre de visites à ce jours :
+              Nombre de visites à ce jour :
               {' '}
               {visitors}
             </h2>

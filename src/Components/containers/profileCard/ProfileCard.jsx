@@ -8,9 +8,11 @@ import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
 import emailIcon from '../../../Assets/email-icon.png';
 import calendarIcon from '../../../Assets/calendar-icon.png';
+import challengesIcon from '../../../Assets/challenges.png';
+import medalIcon from '../../../Assets/medaille.png';
 
 function ProfileCard({
-  className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
+  className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription, challenges, achievements,
 }) {
   const [detailsOn, setDetailsOn] = useState(false);
 
@@ -33,6 +35,7 @@ function ProfileCard({
         </h2>
         <h2>
           Rank :
+          {' '}
           {rank}
         </h2>
         <h3>
@@ -66,6 +69,21 @@ function ProfileCard({
                 Première connexion :
                 {' '}
                 {(subscription.split(':')[0]).replaceAll('"', '')}
+              </span>
+              <span>
+                {' '}
+                <img src={challengesIcon} alt="challenge icon" width="15px" height="15px" />
+                {' '}
+                Challenges en cours :
+                {challenges}
+              </span>
+              <span>
+                {' '}
+                <img src={medalIcon} alt="medal icon" width="15px" height="15px" />
+                {' '}
+                Succès en cours :
+                {' '}
+                {achievements}
               </span>
             </>
           )

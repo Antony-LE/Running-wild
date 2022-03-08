@@ -15,6 +15,15 @@ import axios from '../../../api/axios';
 to dynamically get the user's datas */
 const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
 
+// Endpoint to retrieve user's rank
+const RANK_ID_URL = `/user/${localStorage.getItem('id')}/rank`;
+
+// Endpoint to retrieve user's ongoing challenges
+const CHALLENGES_ID_URL = `/user/${localStorage.getItem('id')}/challenges`;
+
+// Endpoint to retrieve user's ongoing achievements
+const ACHIEVEMENTS_ID_URL = `/user/${localStorage.getItem('id')}/achievements`;
+
 // logged in variable
 const isLoggedIn = localStorage.getItem('id');
 
@@ -29,10 +38,12 @@ function ProfileCardList() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [subscription, setSubscription] = useState('');
+  const [challenges, setChallenges] = useState('');
+  const [achievements, setAchievements] = useState('');
+
   const handleLocalStorage = async () => {
     const response = await axios.get(USER_ID_URL);
     setName(response.data.user.name);
-    setRank(response.data.user.rank_id);
     setDob(response.data.user.dob);
     setCity(response.data.user.city);
     setPseudo(response.data.user.pseudo);
@@ -41,9 +52,31 @@ function ProfileCardList() {
     setSurname(response.data.user.surname);
     setEmail(response.data.user.email);
     setSubscription(response.data.user.subscription_date);
-    console.log(response);
+  };
+  const handleRankId = async () => {
+    const response = await axios.get(RANK_ID_URL);
+    setRank(response.data.rank.name);
+  };
+  const handleChallenges = async () => {
+    const response = await axios.get(CHALLENGES_ID_URL);
+    if (response.data.result === true) {
+      setChallenges(response.data.challenges.length);
+    } else {
+      setChallenges(response.data.description);
+    }
+  };
+  const handleAchievements = async () => {
+    const response = await axios.get(ACHIEVEMENTS_ID_URL);
+    if (response.data.result === true) {
+      setAchievements(response.data.achievments.length);
+    } else {
+      setAchievements(response.data.description);
+    }
   };
   handleLocalStorage();
+  handleRankId();
+  handleChallenges();
+  handleAchievements();
   return (
     <>
       {isLoggedIn ? (
@@ -62,6 +95,8 @@ function ProfileCardList() {
                 email={email}
                 subscription={subscription}
                 role={role}
+                challenges={challenges}
+                achievements={achievements}
               />
             ) : (
               <AdminCard
