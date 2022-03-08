@@ -49,11 +49,21 @@ function Classement() {
           </header>
           <main className="runningwild__classements-main">
             <section className="runningwild__classements-main-section_classement">
+              <div className="runningwild__classements-main-section_classement-categories">
+                <ul>
+                  <li>Position</li>
+                  <li>Pseudo</li>
+                  <li>Rank</li>
+                  <li>KM</li>
+                  <li>Challenges</li>
+                  <li>Succes</li>
+                </ul>
+              </div>
               <ClassementItems classementData={classementData} />
             </section>
             <div className="runningwild__classements-main-section_infos">
-              <section className="runningwild__classements-main-section_user">Ici les infos joueur</section>
-              <section className="runningwild__classements-main-section_comparatif">Ici le comparatif</section>
+              <section className="runningwild__classements-main-section_user">Informations utilisateur</section>
+              <section className="runningwild__classements-main-section_comparatif">Comparatif utilisateur</section>
             </div>
           </main>
           <Footer />
