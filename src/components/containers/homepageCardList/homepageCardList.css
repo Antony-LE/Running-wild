@@ -6,4 +6,5 @@
     align-items: center;
     text-align: center;
     min-height: 81vh;
+    min-width: 100vw;
 }

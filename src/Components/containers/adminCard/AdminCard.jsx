@@ -15,9 +15,14 @@ const ACHIEVEMENTS_ALL_URL = '/achievement/all';
 function AdminCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
 }) {
+  const [displayAchievements, setDisplayAchievements] = useState(false);
+  const [achievements, setAchievements] = useState([]);
+
   const handleDisplayAchievements = async (e) => {
-    const response = await axios.get(ACHIEVEMENTS_ALL_URL);
-    console.log(response);
+    const responses = await axios.get(ACHIEVEMENTS_ALL_URL);
+    console.log(responses.data.achievements);
+    setAchievements(responses.data.achievements);
+    setDisplayAchievements(!displayAchievements);
   };
   return (
     <div className="runningwild_adminCard">
@@ -45,10 +50,43 @@ function AdminCard({
           Quelle action souhaitez-vous exécuter ?
         </h4>
         <hr />
-
         <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayAchievements}>
           Consulter tous les succès
         </button>
+        {displayAchievements ? (
+          <>
+            <h2>Liste des succès</h2>
+            { achievements.map((achievement) => (
+              <>
+                <span>
+                  id:
+                  {' '}
+                  {achievement.achievement_id}
+                  {' '}
+                </span>
+                <span>
+                  titre:
+                  {' '}
+                  {achievement.title}
+                  {' '}
+                </span>
+                <span>
+                  description:
+                  {' '}
+                  {achievement.description}
+                  {' '}
+                </span>
+                <span>
+                  Nom du succès :
+                  {' '}
+                  {achievement.medal_name}
+                  {' '}
+                </span>
+                <span />
+              </>
+            ))}
+          </>
+        ) : ('')}
         <button type="button" className="runningwild-admin-card-lower-container-button">
           Consulter tous les challenges
         </button>
