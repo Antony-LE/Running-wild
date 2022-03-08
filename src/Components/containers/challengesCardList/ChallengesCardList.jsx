@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './challengesCardList.css';
 import ChallengesCard from '../challengesCard/ChallengesCard';
+import axios from '../../../api/axios';
 
-function ChallengesCardList({ className, cardChallengesData }) {
+const CHALLENGE_URL = '/challenge/all';
+
+function ChallengesCardList({ className }) {
+  const [challenges, setChallenges] = useState([]);
+
+  const getChallenges = async () => {
+    const response = await axios.get(CHALLENGE_URL);
+    const myChallenges = response.data.challenges;
+    setChallenges(myChallenges);
+    console.log(myChallenges);
+  };
+
+  getChallenges();
+
+  useEffect(() => getChallenges(), []);
+
   return (
     <div className={className}>
-      {cardChallengesData.map(({
-        title,
-        illustration,
-        text,
-        currentValue,
-        maxValue,
-        id,
-      }) => (
+      {challenges.map((challenge) => (
         <ChallengesCard
-          title={title}
-          key={id}
-          illustration={illustration}
-          text={text}
-          currentValue={currentValue}
-          maxValue={maxValue}
+          title={challenge.name}
+          key={challenge.challenge_id}
+          illustration={challenge.challenge_image}
+          text={challenge.description}
+          currentValue={challenge.progression}
+          maxValue={challenge.distance}
         />
       ))}
     </div>
@@ -29,16 +38,16 @@ function ChallengesCardList({ className, cardChallengesData }) {
 
 ChallengesCardList.propTypes = {
   className: PropTypes.string,
-  cardChallengesData: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      illustration: PropTypes.string.isRequired,
-      currentValue: PropTypes.number.isRequired,
-      maxValue: PropTypes.number.isRequired,
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  // cardChallengesData: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     title: PropTypes.string.isRequired,
+  //     text: PropTypes.string.isRequired,
+  //     illustration: PropTypes.string.isRequired,
+  //     currentValue: PropTypes.number.isRequired,
+  //     maxValue: PropTypes.number.isRequired,
+  //     id: PropTypes.number.isRequired,
+  //   }).isRequired,
+  // ).isRequired,
 };
 
 ChallengesCardList.defaultProps = {

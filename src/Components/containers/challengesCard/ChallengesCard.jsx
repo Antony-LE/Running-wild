@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './challengesCard.css';
@@ -32,13 +33,12 @@ function ChallengesCard({
 
 ChallengesCard.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  illustration: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  currentValue: PropTypes.string.isRequired,
-  maxValue: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // illustration: PropTypes.string.isRequired,
+  // text: PropTypes.string.isRequired,
+  // currentValue: PropTypes.number.isRequired,
+  // maxValue: PropTypes.number.isRequired,
   inscription: PropTypes.bool,
-
 };
 
 ChallengesCard.defaultProps = {

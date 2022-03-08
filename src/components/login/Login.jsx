@@ -11,7 +11,6 @@ import logo from '../../Assets/wildwhite.png';
 import runningVideo from '../../Assets/runnerback.webm';
 
 // Import of axios
-// Import of axios
 import axios from '../../api/axios';
 
 const LOGIN_URL = '/user/login';
