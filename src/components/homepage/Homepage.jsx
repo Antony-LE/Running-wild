@@ -11,7 +11,11 @@ import Footer from '../footer/Footer';
 // Import of axios
 import axios from '../../api/axios';
 
+// Endpoint for logging out
 const LOGOUT_URL = '/user/logout';
+
+// logged in variable
+const isLoggedIn = localStorage.getItem('id');
 
 function Homepage() {
   // handle wether the user is logged in or not
@@ -30,32 +34,39 @@ function Homepage() {
   };
   return (
     <>
-      {logout ? (
-        <section className="runningwild__logout-success gradient__bg">
-          <h1>
-            Vous êtes déconnecté !
-          </h1>
-          <p>
-            <NavLink to="/">
-              Me connecter
-            </NavLink>
-          </p>
-        </section>
+      {isLoggedIn ? (
+        <>
+          {logout ? (
+            <section className="runningwild__logout-success gradient__bg">
+              <h1>
+                Vous êtes déconnecté !
+              </h1>
+              <p>
+                <NavLink to="/">
+                  Me connecter
+                </NavLink>
+              </p>
+            </section>
+          ) : (
+            <div className="runningwild__homepage-container">
+              <header className="runningwild__homepage-header">
+                <Navbar />
+                <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+                <NavLink to="/profile">
+                  <button className="runningwild__profile-button" type="button">Mon profil</button>
+                </NavLink>
+              </header>
+              <main className="runningwild__homepage-main">
+                <HomepageCardList cardData={cardData} />
+              </main>
+              <Footer />
+            </div>
+          )}
+        </>
       ) : (
-        <div className="runningwild__homepage-container">
-          <header className="runningwild__homepage-header">
-            <Navbar />
-            <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-            <NavLink to="/profile">
-              <button className="runningwild__profile-button" type="button">Mon profil</button>
-            </NavLink>
-          </header>
-          <main className="runningwild__homepage-main">
-            <HomepageCardList cardData={cardData} />
-          </main>
-          <Footer />
-        </div>
+        <div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>
       )}
+
     </>
   );
 }

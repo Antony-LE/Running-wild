@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
@@ -13,6 +14,9 @@ import axios from '../../../api/axios';
 /* Use the variable id from localStorage (previsously stored in the login page)
 to dynamically get the user's datas */
 const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
+
+// logged in variable
+const isLoggedIn = localStorage.getItem('id');
 
 function ProfileCardList() {
   const [Name, setName] = useState('');
@@ -42,39 +46,45 @@ function ProfileCardList() {
   handleLocalStorage();
   return (
     <>
-      <Navbar />
-      <div className="profileCardList">
-        {role === 1 ? (
-          <ProfileCard
-            name={Name}
-            rank={rank}
-            pseudo={pseudo}
-            dateOfBirth={dob}
-            city={city}
-            surname={surname}
-            avatar={avatar}
-            email={email}
-            subscription={subscription}
-            role={role}
-          />
-        ) : (
-          <AdminCard
-            name={Name}
-            rank={rank}
-            pseudo={pseudo}
-            dateOfBirth={dob}
-            city={city}
-            surname={surname}
-            avatar={avatar}
-            email={email}
-            subscription={subscription}
-            role={role}
-          />
-        ) }
+      {isLoggedIn ? (
+        <>
+          <Navbar />
+          <div className="profileCardList">
+            {role === 1 ? (
+              <ProfileCard
+                name={Name}
+                rank={rank}
+                pseudo={pseudo}
+                dateOfBirth={dob}
+                city={city}
+                surname={surname}
+                avatar={avatar}
+                email={email}
+                subscription={subscription}
+                role={role}
+              />
+            ) : (
+              <AdminCard
+                name={Name}
+                rank={rank}
+                pseudo={pseudo}
+                dateOfBirth={dob}
+                city={city}
+                surname={surname}
+                avatar={avatar}
+                email={email}
+                subscription={subscription}
+                role={role}
+              />
+            ) }
 
-      </div>
-      <Footer />
+          </div>
+          <Footer />
+        </>
+      ) : (<div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>)}
+
     </>
+
   );
 }
 

@@ -76,6 +76,24 @@
     margin-top: 1em;
 }
 
+.forbidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem 0.5rem;
+    color: red;
+    font-size: 2em;
+    font-family: var(--font-family);
+    background-image: url(../../Assets/forbidden.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 .gradient__bg {
     /* https://uigradients.com/ */
    /* Moonlit Asteroid */
