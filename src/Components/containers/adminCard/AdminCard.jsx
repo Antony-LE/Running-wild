@@ -6,12 +6,19 @@ import React, { useState } from 'react';
 import './adminCard.css';
 import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
-import emailIcon from '../../../Assets/email-icon.png';
-import calendarIcon from '../../../Assets/calendar-icon.png';
+// Import of axios
+import axios from '../../../api/axios';
 
-function ProfileCard({
+// Endpoint for all achievements
+const ACHIEVEMENTS_ALL_URL = '/achievement/all';
+
+function AdminCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
 }) {
+  const handleDisplayAchievements = async (e) => {
+    const response = await axios.get(ACHIEVEMENTS_ALL_URL);
+    console.log(response);
+  };
   return (
     <div className="runningwild_adminCard">
       <div className="runningwild_adminCard-upperContainer">
@@ -39,7 +46,7 @@ function ProfileCard({
         </h4>
         <hr />
 
-        <button type="button" className="runningwild-admin-card-lower-container-button">
+        <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayAchievements}>
           Consulter tous les succès
         </button>
         <button type="button" className="runningwild-admin-card-lower-container-button">
@@ -53,4 +60,4 @@ function ProfileCard({
   );
 }
 
-export default ProfileCard;
+export default AdminCard;
