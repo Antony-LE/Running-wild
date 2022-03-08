@@ -12,6 +12,8 @@ import axios from '../../../api/axios';
 
 // Endpoint for all achievements
 const ACHIEVEMENTS_ALL_URL = '/achievement/all';
+// Endpoint for all challenges
+const CHALLENGES_ALL_URL = '/challenge/all';
 
 function AdminCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
@@ -20,12 +22,24 @@ function AdminCard({
   const [achievements, setAchievements] = useState([]);
   const [achievementsButtonDetails, setAchievementsButtonDetails] = useState(false);
 
+  const [displayChallenges, setDisplayChallenges] = useState(false);
+  const [challenges, setChallenges] = useState([]);
+  const [challengesButtonDetails, setChallengesButtonDetails] = useState(false);
+
   const handleDisplayAchievements = async (e) => {
     const responses = await axios.get(ACHIEVEMENTS_ALL_URL);
     console.log(responses.data.achievements);
     setAchievements(responses.data.achievements);
     setDisplayAchievements(!displayAchievements);
     setAchievementsButtonDetails(!achievementsButtonDetails);
+  };
+
+  const handleDisplayChallenges = async (e) => {
+    const responses = await axios.get(CHALLENGES_ALL_URL);
+    console.log(responses.data.challenges);
+    setChallenges(responses.data.challenges);
+    setDisplayChallenges(!displayChallenges);
+    setChallengesButtonDetails(!challengesButtonDetails);
   };
   return (
     <div className="runningwild_adminCard">
@@ -91,9 +105,62 @@ function AdminCard({
             ))}
           </div>
         ) : ('')}
-        <button type="button" className="runningwild-admin-card-lower-container-button">
-          Consulter tous les challenges
+        <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayChallenges}>
+          {challengesButtonDetails ? ('Cacher les challenges') : ('Consulter tous les challenges')}
         </button>
+        {displayChallenges ? (
+          <div className="challenges">
+            <h2>Liste des challenges</h2>
+            { challenges.map((challenge) => (
+              <>
+                <span>
+                  ID :
+                  {' '}
+                  {challenge.challenge_id}
+                  {' '}
+                </span>
+                <span>
+                  Titre:
+                  {' '}
+                  {challenge.name}
+                  {' '}
+                </span>
+                <span>
+                  Description :
+                  {' '}
+                  {challenge.description}
+                  {' '}
+                </span>
+                <span>
+                  Date de début :
+                  {' '}
+                  {(challenge.start_date.split(':')[0]).replaceAll('"', '')}
+                  {' '}
+                </span>
+                <span>
+                  Date limite :
+                  {' '}
+                  {(challenge.end_date.split(':')[0]).replaceAll('"', '')}
+                  {' '}
+                </span>
+                <span>
+                  Distance :
+                  {' '}
+                  {`${challenge.distance}km`}
+                  {' '}
+                </span>
+                <span />
+                <span>
+                  Points rapportés :
+                  {' '}
+                  {challenge.bonus_points}
+                  {' '}
+                </span>
+                <hr />
+              </>
+            ))}
+          </div>
+        ) : ('')}
         <button type="button" className="runningwild-admin-card-lower-container-button">
           Voir le nombre de visiteurs
         </button>
