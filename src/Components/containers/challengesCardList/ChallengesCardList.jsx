@@ -58,7 +58,7 @@ function ChallengesCardList() {
 
   return (
     <ul className="runningwild__challenges-content-cardList">
-      {challenges.map((challenge) => (
+      {challenges.length ? challenges.map((challenge) => (
         <li id={challenge.challenge_id} key={challenge.challenge_id}>
           <ChallengesCard
             title={challenge.name}
@@ -69,7 +69,7 @@ function ChallengesCardList() {
             <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); }}>Accepter le challenge</button>
           </div>
         </li>
-      ))}
+      )) : ''}
       {acceptedChallenges.map((challenge) => (
         <li key={challenge.challenge_id}>
           <ChallengesCard
