@@ -1,0 +1,10 @@
+.runningwild__homepage-content-cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    min-height: 81vh;
+    min-width: 100vw;
+}

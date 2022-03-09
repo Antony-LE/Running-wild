@@ -44,7 +44,7 @@ function ChallengesCard({
   return (
     <div className={className}>
       <h1>{title}</h1>
-      <img src={illustration} alt="description" />
+      <img src={illustration} alt="illustration challenge" />
       <p>{text}</p>
     </div>
   );

@@ -7,24 +7,21 @@ import ChallengesCard from '../challengesCard/ChallengesCard';
 import axios from '../../../api/axios';
 import ProgressBar from '../progressBar/ProgressBar';
 
-// eslint-disable-next-line max-len
-// Route progression non fonctionnelle, besoin d'accéder à cette donnée pour mettre à jour la currentvalue
-// il faut accéder à la table user_challenge
-const USER_ID_URL = `${localStorage.getItem('id')}`;
-console.log(USER_ID_URL);
-
-// const CHALLENGES = `/user/${USER_ID_URL}/challenges`;
-const CHALLENGES = '/user/3/challenges';
-console.log(CHALLENGES);
-
-console.log(CHALLENGES);
-const CHALLENGES_ADD = '/user/challenge/add';
 /* Use the variable id from localStorage (previsously stored in the login page)
 to dynamically get the user's datas */
+const USER_ID_URL = `${localStorage.getItem('id')}`;
+// console.log(USER_ID_URL);
+
+/* Fetching the challenges depanding on the user id of the localStorage */
+const CHALLENGES = `/user/${USER_ID_URL}/challenges`;
+
+const CHALLENGES_ADD = '/user/challenge/add';
 
 function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
   const [acceptedChallenges, setAcceptedChallenges] = useState([]);
+  const [challengeID, setChallengeId] = useState([]);
+  // console.log(`${challengeID} l'id du challenge`);
 
   const getChallenges = async () => {
     const response = await axios.get(CHALLENGES);
@@ -32,20 +29,14 @@ function ChallengesCardList() {
     const challengesSubscribedList = response.data.challenges.subscribed_challenges;
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
-    console.log(challengesAvailableList);
-    console.log(challengesSubscribedList);
   };
-
-  // const [showButton, setShowButton] = useState(true);
-  // const [showProgression, setShowProgression] = useState([]);
 
   const onButtonClick = async () => {
     try {
-      // const userResponse = await axios.get(USER_ID_URL);
       const response = await axios.post(
         CHALLENGES_ADD,
         JSON.stringify({
-          challengeId: 1,
+          challengeId: challengeID,
           userId: USER_ID_URL,
         }),
         {
@@ -56,28 +47,24 @@ function ChallengesCardList() {
       );
       console.log(JSON.stringify(response?.data));
     } catch (err) {
-      console.log('Challenge déjà enregistré');
+      console.log('ERROR');
     }
   };
-  //
-  // useEffect(() => onButtonClick(), []);
-  useEffect(() => getChallenges(), []);
 
-  // Il faudrait que je map le bon tableau pour afficher les challenges
-  // Il faudrait check si la boolean du challenge est true ou false pour afficher le bouton
-  // Il faudrait afficher la progression du challenge dans la barre
+  useEffect(() => getChallenges(), []);
+  useEffect(() => setChallengeId(challengeID), [challengeID]);
 
   return (
     <ul className="runningwild__challenges-content-cardList">
       {challenges.map((challenge) => (
-        <li key={challenge.challenge_id}>
+        <li id={challenge.challenge_id} key={challenge.challenge_id}>
           <ChallengesCard
             title={challenge.name}
             illustration={challenge.challenge_image}
             text={challenge.description}
           />
           <div className="runningwild__challenges-content-cardList_progression">
-            <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={onButtonClick}>Accepter le challenge</button>
+            <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); }}>Accepter le challenge</button>
           </div>
         </li>
       ))}
@@ -96,19 +83,5 @@ function ChallengesCardList() {
     </ul>
   );
 }
-
-// ChallengesCardList.propTypes = {
-//   className: PropTypes.string,
-//   cardChallengesData: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       title: PropTypes.string.isRequired,
-//       text: PropTypes.string.isRequired,
-//       illustration: PropTypes.string.isRequired,
-//       currentValue: PropTypes.number.isRequired,
-//       maxValue: PropTypes.number.isRequired,
-//       id: PropTypes.number.isRequired,
-//     }).isRequired,
-//   ).isRequired,
-// };
 
 export default ChallengesCardList;

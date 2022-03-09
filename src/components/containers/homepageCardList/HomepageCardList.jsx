@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './homepageCardList.css';
 import HomepageCard from '../homepageCard/HomepageCard';
 
 function HomepageCardList({ className, cardData }) {
