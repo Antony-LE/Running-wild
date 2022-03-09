@@ -29,6 +29,8 @@ function ChallengesCardList() {
     const challengesSubscribedList = response.data.challenges.subscribed_challenges;
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
+    console.log(challengesAvailableList);
+    console.log(challengesSubscribedList);
   };
 
   const onButtonClick = async () => {
