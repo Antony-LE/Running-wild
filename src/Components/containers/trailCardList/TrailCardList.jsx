@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './trailCardList.css';
+import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import TrailCard from '../trailCard/TrailCard';
 import Navbar from '../../navbar/Navbar';
 import Footer from '../../footer/Footer';
@@ -14,9 +15,16 @@ import axios from '../../../api/axios';
 // logged in variable
 const isLoggedIn = localStorage.getItem('id');
 
+// Array of random id from the same city (dynamic trail suggestion not ready yet !)
+// TODO store the user's city into localstorage when login
+
+const parisTrails = [2, 17, 18];
+const random = Math.floor(Math.random() * parisTrails.length);
+const randomValue = parisTrails[random];
+
 /* Use the variable id from localStorage (previsously stored in the login page)
 to dynamically get the user's datas */
-const TRAIL_ID_URL = `/trail/${17}`;
+const TRAIL_ID_URL = `/trail/${randomValue}`;
 
 function TrailCardList() {
   const [name, setName] = useState('');
@@ -50,11 +58,22 @@ function TrailCardList() {
     setLike(response.data.trail.like.like);
   };
   handleTrailData();
+  function handleReload() {
+    window.location.reload();
+  }
   return (
     <>
       {isLoggedIn ? (
         <>
           <Navbar />
+          <h1>Suggestion de parcours</h1>
+          <div className="reload">
+            {' '}
+            <button type="button" onClick={handleReload}>
+              Suggestion suivante
+            </button>
+            {' '}
+          </div>
           <div className="trail-card-list">
             <TrailCard name={name} city={city} map={map} environement={environement} distance={distance} startPoint={startpoint} endPoint={endpoint} postalCode={postCode} like={like} />
           </div>

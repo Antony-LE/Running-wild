@@ -14,6 +14,7 @@ function TrailCard({
   const handleDisplayDetails = () => {
     setDetailsOn(!detailsOn);
   };
+
   return (
     <div className="runningwild_trailCard">
       <div className="runningwild_trailCard-upperContainer">
@@ -41,7 +42,7 @@ function TrailCard({
           {city}
           {' '}
         </span>
-        <span>
+        <span className="startpoint">
           Point de départ :
           {' '}
           {startPoint}
@@ -52,7 +53,7 @@ function TrailCard({
           ? (
             <>
               <hr />
-              <span>
+              <span className="endpoint">
                 Point d&apos;arrivée :
                 {' '}
                 {endPoint}
@@ -74,7 +75,7 @@ function TrailCard({
           )
           : ''}
         <button type="button" className="runningwild-trail-card-lower-container-button" onClick={handleDisplayDetails}>
-          {detailsOn === false ? (<>Plus de détails</>) : (<>Moins de détails</>)}
+          {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
         </button>
       </div>
     </div>
