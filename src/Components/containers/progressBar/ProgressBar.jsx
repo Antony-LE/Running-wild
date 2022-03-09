@@ -7,7 +7,7 @@ function ProgressBar({ value, max }) {
     <div className="runningwild__progressBar-container">
       <progress value={value} max={max} />
       <p>
-        {(value / max) * 100}
+        {Math.floor((value / max) * 100)}
         %
       </p>
     </div>
@@ -15,8 +15,8 @@ function ProgressBar({ value, max }) {
 }
 
 ProgressBar.propTypes = {
-  value: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;
