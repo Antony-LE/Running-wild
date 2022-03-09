@@ -1,11 +1,15 @@
 .trail-card-list {
     display: flex;
-    width: 100vw;
-    min-height: 100vh;
+    /* width: 100vw;
+    min-height: 100vh; */
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-bottom: 13em;
+}
+ h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 .forbidden {
@@ -23,3 +27,25 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+hr {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: inline-block;  
+    width: 50vw;
+}
+
+.recherche {
+    text-align: center;
+    height: 50vh;
+}
+
+.gradient__bg {
+    /* https://uigradients.com/ */
+   /* Moonlit Asteroid */
+   background: #0F2027;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+

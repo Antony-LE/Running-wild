@@ -1,6 +1,6 @@
 .runningwild_trailCard {
-    width: 22em;
-    height: 30em;
+    width: 25em;
+    height: 50vh;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
@@ -10,8 +10,12 @@
 }
 
 .runningwild_trailCard-upperContainer {
-    height: 100px;
+    height: 4em;
+    padding-top: 1.5em;
     background: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2em;
 }
 
 .runningwild_trailCard-lowerContainer h2 {
@@ -33,9 +37,8 @@
     padding-right: 1em;
 }
 
-.runningwild_trailCard-imageContainer img {
-    border: 2px solid #1c0e57 ;
-    border-radius: 50%;
+.runningwild_trailCard-imageContainer iframe {
+    height: 19em ;
 }
 
 .runningwild_trailCard-lowerContainer {
