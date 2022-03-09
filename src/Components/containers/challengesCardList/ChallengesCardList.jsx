@@ -10,11 +10,17 @@ import ProgressBar from '../progressBar/ProgressBar';
 // eslint-disable-next-line max-len
 // Route progression non fonctionnelle, besoin d'accéder à cette donnée pour mettre à jour la currentvalue
 // il faut accéder à la table user_challenge
+const USER_ID_URL = `${localStorage.getItem('id')}`;
+console.log(USER_ID_URL);
 
-// const CHALLENGE_URL = '/challenge/all';
-// const CHALLENGE_AVAILABLE = '/user/3/challenges/available';
+// const CHALLENGES = `/user/${USER_ID_URL}/challenges`;
 const CHALLENGES = '/user/3/challenges';
+console.log(CHALLENGES);
+
+console.log(CHALLENGES);
 const CHALLENGES_ADD = '/user/challenge/add';
+/* Use the variable id from localStorage (previsously stored in the login page)
+to dynamically get the user's datas */
 
 function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
@@ -35,11 +41,12 @@ function ChallengesCardList() {
 
   const onButtonClick = async () => {
     try {
+      // const userResponse = await axios.get(USER_ID_URL);
       const response = await axios.post(
         CHALLENGES_ADD,
         JSON.stringify({
           challengeId: 1,
-          userId: 3,
+          userId: USER_ID_URL,
         }),
         {
           headers: {
@@ -52,7 +59,8 @@ function ChallengesCardList() {
       console.log('Challenge déjà enregistré');
     }
   };
-  useEffect(() => onButtonClick(), []);
+  //
+  // useEffect(() => onButtonClick(), []);
   useEffect(() => getChallenges(), []);
 
   // Il faudrait que je map le bon tableau pour afficher les challenges
