@@ -9,7 +9,7 @@ import axios from '../../../api/axios';
 // il faut accéder à la table user_challenge
 
 const CHALLENGE_URL = '/challenge/all';
-const PROGRESSION_URL = '/user/:id/challenges';
+const PROGRESSION_URL = '/user/1/challenges';
 
 function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
