@@ -52,12 +52,12 @@ hr {
     margin: 1em;
     color: #1c0e57;
     font-weight: bold ;
-    background-color: white;
     border: 2px solid rgb(175, 12, 112) ;
     padding: 0.6em;
     border-radius: 6px;
     transition-duration: 0.5s;
     animation: ease-in-out;
+    font-size: 0.6em;
 }
 
 .reload button:hover {

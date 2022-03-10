@@ -7,6 +7,7 @@
     font-family: var(--font-family);
     text-align: center;
     overflow: auto;
+    transition-duration: 0.5s;
 }
 
 .runningwild_trailCard-upperContainer {

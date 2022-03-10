@@ -68,7 +68,7 @@ function TrailCard({
               <span>
                 Nombre de likes :
                 {' '}
-                {`${like}❤️`}
+                {`${like} ❤️`}
                 {' '}
               </span>
             </>

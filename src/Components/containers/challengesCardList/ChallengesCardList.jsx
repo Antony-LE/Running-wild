@@ -31,9 +31,10 @@ function ChallengesCardList() {
     setAcceptedChallenges(challengesSubscribedList);
   };
   // refreshing the page when a challenge is accepted
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
+  // const refreshPage = () => {
+  //   console.log('page reresh in function');
+  //   window.location.reload(false);
+  // };
 
   const onButtonClick = async () => {
     try {
@@ -55,9 +56,10 @@ function ChallengesCardList() {
       console.log(JSON.stringify(response?.data));
     } catch (err) {
       console.log('Error with this challenge');
-    } finally {
-      // calling the refresh at the end of the post
-      refreshPage();
+    // } finally {
+    //   // calling the refresh at the end of the post
+    //   console.log('page reresh in  button');
+    //   refreshPage();
     }
   };
   useEffect(() => setChallengeId(challengeID), [challengeID]);
@@ -77,7 +79,7 @@ function ChallengesCardList() {
           </div>
         </li>
       )) : ''}
-      {acceptedChallenges.map((challenge) => (
+      {acceptedChallenges.length ? acceptedChallenges.map((challenge) => (
         <li key={challenge.challenge_id}>
           <ChallengesCard
             title={challenge.name}
@@ -88,7 +90,7 @@ function ChallengesCardList() {
             <ProgressBar key={challenge.name} value={parseInt(challenge.progression, 10)} max={parseInt(challenge.distance, 10)} />
           </div>
         </li>
-      ))}
+      )) : ''}
     </ul>
   );
 }
