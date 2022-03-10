@@ -15,6 +15,7 @@ import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
 import TrailCardList from './Components/containers/trailCardList/TrailCardList';
 import Challenges from './Components/challenges/Challenges';
+import Classement from './Components/classements/Classements';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
           <Route path="/parcours" element={<TrailCardList />} />
+          <Route path="/classements" element={<Classement />} />
         </Routes>
       </div>
     </BrowserRouter>
