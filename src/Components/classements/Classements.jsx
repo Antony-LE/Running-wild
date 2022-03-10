@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
@@ -60,10 +61,6 @@ function Classement() {
               </div>
               <ClassementItems classementData={classementData} />
             </section>
-            <div className="runningwild__classements-main-section_infos">
-              <section className="runningwild__classements-main-section_user">Informations utilisateur</section>
-              <section className="runningwild__classements-main-section_comparatif">Comparatif utilisateur</section>
-            </div>
           </main>
           <Footer />
         </div>
