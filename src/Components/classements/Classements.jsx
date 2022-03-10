@@ -25,46 +25,53 @@ function Classement() {
     setLogout(true);
     setIsLogged(response.data.result);
   };
+
+  // logged in variable
+  const isLoggedIn = localStorage.getItem('id');
   return (
     <>
-      {logout ? (
-        <section className="runningwild__logout-success gradient__bg">
-          <h1>
-            Vous êtes déconnecté !
-          </h1>
-          <p>
-            <NavLink to="/">
-              Me connecter
-            </NavLink>
-          </p>
-        </section>
-      ) : (
-        <div className="runningwild__classements-container">
-          <header className="runningwild__classements-header">
-            <Navbar />
-            <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-            <NavLink to="/profile">
-              <button className="runningwild__profile-button" type="button">Mon profil</button>
-            </NavLink>
-          </header>
-          <main className="runningwild__classements-main">
-            <section className="runningwild__classements-main-section_classement">
-              <div className="runningwild__classements-main-section_classement-categories">
-                <ul>
-                  <li>Position</li>
-                  <li>Pseudo</li>
-                  <li>Avatar</li>
-                  <li>Rank</li>
-                  <li>KM</li>
-                  <li>Points</li>
-                </ul>
-              </div>
-              <ClassementItems classementData={classementData} />
+      {isLoggedIn ? (
+        <>
+          {logout ? (
+            <section className="runningwild__logout-success gradient__bg">
+              <h1>
+                Vous êtes déconnecté !
+              </h1>
+              <p>
+                <NavLink to="/">
+                  Me connecter
+                </NavLink>
+              </p>
             </section>
-          </main>
-          <Footer />
-        </div>
-      )}
+          ) : (
+            <div className="runningwild__classements-container">
+              <header className="runningwild__classements-header">
+                <Navbar />
+                <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+                <NavLink to="/profile">
+                  <button className="runningwild__profile-button" type="button">Mon profil</button>
+                </NavLink>
+              </header>
+              <main className="runningwild__classements-main">
+                <section className="runningwild__classements-main-section_classement">
+                  <div className="runningwild__classements-main-section_classement-categories">
+                    <ul>
+                      <li>Position</li>
+                      <li>Pseudo</li>
+                      <li>Avatar</li>
+                      <li>Rank</li>
+                      <li>KM</li>
+                      <li>Points</li>
+                    </ul>
+                  </div>
+                  <ClassementItems classementData={classementData} />
+                </section>
+              </main>
+              <Footer />
+            </div>
+          )}
+        </>
+      ) : (<div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>)}
     </>
   );
 }
