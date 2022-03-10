@@ -57,7 +57,6 @@ function Login() {
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         LOGIN_URL,

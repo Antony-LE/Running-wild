@@ -15,7 +15,6 @@ function ProfileCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription, challenges, achievements,
 }) {
   const [detailsOn, setDetailsOn] = useState(false);
-
   const handleDisplayDetails = () => {
     setDetailsOn(!detailsOn);
   };

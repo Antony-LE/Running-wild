@@ -5,7 +5,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './trailCardList.css';
-import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import TrailCard from '../trailCard/TrailCard';
 import Navbar from '../../navbar/Navbar';
 import Footer from '../../footer/Footer';
@@ -153,42 +152,49 @@ function TrailCardList() {
                       {searchResult.name}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       Environnement :
                       {' '}
                       {searchResult.categoryid}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       Distance :
                       {' '}
                       {searchResult.distance}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       ville :
                       {' '}
                       {searchResult.city}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       Adresse de départ :
                       {' '}
                       {searchResult.start_point}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       Adresse d&apos;arrivée :
                       {' '}
                       {searchResult.endpoint}
                       {' '}
                     </span>
+                    <br />
                     <span>
                       Code Postal :
                       {' '}
                       {searchResult.postcode}
                       {' '}
                     </span>
+                    <br />
                     <span />
                     <hr />
                   </>

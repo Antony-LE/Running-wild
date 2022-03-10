@@ -140,7 +140,7 @@ function Registration() {
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setSuccess(true);
     try {
       const response = await axios.post(
         REGISTER_URL,
@@ -453,6 +453,7 @@ function Registration() {
             <button
               className="runningwild__registration-form-button"
               type="submit"
+              onClick={handleSubmit}
               disabled={!!(!validFirstname
             || !validLastname
             || !validPseudo
