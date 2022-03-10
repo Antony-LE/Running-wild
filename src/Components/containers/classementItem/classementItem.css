@@ -1,0 +1,21 @@
+.runningwild__classements-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1000px;
+}
+
+.runningwild__classements-item {
+  color: white;
+  border: solid 2px #717d97;
+  width: 10.375rem;
+  height: 3rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.runningwild__classements-item img{
+  width: 2rem;
+  height: 2rem;
+}
