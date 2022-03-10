@@ -20,10 +20,6 @@ const RUN_URL = '/run';
 const t = new Date();
 const hours = `${t.getHours()}:${t.getMinutes()}`;
 
-// variables to get the current date
-// const d = new Date();
-// const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-
 function TrailCard({
   name, city, map, environement, distance, startPoint, endPoint, postalCode, like,
 }) {
@@ -38,7 +34,6 @@ function TrailCard({
   const [subscriptionOn, setSubscriptionOn] = useState(false);
   const [time, setTime] = useState('');
   const [hour, setHour] = useState('');
-  // const [dateRun, setDateRun] = useState('');
   const [Km, setKm] = useState(0);
 
   const [userId, setUserId] = useState(0);
@@ -81,9 +76,8 @@ function TrailCard({
   const handleSubscription = async (e) => {
     setUserId(localStorage.getItem('id'));
     setTrailId(localStorage.getItem('trail_Id'));
-    setTime('00:00:00');
+    setTime('01:30:50');
     setHour(hours);
-    // setDateRun(date);
     setKm(localStorage.getItem('distance'));
     setSubscriptionOn(!subscriptionOn);
     try {
@@ -94,7 +88,6 @@ function TrailCard({
           trailId: trailId,
           time: time,
           hour: hour,
-          // dateRun: dateRun,
           distance: Km,
         }),
         {

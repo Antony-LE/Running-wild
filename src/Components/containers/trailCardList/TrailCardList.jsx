@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable radix */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable max-len */
@@ -25,8 +26,7 @@ const randomValue = parisTrails[random];
 // Set the trail ID on localstorage
 localStorage.setItem('trail_Id', randomValue);
 
-/* Use the variable id from localStorage (previsously stored in the login page)
-to dynamically get the user's datas */
+// endpoint for random trail
 const TRAIL_ID_URL = `/trail/${randomValue}`;
 
 function TrailCardList() {
@@ -41,6 +41,11 @@ function TrailCardList() {
   const [endpoint, setEndpoint] = useState('');
   const [postCode, setPostCode] = useState('');
   const [like, setLike] = useState(0);
+
+  // Handle datas for search form
+  const [searchedCity, setSearchedCity] = useState('');
+  // const [distanceMax, setDistanceMax] = useState(0);
+  const [distanceMin, setDistanceMin] = useState(0);
 
   const handleTrailData = async () => {
     const response = await axios.get(TRAIL_ID_URL);
@@ -66,6 +71,15 @@ function TrailCardList() {
   function handleReload() {
     window.location.reload();
   }
+
+  const handleSearchData = async (e) => {
+    // endpoint for random trail
+    e.preventDefault();
+    const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distancemin=${distanceMin}`;
+    const response = await axios.get(SEARCH_TRAIL_URL);
+    console.log(response);
+  };
+
   return (
     <>
       {isLoggedIn ? (
@@ -82,15 +96,66 @@ function TrailCardList() {
           <div className="trail-card-list">
             <TrailCard name={name} city={city} map={map} environement={environement} distance={distance} startPoint={startpoint} endPoint={endpoint} postalCode={postCode} like={like} />
           </div>
-          <div className="recherche">
+          <div className="runningwild-search-form">
             <hr />
             <h2> Rechercher un itinéraire par : </h2>
-            <button type="button" className="runningwild-trail-card-button">
-              Autour de vous
+            <form>
+              {/* ********************************City input******************************* */}
+              <label
+                className="runningwild__login-form-label"
+                htmlFor="city"
+              >
+                Ville
+              </label>
+              <input
+                type="text"
+                className="runningwild__login-form-input"
+                id="city"
+                autoComplete="off"
+                onChange={(e) => setSearchedCity(e.target.value)}
+                value={searchedCity}
+                required
+              />
+              {/* ********************************MaxDistance input******************************* */}
+              {/* <label
+                className="runningwild__login-form-label"
+                htmlFor="max-distance"
+              >
+                Distance Max.
+              </label>
+              <input
+                type="text"
+                className="runningwild__login-form-input"
+                id="max-distance"
+                onChange={(e) => setDistanceMax(e.target.value)}
+                value={distanceMax}
+                required
+              /> */}
+              {/* ********************************MinDistance input******************************* */}
+              <label
+                className="runningwild__login-form-label"
+                htmlFor="min-distance"
+              >
+                Distance Min.
+              </label>
+              <input
+                type="text"
+                className="runningwild__login-form-input"
+                id="min-distance"
+                onChange={(e) => setDistanceMin(e.target.value)}
+                value={distanceMin}
+                required
+              />
+            </form>
+            <button
+              onClick={handleSearchData}
+              className="runningwild__search-form-button"
+              type="submit"
+            >
+              Rechercher !
             </button>
-            <button type="button" className="runningwild-trail-card-button">
-              Selon la distance
-            </button>
+            <hr />
+            <h2> Résultats de votre recherche : </h2>
           </div>
           <Footer />
         </>
