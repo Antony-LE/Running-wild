@@ -23,35 +23,43 @@ function Challenges() {
     setLogout(true);
     setIsLogged(response.data.result);
   };
+
+  // logged in variable
+  const isLoggedIn = localStorage.getItem('id');
   return (
     <>
-      {logout ? (
-        <section className="runningwild__logout-success gradient__bg">
-          <h1>
-            Vous êtes déconnecté !
-          </h1>
-          <p>
-            <NavLink to="/">
-              Me connecter
-            </NavLink>
-          </p>
-        </section>
-      ) : (
-        <div className="runningwild__challenges-container">
-          <header className="runningwild__challenges-header">
-            <Navbar />
-            <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-            <NavLink to="/profile">
-              <button className="runningwild__profile-button" type="button">Mon profil</button>
-            </NavLink>
-          </header>
-          <main className="runningwild__challenges-main">
-            <ChallengesCardList />
-          </main>
-          <Footer />
-        </div>
-      )}
+      {isLoggedIn ? (
+        <>
+          {logout ? (
+            <section className="runningwild__logout-success gradient__bg">
+              <h1>
+                Vous êtes déconnecté !
+              </h1>
+              <p>
+                <NavLink to="/">
+                  Me connecter
+                </NavLink>
+              </p>
+            </section>
+          ) : (
+            <div className="runningwild__challenges-container">
+              <header className="runningwild__challenges-header">
+                <Navbar />
+                <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+                <NavLink to="/profile">
+                  <button className="runningwild__profile-button" type="button">Mon profil</button>
+                </NavLink>
+              </header>
+              <main className="runningwild__challenges-main">
+                <ChallengesCardList />
+              </main>
+              <Footer />
+            </div>
+          )}
+        </>
+      ) : (<div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>)}
     </>
+
   );
 }
 export default Challenges;
