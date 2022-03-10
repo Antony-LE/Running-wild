@@ -27,11 +27,11 @@ function ClassementItem({
 ClassementItem.propTypes = {
   className: PropTypes.string,
   itemClassName: PropTypes.string,
-  position: PropTypes.number.isRequired,
+  position: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
   rank: PropTypes.string.isRequired,
   km: PropTypes.string.isRequired,
-  points: PropTypes.string.isRequired,
+  points: PropTypes.number.isRequired,
   avatar: PropTypes.string.isRequired,
 };
 
