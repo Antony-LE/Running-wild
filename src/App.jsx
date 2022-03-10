@@ -13,12 +13,8 @@ import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
-<<<<<<< HEAD
 import TrailCardList from './Components/containers/trailCardList/TrailCardList';
 import Challenges from './Components/challenges/Challenges';
-=======
-import Classements from './Components/classements/Classements';
->>>>>>> classement
 
 function App() {
   return (
@@ -32,11 +28,7 @@ function App() {
           <Route path="/challenges" element={<Challenges />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
-<<<<<<< HEAD
           <Route path="/parcours" element={<TrailCardList />} />
-=======
-          <Route path="/classements" element={<Classements />} />
->>>>>>> classement
         </Routes>
       </div>
     </BrowserRouter>
