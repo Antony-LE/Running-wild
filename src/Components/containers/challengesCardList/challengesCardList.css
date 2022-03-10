@@ -1,0 +1,36 @@
+.runningwild__challenges-content-cardList {
+  display: flex;
+  overflow-x: scroll;
+  padding: 1rem 0;
+  margin-top: 5rem;
+  max-width: 65vw;
+  align-items: center;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3d4852;
+    border-radius: 3px;
+}
+
+.runningwild__challenges-content-cardList_progression-button {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: rgb(31, 41, 55, 0.7);
+    color: white;
+    font-weight: 600;
+    margin-right: 1rem;
+    border: solid 2px #717d97;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-left: 1;
+    margin-right: 1;
+  }

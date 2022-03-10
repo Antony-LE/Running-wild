@@ -13,7 +13,11 @@ import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
+<<<<<<< HEAD
 import TrailCardList from './Components/containers/trailCardList/TrailCardList';
+=======
+import Challenges from './Components/challenges/Challenges';
+>>>>>>> challenges
 
 function App() {
   return (
@@ -24,6 +28,7 @@ function App() {
           <Route path="/inscription" element={<Registration />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/profile" element={<ProfileCardList />} />
+          <Route path="/challenges" element={<Challenges />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
           <Route path="/parcours" element={<TrailCardList />} />
