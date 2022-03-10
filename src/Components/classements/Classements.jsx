@@ -53,10 +53,10 @@ function Classement() {
                 <ul>
                   <li>Position</li>
                   <li>Pseudo</li>
+                  <li>Avatar</li>
                   <li>Rank</li>
                   <li>KM</li>
-                  <li>Challenges</li>
-                  <li>Succes</li>
+                  <li>Points</li>
                 </ul>
               </div>
               <ClassementItems classementData={classementData} />

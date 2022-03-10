@@ -9,17 +9,17 @@ function ClassementItem({
   pseudo,
   rank,
   km,
-  challenges,
-  succes,
+  points,
+  avatar,
 }) {
   return (
     <ul className={className}>
       <li className={itemClassName}>{position}</li>
       <li className={itemClassName}>{pseudo}</li>
+      <li className={itemClassName}><img src={avatar} alt="avatar of user" /></li>
       <li className={itemClassName}>{rank}</li>
       <li className={itemClassName}>{km}</li>
-      <li className={itemClassName}>{challenges}</li>
-      <li className={itemClassName}>{succes}</li>
+      <li className={itemClassName}>{points}</li>
     </ul>
   );
 }
@@ -29,10 +29,10 @@ ClassementItem.propTypes = {
   itemClassName: PropTypes.string,
   position: PropTypes.number.isRequired,
   pseudo: PropTypes.string.isRequired,
-  rank: PropTypes.number.isRequired,
-  km: PropTypes.number.isRequired,
-  challenges: PropTypes.number.isRequired,
-  succes: PropTypes.number.isRequired,
+  rank: PropTypes.string.isRequired,
+  km: PropTypes.string.isRequired,
+  points: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 ClassementItem.defaultProps = {
