@@ -35,8 +35,8 @@ function ClassementItems() {
           pseudo={item.pseudo}
           avatar={item.avatar}
           rank={item.rank}
-          km={item.total_distance_run}
-          points={item.total_points}
+          km={parseFloat(item.total_distance_run).toFixed(2)}
+          points={Math.round(item.total_points)}
         />
       ))}
     </>
