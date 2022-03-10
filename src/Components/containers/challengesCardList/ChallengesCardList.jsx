@@ -10,8 +10,6 @@ import ProgressBar from '../progressBar/ProgressBar';
 /* Use the variable id from localStorage (previsously stored in the login page)
 to dynamically get the user's datas */
 const USER_ID_URL = `${localStorage.getItem('id')}`;
-// console.log(USER_ID_URL);
-
 /* Fetching the challenges depanding on the user id of the localStorage */
 const CHALLENGES = `/user/${USER_ID_URL}/challenges`;
 
@@ -21,20 +19,27 @@ function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
   const [acceptedChallenges, setAcceptedChallenges] = useState([]);
   const [challengeID, setChallengeId] = useState([]);
-  // console.log(`${challengeID} l'id du challenge`);
 
   const getChallenges = async () => {
     const response = await axios.get(CHALLENGES);
+    // fetching the challenges available to the user
     const challengesAvailableList = response.data.challenges.available_challenges;
+    // fetching the challenges already subscribed by the user
     const challengesSubscribedList = response.data.challenges.subscribed_challenges;
+    // injecting the data in the states
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
-    console.log(challengesAvailableList);
-    console.log(challengesSubscribedList);
+  };
+  // refreshing the page when a challenge is accepted
+  const refreshPage = () => {
+    window.location.reload(false);
   };
 
   const onButtonClick = async () => {
     try {
+      // sending the data to the database, the id of the challenge clicked and the
+      // user id thanks to the local storage
+
       const response = await axios.post(
         CHALLENGES_ADD,
         JSON.stringify({
@@ -49,12 +54,14 @@ function ChallengesCardList() {
       );
       console.log(JSON.stringify(response?.data));
     } catch (err) {
-      console.log('ERROR');
+      console.log('Error with this challenge');
+    } finally {
+      // calling the refresh at the end of the post
+      refreshPage();
     }
   };
-
-  useEffect(() => getChallenges(), []);
   useEffect(() => setChallengeId(challengeID), [challengeID]);
+  useEffect(() => getChallenges(), []);
 
   return (
     <ul className="runningwild__challenges-content-cardList">
