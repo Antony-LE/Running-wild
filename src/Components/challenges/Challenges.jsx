@@ -5,7 +5,6 @@ import './challenges.css';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
-import cardChallengesData from '../../data/cardChallengesData';
 import ChallengesCardList from '../containers/challengesCardList/ChallengesCardList';
 
 // Import of axios
@@ -23,7 +22,6 @@ function Challenges() {
     const response = await axios.get(LOGOUT_URL);
     setLogout(true);
     setIsLogged(response.data.result);
-    console.log(response);
   };
   return (
     <>
@@ -48,7 +46,7 @@ function Challenges() {
             </NavLink>
           </header>
           <main className="runningwild__challenges-main">
-            <ChallengesCardList cardChallengesData={cardChallengesData} />
+            <ChallengesCardList />
           </main>
           <Footer />
         </div>
