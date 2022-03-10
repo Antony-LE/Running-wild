@@ -72,9 +72,26 @@
     font-weight: bold;
 }
 
-.runningwild-trail-card-lower-container-button {
+.runningwild-trail-card-lower-container-buttonDetails {
     margin: 1em;
-    margin-top: 1em;
+    color: #1c0e57;
+    font-weight: bold ;
+    background-color: white;
+    border: 2px solid rgb(133, 25, 160) ;
+    padding: 0.6em;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    animation: ease-in-out;
+}
+
+.runningwild-trail-card-lower-container-button:hover {
+    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+    transform: scale(1.2);
+    border: none;
+    color: white;
+}
+
+.runningwild-trail-card-lower-container-buttonLike {
     color: #1c0e57;
     font-weight: bold ;
     background-color: white;
@@ -86,12 +103,33 @@
 
 }
 
-.runningwild-trail-card-lower-container-button:hover {
+.runningwild-trail-card-lower-container-buttonLike:hover {
     background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
     transform: scale(1.2);
     border: none;
     color: white;
 }
+
+.runningwild-trail-card-lower-container-subscribtion {
+    margin: 1em;
+    color: #1c0e57;
+    font-weight: bold ;
+    background-color: white;
+    border: 2px solid rgb(133, 25, 160) ;
+    padding: 0.6em;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    animation: ease-in-out;
+
+}
+
+.runningwild-trail-card-lower-container-subscribtion:hover {
+    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+    transform: scale(1.2);
+    border: none;
+    color: white;
+}
+
 
 .startpoint {
     text-decoration: underline;

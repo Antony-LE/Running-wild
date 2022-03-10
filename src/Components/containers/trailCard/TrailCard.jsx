@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
@@ -6,13 +7,107 @@
 import React, { useState } from 'react';
 import './trailCard.css';
 
+// Import of axios
+import axios from '../../../api/axios';
+
+// endpoint for Likes URL
+const LIKE_URL = '/review';
+
+// endpoint to subscribe to a new run
+const RUN_URL = '/run';
+
+// variables to get the current time
+const t = new Date();
+const hours = `${t.getHours()}:${t.getMinutes()}`;
+
+// variables to get the current date
+// const d = new Date();
+// const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+
 function TrailCard({
   name, city, map, environement, distance, startPoint, endPoint, postalCode, like,
 }) {
+  // Handle the LIKE BUTTON
+  // display the button like style
+  const [likeOn, setLikeOn] = useState(false);
+  // Check if the user has already liked the trail or not
+  const [likeDisplay, setLikeDisplay] = useState(false);
+
+  // Handle the SUBSCRIPTION BUTTON
+  // display the button subscription style
+  const [subscriptionOn, setSubscriptionOn] = useState(false);
+  const [time, setTime] = useState('');
+  const [hour, setHour] = useState('');
+  // const [dateRun, setDateRun] = useState('');
+  const [Km, setKm] = useState(0);
+
+  const [userId, setUserId] = useState(0);
+  const [trailId, setTrailId] = useState(0);
   const [detailsOn, setDetailsOn] = useState(false);
 
   const handleDisplayDetails = () => {
     setDetailsOn(!detailsOn);
+  };
+
+  const handleLikeOn = async (e) => {
+    setUserId(localStorage.getItem('id'));
+    setTrailId(localStorage.getItem('trail_Id'));
+    setLikeOn(!likeOn);
+    try {
+      const response = await axios.post(
+        LIKE_URL,
+        JSON.stringify({
+          userId: userId,
+          trailId: trailId,
+        }),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+
+        },
+      );
+      if (response.data.result === true) {
+        setLikeDisplay(true);
+      } else {
+        setLikeDisplay(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSubscription = async (e) => {
+    setUserId(localStorage.getItem('id'));
+    setTrailId(localStorage.getItem('trail_Id'));
+    setTime('00:00:00');
+    setHour(hours);
+    // setDateRun(date);
+    setKm(localStorage.getItem('distance'));
+    setSubscriptionOn(!subscriptionOn);
+    try {
+      const response = await axios.post(
+        RUN_URL,
+        JSON.stringify({
+          userId: userId,
+          trailId: trailId,
+          time: time,
+          hour: hour,
+          // dateRun: dateRun,
+          distance: Km,
+        }),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+
+        },
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -74,8 +169,16 @@ function TrailCard({
             </>
           )
           : ''}
-        <button type="button" className="runningwild-trail-card-lower-container-button" onClick={handleDisplayDetails}>
+        <button type="button" className="runningwild-trail-card-lower-container-buttonDetails" onClick={handleDisplayDetails}>
           {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
+        </button>
+        <br />
+        <button type="button" className="runningwild-trail-card-lower-container-buttonLike" onClick={handleLikeOn}>
+          {likeOn === false && likeDisplay === false ? (<>Like</>) : (<>Liked !</>)}
+        </button>
+        <br />
+        <button type="button" className="runningwild-trail-card-lower-container-subscribtion" onClick={handleSubscription}>
+          {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
         </button>
       </div>
     </div>

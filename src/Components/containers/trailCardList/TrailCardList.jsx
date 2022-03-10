@@ -22,6 +22,9 @@ const parisTrails = [2, 17, 18];
 const random = Math.floor(Math.random() * parisTrails.length);
 const randomValue = parisTrails[random];
 
+// Set the trail ID on localstorage
+localStorage.setItem('trail_Id', randomValue);
+
 /* Use the variable id from localStorage (previsously stored in the login page)
 to dynamically get the user's datas */
 const TRAIL_ID_URL = `/trail/${randomValue}`;
@@ -32,6 +35,8 @@ function TrailCardList() {
   const [map, setMap] = useState('');
   const [environement, setEnvironement] = useState([]);
   const [distance, setDistance] = useState('');
+  // Set the trail distance on localstorage (use in trailCard component)
+  localStorage.setItem('distance', distance);
   const [startpoint, setStartPoint] = useState('');
   const [endpoint, setEndpoint] = useState('');
   const [postCode, setPostCode] = useState('');
