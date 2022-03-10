@@ -165,11 +165,9 @@ function TrailCard({
         <button type="button" className="runningwild-trail-card-lower-container-buttonDetails" onClick={handleDisplayDetails}>
           {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
         </button>
-        <br />
         <button type="button" className="runningwild-trail-card-lower-container-buttonLike" onClick={handleLikeOn}>
           {likeOn === false && likeDisplay === false ? (<>Like</>) : (<>Liked !</>)}
         </button>
-        <br />
         <button type="button" className="runningwild-trail-card-lower-container-subscribtion" onClick={handleSubscription}>
           {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
         </button>

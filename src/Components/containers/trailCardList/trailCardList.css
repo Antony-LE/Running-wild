@@ -6,13 +6,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center
 }
 
 h1 {
     color: white;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
 }
  h2 {
     color: white;
@@ -119,14 +119,14 @@ hr {
 }
 
 .search-results {
-    height: 15em;
+    height: fit-content;
 }
 
 .search-results hr {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     display:block;  
-    width: 35vw;
+    width: 20vw;
     margin-left: auto;
     margin-right: auto;
 }

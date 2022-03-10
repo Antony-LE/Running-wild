@@ -5,7 +5,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './adminCard.css';
-import uniqid from 'uniqid';
 import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
 // Import of axios
