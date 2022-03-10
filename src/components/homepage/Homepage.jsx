@@ -27,10 +27,8 @@ function Homepage() {
     const response = await axios.get(LOGOUT_URL);
     setLogout(true);
     setIsLogged(response.data.result);
-    console.log(response);
     // Clear out all the user's data when disconnect
     window.localStorage.clear();
-    console.log(response);
   };
   return (
     <>
