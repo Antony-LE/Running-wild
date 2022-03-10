@@ -13,11 +13,8 @@ import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
-<<<<<<< HEAD
 import TrailCardList from './Components/containers/trailCardList/TrailCardList';
-=======
 import Challenges from './Components/challenges/Challenges';
->>>>>>> challenges
 
 function App() {
   return (
