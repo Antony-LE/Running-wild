@@ -19,8 +19,6 @@ function ChallengesCardList() {
   const [challenges, setChallenges] = useState([]);
   const [acceptedChallenges, setAcceptedChallenges] = useState([]);
   const [challengeID, setChallengeId] = useState([]);
-  console.log(challenges);
-  console.log(acceptedChallenges);
 
   const getChallenges = async () => {
     const response = await axios.get(CHALLENGES);
@@ -31,12 +29,6 @@ function ChallengesCardList() {
     // injecting the data in the states
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
-    console.log(challengesAvailableList);
-    console.log(challengesSubscribedList);
-  };
-  // refreshing the page when a challenge is accepted
-  const refreshPage = () => {
-    window.location.reload();
   };
 
   const onButtonClick = async () => {
@@ -74,7 +66,7 @@ function ChallengesCardList() {
             text={challenge.description}
           />
           <div className="runningwild__challenges-content-cardList_progression">
-            <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); refreshPage(); }}>Accepter le challenge</button>
+            <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); }}>Accepter le challenge</button>
           </div>
         </li>
       )) : ''}
