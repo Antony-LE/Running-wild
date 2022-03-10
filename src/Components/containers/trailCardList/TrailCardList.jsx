@@ -46,6 +46,7 @@ function TrailCardList() {
   const [searchedCity, setSearchedCity] = useState('');
   // const [distanceMax, setDistanceMax] = useState(0);
   const [distanceMin, setDistanceMin] = useState(0);
+  const [searchedResults, setSearchedResults] = useState('');
 
   const handleTrailData = async () => {
     const response = await axios.get(TRAIL_ID_URL);
@@ -73,11 +74,12 @@ function TrailCardList() {
   }
 
   const handleSearchData = async (e) => {
-    // endpoint for random trail
     e.preventDefault();
+    // endpoint for random trail
     const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distancemin=${distanceMin}`;
     const response = await axios.get(SEARCH_TRAIL_URL);
-    console.log(response);
+    setSearchedResults(response.data.searched);
+    console.log(searchedResults);
   };
 
   return (
@@ -116,21 +118,6 @@ function TrailCardList() {
                 value={searchedCity}
                 required
               />
-              {/* ********************************MaxDistance input******************************* */}
-              {/* <label
-                className="runningwild__login-form-label"
-                htmlFor="max-distance"
-              >
-                Distance Max.
-              </label>
-              <input
-                type="text"
-                className="runningwild__login-form-input"
-                id="max-distance"
-                onChange={(e) => setDistanceMax(e.target.value)}
-                value={distanceMax}
-                required
-              /> */}
               {/* ********************************MinDistance input******************************* */}
               <label
                 className="runningwild__login-form-label"
@@ -155,7 +142,56 @@ function TrailCardList() {
               Rechercher !
             </button>
             <hr />
-            <h2> Résultats de votre recherche : </h2>
+            <div className="search-results">
+              <h2> Résultats de votre recherche : </h2>
+              { searchedResults.map((searchResult) => (
+                <>
+                  <span>
+                    Nom :
+                    {' '}
+                    {searchResult.name}
+                    {' '}
+                  </span>
+                  <span>
+                    Environnement :
+                    {' '}
+                    {searchResult.categoryid}
+                    {' '}
+                  </span>
+                  <span>
+                    Distance :
+                    {' '}
+                    {searchResult.distance}
+                    {' '}
+                  </span>
+                  <span>
+                    ville :
+                    {' '}
+                    {searchResult.city}
+                    {' '}
+                  </span>
+                  <span>
+                    Adresse de départ :
+                    {' '}
+                    {searchResult.start_point}
+                    {' '}
+                  </span>
+                  <span>
+                    Adresse d&apos;arrivée :
+                    {' '}
+                    {searchResult.endpoint}
+                    {' '}
+                  </span>
+                  <span>
+                    Code Postal :
+                    {' '}
+                    {searchResult.postcode}
+                    {' '}
+                  </span>
+                  <span />
+                </>
+              ))}
+            </div>
           </div>
           <Footer />
         </>

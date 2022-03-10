@@ -83,7 +83,6 @@ hr {
 
   .runningwild-search-form input{
     width: 5em;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
@@ -109,5 +108,16 @@ hr {
     transform: scale(1.2);
     border: none;
     color: white;
+}
+
+.result-separation {
+    width: 5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-results {
+    height: 15em;
 }
 
