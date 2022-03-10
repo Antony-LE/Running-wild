@@ -23,7 +23,6 @@ function Classement() {
     const response = await axios.get(LOGOUT_URL);
     setLogout(true);
     setIsLogged(response.data.result);
-    console.log(response);
   };
   return (
     <>

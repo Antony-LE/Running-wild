@@ -23,10 +23,11 @@
 
 .runningwild__classements-main-section_classement {
   border: solid 2px #717d97;
-  width: 1000px;
+  width: 1020px;
   height: 750px;
   background-color: rgb(31, 41, 55, 0.7);
   overflow: scroll;
+  overflow-x: hidden
 }
 
 .runningwild__classements-main-section_infos {
@@ -111,6 +112,7 @@
 
 .runningwild__classements-main-section_classement-categories li {
   color: white;
+  padding: 0.5rem;
 }
 
 .runningwild__classements-main-section_user,
