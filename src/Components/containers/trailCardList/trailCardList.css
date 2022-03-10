@@ -40,7 +40,7 @@ hr {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     display: inline-block;  
-    width: 50vw;
+    width: 35vw;
 }
 
 .recherche {
@@ -82,10 +82,11 @@ hr {
   }
 
   .runningwild-search-form input{
-    width: 5em;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    width: 11em;
     margin-bottom: 1em;
+    font-size: 0.9em;
+    padding: 1em;
 }
 
 .runningwild__search-form-button {
@@ -120,4 +121,15 @@ hr {
 .search-results {
     height: 15em;
 }
+
+.search-results hr {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display:block;  
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 

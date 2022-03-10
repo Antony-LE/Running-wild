@@ -47,6 +47,7 @@ function TrailCardList() {
   // const [distanceMax, setDistanceMax] = useState(0);
   const [distanceMin, setDistanceMin] = useState(0);
   const [searchedResults, setSearchedResults] = useState('');
+  const [displayResults, setDisplayResults] = useState(false);
 
   const handleTrailData = async () => {
     const response = await axios.get(TRAIL_ID_URL);
@@ -79,6 +80,7 @@ function TrailCardList() {
     const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distancemin=${distanceMin}`;
     const response = await axios.get(SEARCH_TRAIL_URL);
     setSearchedResults(response.data.searched);
+    setDisplayResults(!displayResults);
     console.log(searchedResults);
   };
 
@@ -106,11 +108,10 @@ function TrailCardList() {
               <label
                 className="runningwild__login-form-label"
                 htmlFor="city"
-              >
-                Ville
-              </label>
+              />
               <input
                 type="text"
+                placeholder="Ville"
                 className="runningwild__login-form-input"
                 id="city"
                 autoComplete="off"
@@ -122,11 +123,10 @@ function TrailCardList() {
               <label
                 className="runningwild__login-form-label"
                 htmlFor="min-distance"
-              >
-                Distance Min.
-              </label>
+              />
               <input
                 type="text"
+                placeholder="Distance Min.(KM)"
                 className="runningwild__login-form-input"
                 id="min-distance"
                 onChange={(e) => setDistanceMin(e.target.value)}
@@ -142,56 +142,59 @@ function TrailCardList() {
               Rechercher !
             </button>
             <hr />
-            <div className="search-results">
-              <h2> Résultats de votre recherche : </h2>
-              { searchedResults.map((searchResult) => (
-                <>
-                  <span>
-                    Nom :
-                    {' '}
-                    {searchResult.name}
-                    {' '}
-                  </span>
-                  <span>
-                    Environnement :
-                    {' '}
-                    {searchResult.categoryid}
-                    {' '}
-                  </span>
-                  <span>
-                    Distance :
-                    {' '}
-                    {searchResult.distance}
-                    {' '}
-                  </span>
-                  <span>
-                    ville :
-                    {' '}
-                    {searchResult.city}
-                    {' '}
-                  </span>
-                  <span>
-                    Adresse de départ :
-                    {' '}
-                    {searchResult.start_point}
-                    {' '}
-                  </span>
-                  <span>
-                    Adresse d&apos;arrivée :
-                    {' '}
-                    {searchResult.endpoint}
-                    {' '}
-                  </span>
-                  <span>
-                    Code Postal :
-                    {' '}
-                    {searchResult.postcode}
-                    {' '}
-                  </span>
-                  <span />
-                </>
-              ))}
-            </div>
+            {displayResults ? (
+              <div className="search-results">
+                <h2> Résultats de votre recherche : </h2>
+                { searchedResults.map((searchResult) => (
+                  <>
+                    <span>
+                      Nom :
+                      {' '}
+                      {searchResult.name}
+                      {' '}
+                    </span>
+                    <span>
+                      Environnement :
+                      {' '}
+                      {searchResult.categoryid}
+                      {' '}
+                    </span>
+                    <span>
+                      Distance :
+                      {' '}
+                      {searchResult.distance}
+                      {' '}
+                    </span>
+                    <span>
+                      ville :
+                      {' '}
+                      {searchResult.city}
+                      {' '}
+                    </span>
+                    <span>
+                      Adresse de départ :
+                      {' '}
+                      {searchResult.start_point}
+                      {' '}
+                    </span>
+                    <span>
+                      Adresse d&apos;arrivée :
+                      {' '}
+                      {searchResult.endpoint}
+                      {' '}
+                    </span>
+                    <span>
+                      Code Postal :
+                      {' '}
+                      {searchResult.postcode}
+                      {' '}
+                    </span>
+                    <span />
+                    <hr />
+                  </>
+                ))}
+              </div>
+            ) : ('')}
           </div>
           <Footer />
         </>
