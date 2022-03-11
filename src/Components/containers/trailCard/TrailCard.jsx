@@ -69,9 +69,13 @@ function TrailCard({
 
       console.log(response);
       if (response.data.like === true) {
-        setLikeOn(false);
-      } else {
-        setLikeOn(true);
+        useEffect(() => {
+          setLikeOn(false);
+        }, [likeOn]);
+      } else if (response.data.like === false) {
+        useEffect(() => {
+          setLikeOn(true);
+        }, [likeOn]);
       }
     } catch (err) {
       console.log(err);
@@ -174,7 +178,7 @@ function TrailCard({
         <button type="button" className="runningwild-trail-card-lower-container-buttonDetails" onClick={handleDisplayDetails}>
           {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
         </button>
-        <button type="button" className="runningwild-trail-card-lower-container-buttonLike" onClick={handleLikeOn}>
+        <button type="button" className={likeOn ? ('runningwild-trail-card-lower-container-buttonLike') : ('runningwild-trail-card-lower-container-buttonLike-off')} onClick={handleLikeOn}>
           {likeOn ? (<>Like</>) : (<>Liked !</>)}
         </button>
         <button type="button" className="runningwild-trail-card-lower-container-subscribtion" onClick={handleSubscription}>

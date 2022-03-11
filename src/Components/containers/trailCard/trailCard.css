@@ -108,6 +108,24 @@
     animation: ease-in-out;
 }
 
+.runningwild-trail-card-lower-container-buttonLike-off {
+    color: white;
+    font-weight: bold ;
+    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+    border: 2px solid rgb(133, 25, 160) ;
+    padding: 0.6em;
+    border-radius: 6px;
+    transition-duration: 0.5s;
+    animation: ease-in-out;
+}
+
+.runningwild-trail-card-lower-container-buttonLike-off:hover {
+    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+    transform: scale(1.2);
+    border: none;
+    color: white;
+}
+
 .runningwild-trail-card-lower-container-buttonLike:hover {
     background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
     transform: scale(1.2);
