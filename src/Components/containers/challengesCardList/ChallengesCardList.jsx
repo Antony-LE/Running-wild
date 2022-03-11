@@ -66,6 +66,7 @@ function ChallengesCardList() {
             title={challenge.name}
             illustration={challenge.challenge_image}
             text={challenge.description}
+            bonus={challenge.bonus_points}
           />
           <div className="runningwild__challenges-content-cardList_progression">
             <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); }}>Accepter le challenge</button>
@@ -78,6 +79,7 @@ function ChallengesCardList() {
             title={challenge.name}
             illustration={challenge.challenge_image}
             text={challenge.description}
+            bonus={challenge.bonus_points}
           />
           <div className="runningwild__challenges-content-cardList_progression">
             <ProgressBar key={challenge.name} value={parseInt(challenge.progression, 10)} max={parseInt(challenge.distance, 10)} />
