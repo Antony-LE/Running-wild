@@ -29,6 +29,8 @@ function ChallengesCardList() {
     // injecting the data in the states
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
+    console.log(challengesAvailableList);
+    console.log(challengesSubscribedList);
   };
 
   const onButtonClick = async () => {

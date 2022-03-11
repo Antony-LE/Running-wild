@@ -1,12 +1,11 @@
 .runningwild_adminCard {
     width: 23em;
-    height: 30em;
+    height: 32em;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
     font-family: var(--font-family);
     text-align: center;
-    overflow: overlay;
 }
 
 .runningwild_adminCard-upperContainer {
@@ -47,7 +46,7 @@
 }
 
 .runningwild_adminCard-lowerContainer {
-    height: 300px;
+    height: 30px;
     background-color: white;
     text-align: center;
     margin-top: 60px;
@@ -63,6 +62,7 @@
 
 .runningwild_adminCard-lowerContainer hr {
     margin: 1em;
+    width: 15rem;
     font-size: 0.9em;
     text-align: justify;
 }

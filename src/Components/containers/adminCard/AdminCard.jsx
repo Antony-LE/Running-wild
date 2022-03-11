@@ -176,7 +176,7 @@ function AdminCard({
           </div>
         ) : ('')}
         <button type="button" className="runningwild-admin-card-lower-container-button" onClick={handleDisplayVisitors}>
-          {visitorsButtonDetails ? ('Cacher les visiteurs') : ('Consulter tous les visiteurs')}
+          {visitorsButtonDetails ? ('Nombre de visites') : ('Cacher nombre de visites')}
         </button>
         {displayVisitors ? (
           <div className="visitors">
