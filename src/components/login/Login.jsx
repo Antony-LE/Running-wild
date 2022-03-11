@@ -74,7 +74,7 @@ function Login() {
         setSuccess(true);
         console.log(response.data.connection.user_id);
         // Store the user's id into the browser's localStorage.
-        localStorage.setItem('user_id', JSON.stringify(response.data.connection.user_id));
+        localStorage.setItem('id', JSON.stringify(response.data.connection.user_id));
         console.log(response);
       } else {
         setSuccess(false);

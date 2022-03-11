@@ -1,10 +1,11 @@
+/* eslint-disable radix */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './trailCard.css';
 
 // Import of axios
@@ -26,17 +27,15 @@ function TrailCard({
   // Handle the LIKE BUTTON
   // display the button like style
   const [likeOn, setLikeOn] = useState(false);
-  // Check if the user has already liked the trail or not
-  const [likeDisplay, setLikeDisplay] = useState(false);
 
   // Handle the SUBSCRIPTION BUTTON
   // display the button subscription style
   const [subscriptionOn, setSubscriptionOn] = useState(false);
   const [time, setTime] = useState('');
   const [hour, setHour] = useState('');
-  const [Km, setKm] = useState(0);
+  const [Km, setKm] = useState(2);
 
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState(10);
   const [trailId, setTrailId] = useState(0);
   const [detailsOn, setDetailsOn] = useState(false);
 
@@ -44,9 +43,13 @@ function TrailCard({
     setDetailsOn(!detailsOn);
   };
 
-  const handleLikeOn = async (e) => {
+  // refresh the state datas for the Like feature
+  useEffect(() => {
     setUserId(localStorage.getItem('id'));
     setTrailId(localStorage.getItem('trail_Id'));
+  }, [userId, trailId]);
+
+  const handleLikeOn = async (e) => {
     setLikeOn(!likeOn);
     try {
       const response = await axios.post(
@@ -63,11 +66,11 @@ function TrailCard({
 
         },
       );
-      if (response.data.result === true) {
-        setLikeDisplay(true);
+
+      console.log(response);
+      if (response.data.like === true) {
         setLikeOn(false);
       } else {
-        setLikeDisplay(false);
         setLikeOn(true);
       }
     } catch (err) {
@@ -75,12 +78,16 @@ function TrailCard({
     }
   };
 
-  const handleSubscription = async (e) => {
-    setUserId(localStorage.getItem('id'));
-    setTrailId(localStorage.getItem('trail_Id'));
+  // refresh the state datas for the subscription feature
+  useEffect(() => {
+    setUserId(parseInt(localStorage.getItem('id')));
+    setTrailId(parseInt(localStorage.getItem('trail_Id')));
     setTime('01:30:50');
     setHour(hours);
-    setKm(localStorage.getItem('distance'));
+    setKm(10);
+  }, [userId, trailId, time, hour, Km]);
+
+  const handleSubscription = async (e) => {
     setSubscriptionOn(!subscriptionOn);
     try {
       const response = await axios.post(
@@ -168,7 +175,7 @@ function TrailCard({
           {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
         </button>
         <button type="button" className="runningwild-trail-card-lower-container-buttonLike" onClick={handleLikeOn}>
-          {likeOn === false && likeDisplay === false ? (<>Like</>) : (<>Liked !</>)}
+          {likeOn ? (<>Like</>) : (<>Liked !</>)}
         </button>
         <button type="button" className="runningwild-trail-card-lower-container-subscribtion" onClick={handleSubscription}>
           {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
