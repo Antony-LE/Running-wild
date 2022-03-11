@@ -15,10 +15,6 @@ import axios from '../../api/axios';
 
 const LOGIN_URL = '/user/login';
 
-/* Use the variable id from localStorage (previsously stored in the login page)
-to dynamically get the user's datas */
-const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
-
 // Regex for the email validation ( exmaple@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 /* Regex for the username validation (at least one character lower,
@@ -69,6 +65,7 @@ function Login() {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           },
+          // withCredentials: true,
 
         },
       );
@@ -77,7 +74,8 @@ function Login() {
         setSuccess(true);
         console.log(response.data.connection.user_id);
         // Store the user's id into the browser's localStorage.
-        localStorage.setItem('id', JSON.stringify(response.data.connection.user_id));
+        localStorage.setItem('user_id', JSON.stringify(response.data.connection.user_id));
+        console.log(response);
       } else {
         setSuccess(false);
         setErrMsg(response.data.description);

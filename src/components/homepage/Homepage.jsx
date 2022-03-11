@@ -15,7 +15,7 @@ import axios from '../../api/axios';
 const LOGOUT_URL = '/user/logout';
 
 // logged in variable
-const isLoggedIn = localStorage.getItem('id');
+const isLoggedIn = localStorage.getItem('user_id');
 
 function Homepage() {
   // handle wether the user is logged in or not
