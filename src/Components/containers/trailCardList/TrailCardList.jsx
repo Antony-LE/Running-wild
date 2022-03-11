@@ -92,7 +92,7 @@ function TrailCardList() {
   const handleSearchData = async (e) => {
     e.preventDefault();
     // endpoint for random trail
-    const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distancemin=${distanceMin}`;
+    const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distanceMin=${distanceMin}`;
     const response = await axios.get(SEARCH_TRAIL_URL);
     setSearchedResults(response.data.searched);
     setDisplayResults(!displayResults);

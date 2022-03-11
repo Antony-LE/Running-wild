@@ -60,15 +60,16 @@ function ProfileCardList() {
   const handleChallenges = async () => {
     const response = await axios.get(CHALLENGES_ID_URL);
     if (response.data.result === true) {
-      setChallenges(response.data.challenges.length);
+      setChallenges(response.data.challenges.subscribed_challenges.length);
     } else {
       setChallenges(response.data.description);
     }
+    console.log(response.data);
   };
   const handleAchievements = async () => {
     const response = await axios.get(ACHIEVEMENTS_ID_URL);
     if (response.data.result === true) {
-      setAchievements(response.data.achievments.length);
+      setAchievements(response.data.achievements.length);
     } else {
       setAchievements(response.data.description);
     }

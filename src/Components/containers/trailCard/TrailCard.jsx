@@ -65,8 +65,10 @@ function TrailCard({
       );
       if (response.data.result === true) {
         setLikeDisplay(true);
+        setLikeOn(false);
       } else {
         setLikeDisplay(false);
+        setLikeOn(true);
       }
     } catch (err) {
       console.log(err);
