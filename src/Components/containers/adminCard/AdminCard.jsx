@@ -15,7 +15,7 @@ const ACHIEVEMENTS_ALL_URL = '/achievement/all';
 // Endpoint for all challenges
 const CHALLENGES_ALL_URL = '/challenge/all';
 // Endpoint for all visitors
-const VISITORS_ALL_URL = '/user/connections';
+const VISITORS_ALL_URL = `/user/${localStorage.getItem('id')}/connections`;
 
 function AdminCard({
   className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription,
@@ -182,7 +182,7 @@ function AdminCard({
           <div className="visitors">
             <h2>
               {' '}
-              Nombre de visites à ce jour :
+              Votre nombre de visites à ce jour :
               {' '}
               {visitors}
             </h2>
