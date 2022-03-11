@@ -29,15 +29,16 @@ function ChallengesCardList() {
     // injecting the data in the states
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
-    console.log(challengesAvailableList);
-    console.log(challengesSubscribedList);
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
   };
 
   const onButtonClick = async () => {
     try {
       // sending the data to the database, the id of the challenge clicked and the
       // user id thanks to the local storage
-
       const response = await axios.post(
         CHALLENGES_ADD,
         JSON.stringify({
@@ -49,7 +50,7 @@ function ChallengesCardList() {
             'Content-Type': 'application/json',
           },
         },
-      );
+      ).then(refreshPage);
       console.log(JSON.stringify(response?.data));
     } catch (err) {
       console.log('Error with this challenge');
