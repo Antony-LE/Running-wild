@@ -12,7 +12,7 @@ import challengesIcon from '../../../Assets/challenges.png';
 import medalIcon from '../../../Assets/medaille.png';
 
 function ProfileCard({
-  className, name, surname, role, rank, dateOfBirth, city, pseudo, about, avatar, email, subscription, challenges, achievements,
+  name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements,
 }) {
   const [detailsOn, setDetailsOn] = useState(false);
   const handleDisplayDetails = () => {
@@ -74,6 +74,7 @@ function ProfileCard({
                 <img src={challengesIcon} alt="challenge icon" width="15px" height="15px" />
                 {' '}
                 Challenges en cours :
+                {' '}
                 {challenges}
               </span>
               <span>

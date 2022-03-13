@@ -63,6 +63,8 @@ function TrailCardList() {
   const [distanceMin, setDistanceMin] = useState(0);
   const [searchedResults, setSearchedResults] = useState('');
   const [displayResults, setDisplayResults] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [displayResultError, setDisplayResultsError] = useState(false);
 
   const handleTrailData = async () => {
     const response = await axios.get(TRAIL_ID_URL);
@@ -94,9 +96,15 @@ function TrailCardList() {
     // endpoint for random trail
     const SEARCH_TRAIL_URL = `/trail/search?city=${searchedCity}&distanceMin=${distanceMin}`;
     const response = await axios.get(SEARCH_TRAIL_URL);
-    setSearchedResults(response.data.searched);
-    setDisplayResults(!displayResults);
-    console.log(searchedResults);
+    if (response.data.result === true) {
+      setSearchedResults(response.data.searched);
+      setDisplayResults(!displayResults);
+      setErrorMessage(!errorMessage);
+      console.log(searchedResults);
+    } else if (response.data.result === false) {
+      setDisplayResultsError('Aucuns résultats');
+      setErrorMessage(!errorMessage);
+    }
   };
 
   const handleSubscription = async (e) => {
@@ -148,7 +156,15 @@ function TrailCardList() {
             </div>
             <div className="runningwild-search-form">
               <hr />
-              <h2> Rechercher un itinéraire par : </h2>
+              {errorMessage ? (
+                <>
+                  <h2> Rechercher un itinéraire par: </h2>
+                  <span className="errorMessage">{displayResultError}</span>
+                </>
+              ) : (
+                <h2> Rechercher un itinéraire par : </h2>
+              )}
+
               <form>
                 {/* ********************************City input******************************* */}
                 <label
@@ -184,6 +200,7 @@ function TrailCardList() {
                 onClick={handleSearchData}
                 className="runningwild__search-form-button"
                 type="submit"
+                value="Submit"
               >
                 Rechercher !
               </button>

@@ -158,5 +158,18 @@ hr {
     color: white;
 }
 
+.errorMessage {
+    background-color: lightpink;
+    border-radius: 0.5rem;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.7rem;
+    margin-bottom: 0.5em;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
 

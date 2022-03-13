@@ -59,20 +59,20 @@ function ProfileCardList() {
   };
   const handleChallenges = async () => {
     const response = await axios.get(CHALLENGES_ID_URL);
-    if (response.data.result === true) {
+    if (response.data.challenges.subscribed_challenges === true) {
       setChallenges(response.data.challenges.subscribed_challenges.length);
     } else {
-      setChallenges(response.data.description);
+      setChallenges('pas de challenge en cours !');
     }
-    console.log(response.data);
   };
   const handleAchievements = async () => {
     const response = await axios.get(ACHIEVEMENTS_ID_URL);
     if (response.data.result === true) {
       setAchievements(response.data.achievements.length);
     } else {
-      setAchievements(response.data.description);
+      setAchievements('pas de succès obtenus !');
     }
+    console.log(response.data);
   };
   handleLocalStorage();
   handleRankId();
