@@ -59,11 +59,12 @@ function ProfileCardList() {
   };
   const handleChallenges = async () => {
     const response = await axios.get(CHALLENGES_ID_URL);
-    if (response.data.challenges.subscribed_challenges === true) {
+    if (response.data.challenges.subscribed_challenges !== null) {
       setChallenges(response.data.challenges.subscribed_challenges.length);
     } else {
       setChallenges('pas de challenge en cours !');
     }
+    console.log(response.data.challenges);
   };
   const handleAchievements = async () => {
     const response = await axios.get(ACHIEVEMENTS_ID_URL);

@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './trailCardList.css';
 import TrailCard from '../trailCard/TrailCard';
 import Navbar from '../../navbar/Navbar';
@@ -99,10 +99,13 @@ function TrailCardList() {
     if (response.data.result === true) {
       setSearchedResults(response.data.searched);
       setDisplayResults(!displayResults);
-      setErrorMessage(!errorMessage);
+      setErrorMessage(false);
       console.log(searchedResults);
     } else if (response.data.result === false) {
       setDisplayResultsError('Aucuns résultats');
+      setErrorMessage(!errorMessage);
+      setDisplayResults(false);
+    } else {
       setErrorMessage(!errorMessage);
     }
   };
@@ -227,12 +230,12 @@ function TrailCardList() {
                       <span>
                         Distance :
                         {' '}
-                        {searchResult.distance}
+                        {`${searchResult.distance} km`}
                         {' '}
                       </span>
                       <br />
                       <span>
-                        ville :
+                        Ville :
                         {' '}
                         {searchResult.city}
                         {' '}

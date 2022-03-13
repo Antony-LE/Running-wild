@@ -25,7 +25,7 @@ function TrailCard({
   name, city, map, environement, distance, startPoint, endPoint, postalCode, like,
 }) {
   // Handle the LIKE BUTTON
-  // display the button like style
+  // display the button like style and send the data to DB
   const [likeOn, setLikeOn] = useState(false);
 
   // Handle the SUBSCRIPTION BUTTON
@@ -70,11 +70,11 @@ function TrailCard({
       console.log(response);
       if (response.data.like === true) {
         useEffect(() => {
-          setLikeOn(false);
+          setLikeOn(true);
         }, [likeOn]);
       } else if (response.data.like === false) {
         useEffect(() => {
-          setLikeOn(true);
+          setLikeOn(false);
         }, [likeOn]);
       }
     } catch (err) {
@@ -178,8 +178,8 @@ function TrailCard({
         <button type="button" className="runningwild-trail-card-lower-container-buttonDetails" onClick={handleDisplayDetails}>
           {detailsOn === false ? (<>détails</>) : (<>Moins de détails</>)}
         </button>
-        <button type="button" className={likeOn ? ('runningwild-trail-card-lower-container-buttonLike') : ('runningwild-trail-card-lower-container-buttonLike-off')} onClick={handleLikeOn}>
-          {likeOn ? (<>Like</>) : (<>Liked !</>)}
+        <button type="button" className={likeOn === false ? ('runningwild-trail-card-lower-container-buttonLike') : ('runningwild-trail-card-lower-container-buttonLike-off')} onClick={handleLikeOn}>
+          {likeOn === false ? (<>Like</>) : (<>Liked !</>)}
         </button>
         <button type="button" className="runningwild-trail-card-lower-container-subscribtion" onClick={handleSubscription}>
           {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
