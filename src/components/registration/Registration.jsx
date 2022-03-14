@@ -12,12 +12,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Import of axios
 import axios from '../../api/axios';
 
+// Endpoint for the user registration
 const REGISTER_URL = '/user';
 
 /* Regex for the firstname, lastname, pseudo validation (must start with lower or uppercase letter,
 following with lower or uppercase letter or digits or underscore, at least 3 to 23 characters  ) */
 const USER_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-9-_]{1,23}$/;
-// Regex for the email validation ( exmaple@wanadoo.com format)
+// Regex for the email validation ( example@wanadoo.com format)
 const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // Regex for the postal code validation (5 digits only)
 const ZIPCODE_REGEX = /^0[1-9]\d{3}$|^20[1-2]\d{2}$|^20300$|^[13-8]\d{4}$|^9[0-6]\d{3}$|^97[1-6]\d{2}$|^98[4678]\d{2}$|^9{5}$/;
@@ -74,53 +75,43 @@ function Registration() {
   // Handle the user's inputs with regex for each input
   useEffect(() => {
     setValidFirstname(USER_REGEX.test(userFirstname));
-    // console.log(userFirstname);
   }, [userFirstname]);
 
   useEffect(() => {
     setValidLastname(USER_REGEX.test(userLastname));
-    // console.log(userLastname);
   }, [userLastname]);
 
   useEffect(() => {
     setValidPseudo(USER_REGEX.test(userPseudo));
-    // console.log(userLastname);
   }, [userPseudo]);
 
   useEffect(() => {
     setValidPostalCode(ZIPCODE_REGEX.test(userPostalcode));
-    // console.log(userPostalcode);
   }, [userPostalcode]);
 
   useEffect(() => {
     setValidCity(CITY_REGEX.test(userCity));
-    // console.log(userCity);
   }, [userCity]);
 
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(userEmail));
-    // console.log(userEmail);
   }, [userEmail]);
 
   useEffect(() => {
     setValidDateOfBirth(BIRTHDATE_REGEX.test(userDateOfBirth));
-    // console.log(userDateOfBirth);
   }, [userDateOfBirth]);
 
   useEffect(() => {
     setValidGender(GENDER_REGEX.test(userGender));
-    // console.log(userGender);
   }, [userGender]);
 
   // Handle both password and confirmed password validation
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    // console.log(pwd);
     setValidPwd(result);
     // check if the confirmed password matches the password (boolean)
     const match = pwd === matchPwd;
     setValidMatch(match);
-    // console.log(match);
   }, [pwd, matchPwd]);
 
   // check if the matchpassword matches the password (boolean)
@@ -163,9 +154,7 @@ function Registration() {
           },
         },
       );
-      console.log(response);
     } catch (error) {
-      console.log(error);
       setErrMsg('Registration error !');
     }
   };
@@ -404,6 +393,7 @@ function Registration() {
               type="password"
               className="runningwild__registration-form-input"
               id="password"
+              autoComplete="off"
               onChange={(e) => setPwd(e.target.value)}
               value={pwd}
               required
@@ -441,6 +431,7 @@ function Registration() {
               type="password"
               className="runningwild__registration-form-input"
               id="confirm_pwd"
+              autoComplete="off"
               onChange={(e) => setMatchPwd(e.target.value)}
               value={matchPwd}
               required
@@ -480,4 +471,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default React.memo(Registration);

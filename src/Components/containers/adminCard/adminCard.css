@@ -120,5 +120,27 @@
     font-size: 1em;
 }
 
+/********************************** Responsive ************************************/
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 615px) {
+
+ }
+
+@media screen and (max-width: 430px) {
+
+}
+
+@media screen and (max-width: 415px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}
+
 
 

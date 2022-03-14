@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './profileCard.css';
 import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
@@ -12,8 +13,9 @@ import challengesIcon from '../../../Assets/challenges.png';
 import medalIcon from '../../../Assets/medaille.png';
 
 function ProfileCard({
-  name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements,
+  name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements, totalPoints, totalKm, totalBonusPoints,
 }) {
+  // Display the user's details
   const [detailsOn, setDetailsOn] = useState(false);
   const handleDisplayDetails = () => {
     setDetailsOn(!detailsOn);
@@ -42,10 +44,25 @@ function ProfileCard({
           {city.replaceAll('"', '')}
         </h3>
         <br />
-        <h4>
+        <h3>
           Votre Pseudo :
           {' '}
           {pseudo.replaceAll('"', '')}
+        </h3>
+        <h4>
+          Total de points :
+          {' '}
+          {totalPoints}
+        </h4>
+        <h4>
+          Total de Km Parcourus :
+          {' '}
+          {totalKm}
+        </h4>
+        <h4>
+          Total de points bonus acquis :
+          {' '}
+          {totalBonusPoints}
         </h4>
         <hr />
 
@@ -96,4 +113,26 @@ function ProfileCard({
   );
 }
 
-export default ProfileCard;
+ProfileCard.propTypes = {
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  city: PropTypes.string,
+  pseudo: PropTypes.string,
+  avatar: PropTypes.string,
+  email: PropTypes.string,
+  subscription: PropTypes.string,
+  achievements: PropTypes.string,
+};
+
+ProfileCard.defaultProps = {
+  name: '',
+  surname: '',
+  city: '',
+  pseudo: '',
+  avatar: '',
+  email: '',
+  subscription: '',
+  achievements: '',
+};
+
+export default React.memo(ProfileCard);
