@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable radix */
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/iframe-has-title */
@@ -7,6 +8,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import './trailCard.css';
+import Swal from 'sweetalert2';
 
 // Import of axios
 import axios from '../../../api/axios';
@@ -19,7 +21,7 @@ const RUN_URL = '/run';
 
 // variables to get the current time
 const t = new Date();
-const hours = `${t.getHours()}:${t.getMinutes()}`;
+const hours = `${t.getHours()}:${(t.getMinutes() < 10 ? '0' : '') + t.getMinutes()}`;
 
 function TrailCard({
   name, city, map, environement, distance, startPoint, endPoint, postalCode, like,
@@ -110,6 +112,11 @@ function TrailCard({
           },
 
         },
+      );
+      Swal.fire(
+        'Good job!',
+        `Vous avez terminé ce parcours en ${time} seconde et remporté ${Km} points !`,
+        'success',
       );
     } catch (err) {
       console.log(err);

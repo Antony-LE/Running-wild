@@ -6,6 +6,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import './trailCardList.css';
+import Swal from 'sweetalert2';
 import TrailCard from '../trailCard/TrailCard';
 import Navbar from '../../navbar/Navbar';
 import Footer from '../../footer/Footer';
@@ -35,7 +36,6 @@ const RUN_URL = '/run';
 // variables to get the current time
 const t = new Date();
 const hours = `${t.getHours()}:${(t.getMinutes() < 10 ? '0' : '') + t.getMinutes()}`;
-console.log(hours);
 
 function TrailCardList() {
   const [name, setName] = useState('');
@@ -136,6 +136,11 @@ function TrailCardList() {
           },
 
         },
+      );
+      Swal.fire(
+        'Good job!',
+        `Vous avez terminé ce parcours en ${time} seconde`,
+        'success',
       );
     } catch (err) {
       console.log(err);
