@@ -39,30 +39,30 @@ function ProfileCard({
           {' '}
           {rank}
         </h2>
+        <h2>
+          Votre Pseudo :
+          {' '}
+          {`"${pseudo.replaceAll('"', '')}"`}
+        </h2>
         <h3>
           <img src={localPoint} width="20px" height="20px" alt="map point" />
           {city.replaceAll('"', '')}
         </h3>
         <br />
-        <h3>
-          Votre Pseudo :
-          {' '}
-          {pseudo.replaceAll('"', '')}
-        </h3>
         <h4>
           Total de points :
           {' '}
-          {totalPoints}
+          {`${totalPoints} points`}
         </h4>
         <h4>
-          Total de Km Parcourus :
+          Total Km parcourus :
           {' '}
-          {totalKm}
+          {`${totalKm} Km`}
         </h4>
         <h4>
-          Total de points bonus acquis :
+          Total points bonus :
           {' '}
-          {totalBonusPoints}
+          {`${totalBonusPoints} points`}
         </h4>
         <hr />
 

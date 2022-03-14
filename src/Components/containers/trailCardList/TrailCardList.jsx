@@ -34,7 +34,8 @@ const RUN_URL = '/run';
 
 // variables to get the current time
 const t = new Date();
-const hours = `${t.getHours()}:${t.getMinutes()}`;
+const hours = `${t.getHours()}:${(t.getMinutes() < 10 ? '0' : '') + t.getMinutes()}`;
+console.log(hours);
 
 function TrailCardList() {
   const [name, setName] = useState('');
@@ -61,7 +62,7 @@ function TrailCardList() {
   // Handle datas for search form
   const [searchedCity, setSearchedCity] = useState('');
   // const [distanceMax, setDistanceMax] = useState(0);
-  const [distanceMin, setDistanceMin] = useState(0);
+  const [distanceMin, setDistanceMin] = useState('');
   const [searchedResults, setSearchedResults] = useState('');
   const [displayResults, setDisplayResults] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -136,7 +137,6 @@ function TrailCardList() {
 
         },
       );
-      alert(`Vous avez terminé ce parcours en ${time} et gagné (nombre de points) points félicitation !`);
     } catch (err) {
       console.log(err);
     }

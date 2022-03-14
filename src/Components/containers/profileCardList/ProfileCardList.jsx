@@ -24,6 +24,9 @@ const CHALLENGES_ID_URL = `/user/${localStorage.getItem('id')}/challenges`;
 // Endpoint to retrieve user's ongoing achievements
 const ACHIEVEMENTS_ID_URL = `/user/${localStorage.getItem('id')}/achievements`;
 
+// Endpoint to retrieve user's Points
+const POINTS_ID_URL = `/leaderboard/${localStorage.getItem('id')}`;
+
 // User's ID
 const isLoggedIn = localStorage.getItem('id');
 
@@ -40,7 +43,9 @@ function ProfileCardList() {
   const [subscription, setSubscription] = useState('');
   const [challenges, setChallenges] = useState('');
   const [achievements, setAchievements] = useState('');
-
+  const [totalPoints, setTotalPoints] = useState(0);
+  const [totalKm, setTotalKm] = useState(0);
+  const [totalBonusPoints, setTotalBonusPoints] = useState(0);
   // Get all the user's data
   const handleLocalStorage = async () => {
     const response = await axios.get(USER_ID_URL);
@@ -81,11 +86,20 @@ function ProfileCardList() {
     }
   };
 
+  // Get the user's points
+  const handlePoints = async () => {
+    const response = await axios.get(POINTS_ID_URL);
+    setTotalPoints(response.data.points.total_points);
+    setTotalKm(response.data.points.total_distance_run);
+    setTotalBonusPoints(response.data.points.total_bonus_points_for_completed_challenges);
+  };
+
   // functions launching
   handleLocalStorage();
   handleRankId();
   handleChallenges();
   handleAchievements();
+  handlePoints();
   return (
     <>
       {isLoggedIn ? (
@@ -106,6 +120,9 @@ function ProfileCardList() {
                 role={role}
                 challenges={challenges}
                 achievements={achievements}
+                totalPoints={totalPoints}
+                totalKm={totalKm}
+                totalBonusPoints={totalBonusPoints}
               />
             ) : (
               <AdminCard

@@ -33,7 +33,7 @@ function TrailCard({
   const [subscriptionOn, setSubscriptionOn] = useState(false);
   const [time, setTime] = useState('');
   const [hour, setHour] = useState('');
-  const [Km, setKm] = useState(2);
+  const [Km, setKm] = useState(0);
 
   const [userId, setUserId] = useState(10);
   const [trailId, setTrailId] = useState(0);
