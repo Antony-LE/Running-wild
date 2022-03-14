@@ -24,7 +24,7 @@ const CHALLENGES_ID_URL = `/user/${localStorage.getItem('id')}/challenges`;
 // Endpoint to retrieve user's ongoing achievements
 const ACHIEVEMENTS_ID_URL = `/user/${localStorage.getItem('id')}/achievements`;
 
-// logged in variable
+// User's ID
 const isLoggedIn = localStorage.getItem('id');
 
 function ProfileCardList() {
@@ -41,6 +41,7 @@ function ProfileCardList() {
   const [challenges, setChallenges] = useState('');
   const [achievements, setAchievements] = useState('');
 
+  // Get all the user's data
   const handleLocalStorage = async () => {
     const response = await axios.get(USER_ID_URL);
     setName(response.data.user.name);
@@ -53,10 +54,14 @@ function ProfileCardList() {
     setEmail(response.data.user.email);
     setSubscription(response.data.user.subscription_date);
   };
+
+  // Get the user's rank
   const handleRankId = async () => {
     const response = await axios.get(RANK_ID_URL);
     setRank(response.data.rank.name);
   };
+
+  // Get the user's ongoig challenges
   const handleChallenges = async () => {
     const response = await axios.get(CHALLENGES_ID_URL);
     if (response.data.challenges.subscribed_challenges !== null) {
@@ -64,8 +69,9 @@ function ProfileCardList() {
     } else {
       setChallenges('pas de challenge en cours !');
     }
-    console.log(response.data.challenges);
   };
+
+  // Get the user's ongoig achievements
   const handleAchievements = async () => {
     const response = await axios.get(ACHIEVEMENTS_ID_URL);
     if (response.data.result === true) {
@@ -73,7 +79,6 @@ function ProfileCardList() {
     } else {
       setAchievements('pas de succès obtenus !');
     }
-    console.log(response.data);
   };
   handleLocalStorage();
   handleRankId();

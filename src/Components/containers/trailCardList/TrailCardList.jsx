@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable radix */
 /* eslint-disable react/jsx-no-useless-fragment */
@@ -135,6 +136,7 @@ function TrailCardList() {
 
         },
       );
+      alert(`Vous avez terminé ce parcours en ${time} et gagné (nombre de points) points félicitation !`);
     } catch (err) {
       console.log(err);
     }

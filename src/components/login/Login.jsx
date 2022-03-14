@@ -13,6 +13,7 @@ import runningVideo from '../../Assets/runnerback.webm';
 // Import of axios
 import axios from '../../api/axios';
 
+// Endpoint to Login
 const LOGIN_URL = '/user/login';
 
 // Regex for the email validation ( exmaple@wanadoo.com format)
@@ -22,10 +23,10 @@ one character upper, one digit ,one special characters and 8 to 24 characters ) 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 function Login() {
-  // handle states related to user
+  // handle states related to the user
   const [userEmail, setUserEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false);
-  // handle states related to paswword
+  // handle states related to the user's paswword
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
   // handle error
@@ -33,17 +34,16 @@ function Login() {
   // handle wether the user has succefully logged in or not
   const [success, setSuccess] = useState(false);
 
-  // Handle the user's inputs with regex for each input
+  // ********************Handle the user's inputs with regex for each input************************
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(userEmail));
-    console.log(userEmail);
   }, [userEmail]);
   // Handle both password and confirmed password validation
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log(pwd);
     setValidPwd(result);
   }, [pwd]);
+  // *********************************************************************************************
 
   // Reboot the error message
   useEffect(() => {
@@ -65,17 +65,15 @@ function Login() {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           },
-          // withCredentials: true,
+          withCredentials: true,
 
         },
       );
       console.log(JSON.stringify(response?.data));
       if (response.data.result === true) {
         setSuccess(true);
-        console.log(response.data.connection.user_id);
         // Store the user's id into the browser's localStorage.
         localStorage.setItem('id', JSON.stringify(response.data.connection.user_id));
-        console.log(response);
       } else {
         setSuccess(false);
         setErrMsg(response.data.description);
@@ -115,7 +113,7 @@ function Login() {
                 type="text"
                 className="runningwild__login-form-input"
                 id="email"
-                autoComplete="off"
+                autoComplete="on"
                 onChange={(e) => setUserEmail(e.target.value)}
                 value={userEmail}
                 required
@@ -134,6 +132,7 @@ function Login() {
                 onChange={(e) => setPwd(e.target.value)}
                 value={pwd}
                 required
+                autoComplete="off"
               />
               {/* ********************************Sign in button******************************* */}
               <button
@@ -172,4 +171,4 @@ function Login() {
     </>
   );
 }
-export default Login;
+export default React.memo(Login);
