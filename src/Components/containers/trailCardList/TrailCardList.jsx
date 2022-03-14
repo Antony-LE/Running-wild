@@ -114,12 +114,16 @@ function TrailCardList() {
     }
   };
 
-  const handleSubscription = async (e) => {
-    setUserId(localStorage.getItem('id'));
-    setTrailId(localStorage.getItem('trail_Id'));
+  // refresh the state datas for the subscription feature
+  useEffect(() => {
+    setUserId(parseInt(localStorage.getItem('id')));
+    setTrailId(parseInt(localStorage.getItem('trail_Id')));
     setTime('01:30:50');
     setHour(hours);
-    setKm(localStorage.getItem('distance'));
+    setKm(localStorage.getItem('trail_distance'));
+  }, [userId, trailId, time, hour, Km]);
+
+  const handleSubscription = async (e) => {
     setSubscriptionOn(!subscriptionOn);
     try {
       const response = await axios.post(
@@ -159,11 +163,11 @@ function TrailCardList() {
           <hr />
           {errorMessage ? (
             <>
-              <h2> Rechercher un itinéraire par: </h2>
+              <h2> Rechercher un parcours par: </h2>
               <span className="errorMessage">{displayResultError}</span>
             </>
           ) : (
-            <h2> Rechercher un itinéraire par : </h2>
+            <h2> Rechercher un parcours par : </h2>
           )}
           <div className="reload">
             <button type="button" onClick={handleReload}>
