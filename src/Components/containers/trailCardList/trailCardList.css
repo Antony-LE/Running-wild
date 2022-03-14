@@ -1,13 +1,12 @@
 .runningwild__parcours-content-cardList {
-    min-height: 100vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    text-align: center; 
-}
+    text-align: center;
 
+}
 
 .runningwild__parcours-content-cardList h1 {
     color: white;
