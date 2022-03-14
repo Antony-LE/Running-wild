@@ -1,27 +1,21 @@
-*{
-    text-align: center;
-}
-
-.trail-card-list-container {
-    min-height: 180vh;
-    background-image: url(../../../Assets/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.trail-card-list {
+.runningwild__parcours-content-cardList {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center; 
 }
 
-h1 {
+
+.runningwild__parcours-content-cardList h1 {
     color: white;
     text-align: center;
     font-size: 2em;
 }
- h2 {
+
+.runningwild__parcours-content-cardList h2 {
     color: white;
     text-align: center;
     margin-bottom: 1em;
@@ -43,7 +37,7 @@ h1 {
     background-size: cover;
 }
 
-hr {
+.runningwild__parcours-content-cardList hr {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     display: inline-block;  
@@ -82,13 +76,13 @@ hr {
    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
-  .runningwild-search-form {
-      height: 35em;
+  .runningwild__parcours-content-form {
       color: white;
-   
+      background-color: rgb(31, 41, 55, 0.7);
+      border-radius: 1rem;
   }
 
-  .runningwild-search-form input{
+  .runningwild__parcours-content-form input{
     align-items: center;
     width: 11em;
     margin-bottom: 1em;
@@ -125,7 +119,7 @@ hr {
     margin-right: auto;
 }
 
-.search-results hr {
+.runningwild__parcours-content-results hr {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     display:block;  
@@ -134,12 +128,12 @@ hr {
     margin-right: auto;
 }
 
-.search-results {
+.runningwild__parcours-content-results {
     text-shadow: 2px 2px 2px black;
     font-size: 0.8em;
 }
 
-.runningwild-trail-card-list-subscribtion {
+.runningwild__parcours-content-cardList_subscribtion {
     margin: 1em;
     color: #1c0e57;
     font-weight: bold ;
@@ -151,7 +145,7 @@ hr {
     animation: ease-in-out;
 }
 
-.runningwild-trail-card-list-subscribtion:hover {
+.runningwild__parcours-content-cardList_subscribtion:hover {
     background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
     transform: scale(1.2);
     border: none;

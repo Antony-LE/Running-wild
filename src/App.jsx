@@ -13,7 +13,7 @@ import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
 import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
-import TrailCardList from './Components/containers/trailCardList/TrailCardList';
+import Parcours from './Components/parcours/Parcours';
 import Challenges from './Components/challenges/Challenges';
 import Classement from './Components/classements/Classements';
 
@@ -29,7 +29,7 @@ function App() {
           <Route path="/challenges" element={<Challenges />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
-          <Route path="/parcours" element={<TrailCardList />} />
+          <Route path="/parcours" element={<Parcours />} />
           <Route path="/classements" element={<Classement />} />
         </Routes>
       </div>

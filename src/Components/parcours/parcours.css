@@ -1,0 +1,13 @@
+.runningwild__parcours-container {
+    background-image: url(../../Assets/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.runningwild__parcours-header {
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

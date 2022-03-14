@@ -144,142 +144,132 @@ function TrailCardList() {
 
   return (
     <>
-      {isLoggedIn ? (
-        <>
-          <div className="trail-card-list-container">
-            <Navbar />
-            <h1>Suggestion de parcours</h1>
-            <div className="reload">
-              {' '}
-              <button type="button" onClick={handleReload}>
-                Suggestion suivante
-              </button>
-              {' '}
-            </div>
-            <div className="trail-card-list">
-              <TrailCard name={name} city={city} map={map} environement={environement} distance={distance} startPoint={startpoint} endPoint={endpoint} postalCode={postCode} like={like} />
-            </div>
-            <div className="runningwild-search-form">
-              <hr />
-              {errorMessage ? (
-                <>
-                  <h2> Rechercher un itinéraire par: </h2>
-                  <span className="errorMessage">{displayResultError}</span>
-                </>
-              ) : (
-                <h2> Rechercher un itinéraire par : </h2>
-              )}
-
-              <form>
-                {/* ********************************City input******************************* */}
-                <label
-                  className="runningwild__login-form-label"
-                  htmlFor="city"
-                />
-                <input
-                  type="text"
-                  placeholder="Ville"
-                  className="runningwild__login-form-input"
-                  id="city"
-                  autoComplete="off"
-                  onChange={(e) => setSearchedCity(e.target.value)}
-                  value={searchedCity}
-                  required
-                />
-                {/* ********************************MinDistance input******************************* */}
-                <label
-                  className="runningwild__login-form-label"
-                  htmlFor="min-distance"
-                />
-                <input
-                  type="text"
-                  placeholder="Distance Min.(KM)"
-                  className="runningwild__login-form-input"
-                  id="min-distance"
-                  onChange={(e) => setDistanceMin(e.target.value)}
-                  value={distanceMin}
-                  required
-                />
-              </form>
-              <button
-                onClick={handleSearchData}
-                className="runningwild__search-form-button"
-                type="submit"
-                value="Submit"
-              >
-                Rechercher !
-              </button>
-              <hr />
-              {displayResults ? (
-                <div className="search-results">
-                  <h2> Résultats de votre recherche : </h2>
-                  { searchedResults.map((searchResult) => (
-                    <>
-                      <span>
-                        Nom :
-                        {' '}
-                        {searchResult.name}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Environnement :
-                        {' '}
-                        {searchResult.categoryid}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Distance :
-                        {' '}
-                        {`${searchResult.distance} km`}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Ville :
-                        {' '}
-                        {searchResult.city}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Adresse de départ :
-                        {' '}
-                        {searchResult.start_point}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Adresse d&apos;arrivée :
-                        {' '}
-                        {searchResult.end_point}
-                        {' '}
-                      </span>
-                      <br />
-                      <span>
-                        Code Postal :
-                        {' '}
-                        {searchResult.postcode}
-                        {' '}
-                      </span>
-                      <br />
-                      <span />
-                      <button type="button" className="runningwild-trail-card-list-subscribtion" onClick={handleSubscription}>
-                        {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
-                      </button>
-                      <hr />
-                    </>
-                  ))}
-                </div>
-              ) : ('')}
-            </div>
+      <div className="runningwild__parcours-content-cardList">
+        <div className="runningwild__parcours-content-card">
+          <TrailCard name={name} city={city} map={map} environement={environement} distance={distance} startPoint={startpoint} endPoint={endpoint} postalCode={postCode} like={like} />
+        </div>
+        <div className="runningwild__parcours-content-form">
+          <hr />
+          {errorMessage ? (
+            <>
+              <h2> Rechercher un itinéraire par: </h2>
+              <span className="errorMessage">{displayResultError}</span>
+            </>
+          ) : (
+            <h2> Rechercher un itinéraire par : </h2>
+          )}
+          <div className="reload">
+            <button type="button" onClick={handleReload}>
+              Suggestion suivante
+            </button>
           </div>
-          <Footer />
-        </>
-      ) : (<div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>)}
+          <form>
+            {/* ********************************City input******************************* */}
+            <label
+              className="runningwild__login-form-label"
+              htmlFor="city"
+            />
+            <input
+              type="text"
+              placeholder="Ville"
+              className="runningwild__login-form-input"
+              id="city"
+              autoComplete="off"
+              onChange={(e) => setSearchedCity(e.target.value)}
+              value={searchedCity}
+              required
+            />
+            {/* ********************************MinDistance input******************************* */}
+            <label
+              className="runningwild__login-form-label"
+              htmlFor="min-distance"
+            />
+            <input
+              type="text"
+              placeholder="Distance Min.(KM)"
+              className="runningwild__login-form-input"
+              id="min-distance"
+              onChange={(e) => setDistanceMin(e.target.value)}
+              value={distanceMin}
+              required
+            />
+          </form>
+          <button
+            onClick={handleSearchData}
+            className="runningwild__search-form-button"
+            type="submit"
+            value="Submit"
+          >
+            Rechercher !
+          </button>
+          <hr />
+          {displayResults ? (
+            <div className="runningwild__parcours-content-results">
+              <h2> Résultats de votre recherche : </h2>
+              { searchedResults.map((searchResult) => (
+                <>
+                  <span>
+                    Nom :
+                    {' '}
+                    {searchResult.name}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Environnement :
+                    {' '}
+                    {searchResult.categoryid}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Distance :
+                    {' '}
+                    {`${searchResult.distance} km`}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Ville :
+                    {' '}
+                    {searchResult.city}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Adresse de départ :
+                    {' '}
+                    {searchResult.start_point}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Adresse d&apos;arrivée :
+                    {' '}
+                    {searchResult.end_point}
+                    {' '}
+                  </span>
+                  <br />
+                  <span>
+                    Code Postal :
+                    {' '}
+                    {searchResult.postcode}
+                    {' '}
+                  </span>
+                  <br />
+                  <span />
+                  <button type="button" className="runningwild__parcours-content-cardList_subscribtion" onClick={handleSubscription}>
+                    {subscriptionOn === true ? (<>Inscris !</>) : (<>Je m&apos;inscris</>)}
+                  </button>
+                  <hr />
+                </>
+              ))}
+            </div>
+          ) : ('')}
+        </div>
+      </div>
+      <Footer />
     </>
-
   );
 }
 
