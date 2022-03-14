@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './progressBar.css';
 
-function ProgressBar({ value, max }) {
+function ProgressBar({ value }) {
   return (
     <div className="runningwild__progressBar-container">
-      <progress value={value} max={max} />
+      <progress value={value} />
       <p>
-        {Math.floor((value / max) * 100)}
+        {Math.floor(value * 100) }
         %
       </p>
     </div>
@@ -16,7 +16,6 @@ function ProgressBar({ value, max }) {
 
 ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;
