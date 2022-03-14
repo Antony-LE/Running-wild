@@ -29,6 +29,8 @@ function ChallengesCardList() {
     // injecting the data in the states
     setChallenges(challengesAvailableList);
     setAcceptedChallenges(challengesSubscribedList);
+    console.log(challengesAvailableList);
+    console.log(challengesSubscribedList);
   };
 
   const refreshPage = () => {
@@ -83,7 +85,7 @@ function ChallengesCardList() {
             bonus={challenge.bonus_points}
           />
           <div className="runningwild__challenges-content-cardList_progression">
-            <ProgressBar key={challenge.name} value={parseInt(challenge.progression, 10)} max={parseInt(challenge.distance, 10)} />
+            <ProgressBar key={challenge.name} value={challenge.progression} />
           </div>
         </li>
       )) : ''}
