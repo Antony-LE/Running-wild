@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './profileCard.css';
 import localPoint from '../../../Assets/localpoint.png';
 import Avatar from '../../../Assets/avatar-default.png';
@@ -14,6 +15,7 @@ import medalIcon from '../../../Assets/medaille.png';
 function ProfileCard({
   name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements,
 }) {
+  // Display the user's details
   const [detailsOn, setDetailsOn] = useState(false);
   const handleDisplayDetails = () => {
     setDetailsOn(!detailsOn);
@@ -96,4 +98,26 @@ function ProfileCard({
   );
 }
 
-export default ProfileCard;
+ProfileCard.propTypes = {
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  city: PropTypes.string,
+  pseudo: PropTypes.string,
+  avatar: PropTypes.string,
+  email: PropTypes.string,
+  subscription: PropTypes.string,
+  achievements: PropTypes.string,
+};
+
+ProfileCard.defaultProps = {
+  name: '',
+  surname: '',
+  city: '',
+  pseudo: '',
+  avatar: '',
+  email: '',
+  subscription: '',
+  achievements: '',
+};
+
+export default React.memo(ProfileCard);

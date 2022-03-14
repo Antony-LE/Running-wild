@@ -11,7 +11,7 @@ import AdminCard from '../adminCard/AdminCard';
 // Import of axios
 import axios from '../../../api/axios';
 
-/* Use the variable id from localStorage (previsously stored in the login page)
+/* Use the variable id from localStorage (previously stored in the login page)
 to dynamically get the user's datas */
 const USER_ID_URL = `/user/${localStorage.getItem('id')}`;
 
@@ -80,6 +80,8 @@ function ProfileCardList() {
       setAchievements('pas de succès obtenus !');
     }
   };
+
+  // functions launching
   handleLocalStorage();
   handleRankId();
   handleChallenges();
@@ -130,4 +132,4 @@ function ProfileCardList() {
   );
 }
 
-export default ProfileCardList;
+export default React.memo(ProfileCardList);
