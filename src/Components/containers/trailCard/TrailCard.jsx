@@ -90,7 +90,7 @@ function TrailCard({
     setTrailId(parseInt(localStorage.getItem('trail_Id')));
     setTime('01:30:50');
     setHour(hours);
-    setKm(10);
+    setKm(localStorage.getItem('trail_distance'));
   }, [userId, trailId, time, hour, Km]);
 
   const handleSubscription = async (e) => {
@@ -115,7 +115,7 @@ function TrailCard({
       );
       Swal.fire(
         'Good job!',
-        `Vous avez terminé ce parcours en ${time} seconde et remporté ${Km} points !`,
+        `Vous avez terminé ce parcours en ${time} secondes et remporté ${Km} points !`,
         'success',
       );
     } catch (err) {

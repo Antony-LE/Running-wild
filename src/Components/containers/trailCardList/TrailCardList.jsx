@@ -83,6 +83,8 @@ function TrailCardList() {
       setEnvironement('Montagne');
     }
     setDistance(response.data.trail.distance);
+    // Store the trail distance into the browser's localStorage (Used in the profil card)
+    localStorage.setItem('trail_distance', (response.data.trail.distance));
     setStartPoint(response.data.trail.start_point);
     setEndpoint(response.data.trail.end_point);
     setPostCode(response.data.trail.postcode);
