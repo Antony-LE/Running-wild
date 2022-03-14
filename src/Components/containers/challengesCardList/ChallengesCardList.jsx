@@ -33,11 +33,14 @@ function ChallengesCardList() {
     console.log(challengesSubscribedList);
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   const onButtonClick = async () => {
     try {
       // sending the data to the database, the id of the challenge clicked and the
       // user id thanks to the local storage
-
       const response = await axios.post(
         CHALLENGES_ADD,
         JSON.stringify({
@@ -49,7 +52,7 @@ function ChallengesCardList() {
             'Content-Type': 'application/json',
           },
         },
-      );
+      ).then(refreshPage);
       console.log(JSON.stringify(response?.data));
     } catch (err) {
       console.log('Error with this challenge');
@@ -66,6 +69,7 @@ function ChallengesCardList() {
             title={challenge.name}
             illustration={challenge.challenge_image}
             text={challenge.description}
+            bonus={challenge.bonus_points}
           />
           <div className="runningwild__challenges-content-cardList_progression">
             <button className="runningwild__challenges-content-cardList_progression-button" type="button" onClick={(e) => { onButtonClick(e); setChallengeId(challenge.challenge_id); }}>Accepter le challenge</button>
@@ -78,9 +82,10 @@ function ChallengesCardList() {
             title={challenge.name}
             illustration={challenge.challenge_image}
             text={challenge.description}
+            bonus={challenge.bonus_points}
           />
           <div className="runningwild__challenges-content-cardList_progression">
-            <ProgressBar key={challenge.name} value={parseInt(challenge.progression, 10)} max={parseInt(challenge.distance, 10)} />
+            <ProgressBar key={challenge.name} value={challenge.progression} />
           </div>
         </li>
       )) : ''}
