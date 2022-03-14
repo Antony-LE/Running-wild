@@ -268,7 +268,6 @@ function TrailCardList() {
           ) : ('')}
         </div>
       </div>
-      <Footer />
     </>
   );
 }
