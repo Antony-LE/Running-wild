@@ -13,7 +13,7 @@ import challengesIcon from '../../../Assets/challenges.png';
 import medalIcon from '../../../Assets/medaille.png';
 
 function ProfileCard({
-  name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements,
+  name, surname, rank, city, pseudo, avatar, email, subscription, challenges, achievements, totalPoints, totalKm, totalBonusPoints,
 }) {
   // Display the user's details
   const [detailsOn, setDetailsOn] = useState(false);
@@ -44,10 +44,25 @@ function ProfileCard({
           {city.replaceAll('"', '')}
         </h3>
         <br />
-        <h4>
+        <h3>
           Votre Pseudo :
           {' '}
           {pseudo.replaceAll('"', '')}
+        </h3>
+        <h4>
+          Total de points :
+          {' '}
+          {totalPoints}
+        </h4>
+        <h4>
+          Total de Km Parcourus :
+          {' '}
+          {totalKm}
+        </h4>
+        <h4>
+          Total de points bonus acquis :
+          {' '}
+          {totalBonusPoints}
         </h4>
         <hr />
 
