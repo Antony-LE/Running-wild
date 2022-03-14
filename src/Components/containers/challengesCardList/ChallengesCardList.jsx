@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import './challengesCardList.css';
+import Swal from 'sweetalert2';
 import ChallengesCard from '../challengesCard/ChallengesCard';
 import axios from '../../../api/axios';
 import ProgressBar from '../progressBar/ProgressBar';
@@ -33,8 +34,19 @@ function ChallengesCardList() {
     console.log(challengesSubscribedList);
   };
 
+  // Refresing the page after the click on the alert saying that you accepted a challenge, updating the arrays of challenges available & subscribed
   const refreshPage = () => {
-    window.location.reload();
+    Swal.fire({
+      title: 'Challenge accepté',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Let\'s run baby !',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
+    });
   };
 
   const onButtonClick = async () => {
