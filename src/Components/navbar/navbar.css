@@ -32,3 +32,31 @@
   height: 100px;
   width: 100px;
 }
+
+.runningwild__navbar-menu_container p {
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5625rem;
+  text-transform: capitalize;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.runningwild__navbar-menu_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: end;
+  padding: 2rem;
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  margin-top: 1rem;
+  min-width: 13.125rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  background-color: rgb(31, 41, 55, 0.7);
+}
