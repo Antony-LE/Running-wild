@@ -16,6 +16,7 @@ import Parcours from './Components/parcours/Parcours';
 import Challenges from './Components/challenges/Challenges';
 import Classement from './Components/classements/Classements';
 import Profile from './Components/profile/Profile';
+import Faq from './Components/faq/Faq';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />
           <Route path="/parcours" element={<Parcours />} />
           <Route path="/classements" element={<Classement />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </div>
     </BrowserRouter>
