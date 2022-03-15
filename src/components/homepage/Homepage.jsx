@@ -31,50 +31,50 @@ function Homepage() {
     window.localStorage.clear();
   };
   return (
+  // <>
+  //   {isLoggedIn ? (
     <>
-      {isLoggedIn ? (
-        <>
-          {logout ? (
-            <section className="runningwild__logout-success gradient__bg">
-              <h1>
-                Vous êtes déconnecté !
-              </h1>
-              <p>
-                <NavLink to="/">
-                  Me connecter
-                </NavLink>
-              </p>
-            </section>
-          ) : (
-            <div className="runningwild__homepage-container">
-              <header className="runningwild__homepage-header">
-                <Navbar />
-                <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-                <NavLink to="/profile">
-                  <button className="runningwild__profile-button" type="button">Mon profil</button>
-                </NavLink>
-              </header>
-              <main className="runningwild__homepage-main">
-                <HomepageCardList cardData={cardData} />
-              </main>
-              <Footer />
-            </div>
-          )}
-        </>
+      {logout ? (
+        <section className="runningwild__logout-success gradient__bg">
+          <h1>
+            Vous êtes déconnecté !
+          </h1>
+          <p>
+            <NavLink to="/">
+              Me connecter
+            </NavLink>
+          </p>
+        </section>
       ) : (
-        <div className="forbidden">
-          <div className="forbidden-text">
-            <h2>Veuillez d&apos;abord vous connecter à votre compte !</h2>
-            <p>
-              <NavLink to="/">
-                Me connecter
-              </NavLink>
-            </p>
-          </div>
+        <div className="runningwild__homepage-container">
+          <header className="runningwild__homepage-header">
+            <Navbar />
+            <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+            <NavLink to="/profile">
+              <button className="runningwild__profile-button" type="button">Mon profil</button>
+            </NavLink>
+          </header>
+          <main className="runningwild__homepage-main">
+            <HomepageCardList cardData={cardData} />
+          </main>
+          <Footer />
         </div>
       )}
-
     </>
+  // ) : (
+  //   <div className="forbidden">
+  //     <div className="forbidden-text">
+  //       <h2>Veuillez d&apos;abord vous connecter à votre compte !</h2>
+  //       <p>
+  //         <NavLink to="/">
+  //           Me connecter
+  //         </NavLink>
+  //       </p>
+  //     </div>
+  //   </div>
+  // )}
+
+  // </>
   );
 }
 export default Homepage;
