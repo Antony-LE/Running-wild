@@ -6,6 +6,7 @@
   box-shadow: 0px 1px 10px 1px black;
   font-family: var(--font-family);
   text-align: center;
+  overflow-y: scroll;
 }
 
 .runningwild_adminCard-upperContainer {
@@ -62,9 +63,8 @@
 
 .runningwild_adminCard-lowerContainer hr {
   margin: 1em;
-  width: 15rem;
+  width: 20.5rem;
   font-size: 0.9em;
-  text-align: justify;
 }
 
 .runningwild_adminCard-lowerContainer span {
