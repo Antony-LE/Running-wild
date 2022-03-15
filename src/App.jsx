@@ -12,10 +12,10 @@ import Homepage from './Components/homepage/Homepage';
 import cardData from './data/cardData';
 import ForgotPassword from './Components/forgotPassword/ForgotPassword';
 import NotFound from './Components/notfound/NotFound';
-import ProfileCardList from './Components/containers/profileCardList/ProfileCardList';
 import Parcours from './Components/parcours/Parcours';
 import Challenges from './Components/challenges/Challenges';
 import Classement from './Components/classements/Classements';
+import Profile from './Components/profile/Profile';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/inscription" element={<Registration />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/profile" element={<ProfileCardList />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/challenges" element={<Challenges />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/homepage" element={<Homepage cardData={cardData} />} />

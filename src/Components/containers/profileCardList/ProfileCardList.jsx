@@ -104,7 +104,6 @@ function ProfileCardList() {
     <>
       {isLoggedIn ? (
         <>
-          <Navbar />
           <div className="profileCardList">
             {role === 1 ? (
               <ProfileCard
