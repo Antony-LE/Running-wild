@@ -139,7 +139,16 @@ p {
 }
 
 @media screen and (max-width: 415px) {
+  .runningWild__registration-form {
+    width: 90%;
+    opacity: 0.9;
+  }
 }
 
 @media screen and (max-width: 320px) {
+  .runningWild__registration-form {
+    width: 100%;
+    opacity: 0.9;
+  }
+  
 }
