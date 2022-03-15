@@ -70,7 +70,9 @@ function Faq() {
                     <li>- Experienced -</li>
                     <li>- Regular -</li>
                     <li>- Fitness freak -</li>
+                    <li>- Fanatic -</li>
                     <li>- Hardcore -</li>
+                    <li>- Hare -</li>
                     <li>- Expert -</li>
                     <li>- Ironman -</li>
                     <li>- Ironman 2 -</li>
