@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --font-family: 'roboto', sans-serif;
+  --font-family: "roboto", sans-serif;
   --background-color: rgb(53, 78, 102);
 }

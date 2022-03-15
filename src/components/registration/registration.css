@@ -17,11 +17,12 @@
   margin-bottom: 0.5rem;
 }
 
-.runningWild__registration h1, p {
+.runningWild__registration h1,
+p {
   text-align: center;
 }
 
-.runningWild__registration-success  {
+.runningWild__registration-success {
   align-items: center;
   min-height: 100vh;
   padding: 1rem 0.5rem;
@@ -126,32 +127,19 @@
   margin-top: 0.5rem;
 }
 
-.gradient__bg {
-  /* https://uigradients.com/ */
- /* Moonlit Asteroid */
- background: #0F2027;  /* fallback for old browsers */
- background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
- background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 /********************************** Responsive ************************************/
 
 @media screen and (max-width: 1024px) {
-
 }
 
 @media screen and (max-width: 615px) {
-
- }
+}
 
 @media screen and (max-width: 430px) {
-
 }
 
 @media screen and (max-width: 415px) {
-
 }
 
 @media screen and (max-width: 320px) {
-
 }

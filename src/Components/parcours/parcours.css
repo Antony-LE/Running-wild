@@ -1,18 +1,18 @@
 .runningwild__parcours-container {
-    background-image: url(../../Assets/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+  background-image: url(../../Assets/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .runningwild__parcours-header {
-    text-align: center;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .runningwild__parcours-main {
- margin-top: 5.5rem;
+  margin-top: 5.5rem;
 }

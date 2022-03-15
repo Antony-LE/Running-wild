@@ -58,7 +58,16 @@ function Profile() {
           )}
         </>
       ) : (
-        <div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>
+        <div className="forbidden">
+          <div className="forbidden-text">
+            <h2>Veuillez d&apos;abord vous connecter à votre compte !</h2>
+            <p>
+              <NavLink to="/">
+                Me connecter
+              </NavLink>
+            </p>
+          </div>
+        </div>
       )}
 
     </>

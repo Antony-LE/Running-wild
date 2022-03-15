@@ -32,7 +32,8 @@
   width: 300px;
 }
 
-.runningwild__login-success h1, p {
+.runningwild__login-success h1,
+p {
   color: white;
 }
 
@@ -43,7 +44,7 @@
 }
 
 .runningwild__login-left {
-  display: flex;    
+  display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
@@ -71,19 +72,19 @@
   bottom: 0;
   right: 0;
   width: 65vw;
-  height: 100%; 
+  height: 100%;
   overflow: hidden;
 }
 
 .runningwild__login-right video {
-  min-width: 100%; 
-  min-height: 100%; 
+  min-width: 100%;
+  min-height: 100%;
   width: auto;
   height: auto;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .runningwild__login-form {
@@ -97,7 +98,7 @@
   border-radius: 10px;
   margin-bottom: 1rem;
 }
-  
+
 .instructions {
   display: flex;
   font-size: 0.75rem;
@@ -108,7 +109,7 @@
   position: relative;
   bottom: -10px;
 }
-  
+
 .errmsg {
   background-color: lightpink;
   border-radius: 0.5rem;
@@ -117,7 +118,7 @@
   padding: 0.7rem;
   margin-bottom: 0.5rem;
 }
-  
+
 .line {
   display: inline-block;
 }
@@ -168,20 +169,11 @@
   margin-right: auto;
 }
 
-.gradient__bg {
-  /* https://uigradients.com/ */
- /* Moonlit Asteroid */
- background: #0F2027;  /* fallback for old browsers */
- background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
- background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 /********************************** Responsive ************************************/
-
 
 @media screen and (max-width: 1024px) {
   video {
-    display: none ;
+    display: none;
   }
   .runningwild__login-left {
     width: 100vw;
@@ -189,43 +181,45 @@
 }
 
 @media screen and (max-width: 615px) {
-
-   video {
-    display: none ;
-      }
-  .runningwild__login-left {
-        width: 100vw;
-      }
- }
-
-@media screen and (max-width: 430px) {
-
   video {
-      display: none ;
-     }
+    display: none;
+  }
   .runningwild__login-left {
-      width: 100vw;
-    }
+    width: 100vw;
+  }
 }
 
+@media screen and (max-width: 430px) {
+  video {
+    display: none;
+  }
+  .runningwild__login-left {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  video {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 415px) {
-
   video {
-      display: none ;
-     }
+    display: none;
+  }
   .runningwild__login-container img {
-      margin-top: 0.5em;
-      margin-bottom: 1em;
-      width: 5em;
-      height: 5em;
-    }
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    width: 5em;
+    height: 5em;
+  }
   .runningwild__login-container h1 {
-      font-size: 1.1em;
-      width: 80vw;
-      margin-bottom: 0.5em;
-    }
-  
+    font-size: 1.1em;
+    width: 80vw;
+    margin-bottom: 0.5em;
+  }
+
   .runningwild__login-form {
     padding-top: 0.5em;
     margin-top: 0.5em;
@@ -239,17 +233,16 @@
 }
 
 @media screen and (max-width: 320px) {
-
   video {
-    display: none ;
-     };
-     .runningwild__login-container img {
-      margin-top: 1em;
-      width: 6em;
-      height: 6em;
-    }
+    display: none;
+  }
+  .runningwild__login-container img {
+    margin-top: 1em;
+    width: 6em;
+    height: 6em;
+  }
 
   .runningwild__login-left {
-      width: 100vw;
-    }
+    width: 100vw;
+  }
 }
