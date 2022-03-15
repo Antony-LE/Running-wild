@@ -1,166 +1,164 @@
 .runningwild_trailCard {
-    width: 25em;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 1px 10px 1px black;
-    font-family: var(--font-family);
-    text-align: center;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition-duration: 0.5s;
+  width: 25em;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px 1px black;
+  font-family: var(--font-family);
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition-duration: 0.5s;
 }
 
 .runningwild_trailCard-upperContainer {
-    height: 4em;
-    padding-top: 1.5em;
-    background: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    color: white;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    font-size: 1.3em;
+  height: 4em;
+  padding-top: 1.5em;
+  background: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.3em;
 }
 
 .runningwild_trailCard-lowerContainer h2 {
-    font-size: 1.2em;
-    text-align: center;
-    color: #1c0e57;
-    font-weight: bold;
-    font: 1.5em;
-    margin-bottom: 0.3em;
+  font-size: 1.2em;
+  text-align: center;
+  color: #1c0e57;
+  font-weight: bold;
+  font: 1.5em;
+  margin-bottom: 0.3em;
 }
 
 .runningwild_trailCard-lowerContainer h3 {
-    font-size: 1.2em;
-    text-align: center;
-    color: #1c0e57;
-    font-weight: bold;
-    font: 1.5em;
-    padding-right: 1em;
+  font-size: 1.2em;
+  text-align: center;
+  color: #1c0e57;
+  font-weight: bold;
+  font: 1.5em;
+  padding-right: 1em;
 }
 
 .runningwild_trailCard-imageContainer iframe {
-    margin-top: 0.5em;
-    height: 19em ;
+  margin-top: 0.5em;
+  height: 19em;
 }
 
 .runningwild_trailCard-lowerContainer {
-    height: 10em;
-    background-color: white;
-    text-align: center;
-    margin-top: 1em;
+  height: 10em;
+  background-color: white;
+  text-align: center;
+  margin-top: 1em;
 }
 
 .runningwild_trailCard-lowerContainer h4 {
-    color: rgb(133, 25, 160);
-    font-weight: bold;
-    font: 1.2em;
-    margin-top: 0.5em;
-    margin-bottom: 2em;
+  color: rgb(133, 25, 160);
+  font-weight: bold;
+  font: 1.2em;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
 }
 
 .runningwild_trailCard-lowerContainer hr {
-    margin: 2em;
-    font-size: 0.9em;
-    text-align: justify;
+  margin: 2em;
+  font-size: 0.9em;
+  text-align: justify;
 }
 
 .runningwild_trailCard-lowerContainer span {
-    font-size: 0.8em;
-    display: block;
-    color: #1c0e57;
-    font-weight: bold;
+  font-size: 0.8em;
+  display: block;
+  color: #1c0e57;
+  font-weight: bold;
 }
 
 .runningwild-trail-card-lower-container-buttonDetails {
-    margin: 1em;
-    color: #1c0e57;
-    font-weight: bold ;
-    background-color: white;
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
+  margin: 1em;
+  color: #1c0e57;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
 }
 .runningwild-trail-card-lower-container-buttonDetails:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
 .runningwild-trail-card-lower-container-button:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
 .runningwild-trail-card-lower-container-buttonLike {
-    color: #1c0e57;
-    font-weight: bold ;
-    background-color: white;
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
+  color: #1c0e57;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
 }
 
 .runningwild-trail-card-lower-container-buttonLike-off {
-    color: white;
-    font-weight: bold ;
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
+  color: white;
+  font-weight: bold;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
 }
 
 .runningwild-trail-card-lower-container-buttonLike-off:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
 .runningwild-trail-card-lower-container-buttonLike:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
 .runningwild-trail-card-lower-container-subscribtion {
-    margin: 1em;
-    color: #1c0e57;
-    font-weight: bold ;
-    background-color: white;
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
-
+  margin: 1em;
+  color: #1c0e57;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
 }
 
 .runningwild-trail-card-lower-container-subscribtion:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
-
 .startpoint {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .endpoint {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .search-results {
-    height: 30em;
+  height: 30em;
 }

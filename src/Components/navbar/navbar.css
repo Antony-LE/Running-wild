@@ -1,34 +1,34 @@
 .runningwild__navbar-container {
-    padding-top: 1rem;
-    padding-left: 1rem;
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }
 
 .runningwild__navbar-link {
-    padding: 1rem;
-    font-family: var(--font-family);
-    font-weight: bold;
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 1.5rem;
-    color: whitesmoke;
+  padding: 1rem;
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  color: whitesmoke;
 }
 
 .runningwild__navbar-link-active {
-    padding: 1rem;
-    font-family: var(--font-family);
-    font-weight: bold;
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 1.5rem;
-    line-height: 2rem;
-    text-decoration: underline;
-    color: whitesmoke;
+  padding: 1rem;
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  line-height: 2rem;
+  text-decoration: underline;
+  color: whitesmoke;
 }
 
 .runningwild__navbar-container img {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
 }

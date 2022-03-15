@@ -1,11 +1,12 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
-a, a:visited {
+a,
+a:visited {
   color: #fff;
   text-decoration: none;
 }
@@ -30,4 +31,44 @@ li {
     #203a43,
     #0f2027
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.forbidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(.././src/Assets/forbidden.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.forbidden-text {
+  background-color: rgb(31, 41, 55, 0.7);
+  color: white;
+  font-size: bold;
+  font-size: 2em;
+  font-family: var(--font-family);
+  border: solid 2px #717d97;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.forbidden-text p {
+  text-decoration: underline;
+}
+
+.errorMessage {
+  background-color: lightpink;
+  border-radius: 0.5rem;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.7rem;
+  margin-bottom: 0.5em;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }

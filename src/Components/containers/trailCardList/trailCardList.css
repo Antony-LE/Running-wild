@@ -1,165 +1,125 @@
 .runningwild__parcours-content-cardList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 }
 
 .runningwild__parcours-content-cardList h1 {
-    color: white;
-    text-align: center;
-    font-size: 2em;
+  color: white;
+  text-align: center;
+  font-size: 2em;
 }
 
 .runningwild__parcours-content-cardList h2 {
-    color: white;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-.forbidden {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem 0.5rem;
-    color: red;
-    font-size: 2em;
-    font-family: var(--font-family);
-    background-image: url(../../../Assets/forbidden.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  color: white;
+  text-align: center;
+  margin-bottom: 1em;
 }
 
 .runningwild__parcours-content-cardList hr {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    display: inline-block;  
-    width: 20vw;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  display: inline-block;
+  width: 20vw;
 }
 
 .recherche {
-    text-align: center;
+  text-align: center;
 }
 
 .reload button {
-    margin: 2em;
-    color: #1c0e57;
-    font-weight: bold ;
-    border: 2px solid rgb(175, 12, 112) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
-    font-size: 0.7em;
+  margin: 2em;
+  color: #1c0e57;
+  font-weight: bold;
+  border: 2px solid rgb(175, 12, 112);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
+  font-size: 0.7em;
 }
 
 .reload button:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(175, 12, 112));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(175, 12, 112));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
-.gradient__bg {
-    /* https://uigradients.com/ */
-   /* Moonlit Asteroid */
-   background: #0F2027;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0d222b);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  }
+.runningwild__parcours-content-form {
+  color: white;
+  background-color: rgb(31, 41, 55, 0.7);
+  border-radius: 1rem;
+}
 
-  .runningwild__parcours-content-form {
-      color: white;
-      background-color: rgb(31, 41, 55, 0.7);
-      border-radius: 1rem;
-  }
-
-  .runningwild__parcours-content-form input{
-    align-items: center;
-    width: 11em;
-    margin-bottom: 1em;
-    font-size: 0.9em;
-    padding: 1em;
+.runningwild__parcours-content-form input {
+  align-items: center;
+  width: 11em;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  padding: 1em;
 }
 
 .runningwild__search-form-button {
-    margin: 1em;
-    color: #1c0e57;
-    font-weight: bold ;
-    background-color: white;
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin: 1em;
+  color: #1c0e57;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .runningwild__search-form-button:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
 
 .result-separation {
-    width: 5em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .runningwild__parcours-content-results hr {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    display:block;  
-    width: 25vw;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  display: block;
+  width: 25vw;
 }
 
 .runningwild__parcours-content-results {
-    text-shadow: 2px 2px 2px black;
-    font-size: 0.8em;
+  text-shadow: 2px 2px 2px black;
+  font-size: 0.8em;
 }
 
 .runningwild__parcours-content-cardList_subscribtion {
-    margin: 1em;
-    color: #1c0e57;
-    font-weight: bold ;
-    background-color: white;
-    border: 2px solid rgb(133, 25, 160) ;
-    padding: 0.6em;
-    border-radius: 6px;
-    transition-duration: 0.5s;
-    animation: ease-in-out;
+  margin: 1em;
+  color: #1c0e57;
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid rgb(133, 25, 160);
+  padding: 0.6em;
+  border-radius: 6px;
+  transition-duration: 0.5s;
+  animation: ease-in-out;
+  box-shadow: 0px 1px 10px 1px black;
 }
 
 .runningwild__parcours-content-cardList_subscribtion:hover {
-    background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
-    transform: scale(1.2);
-    border: none;
-    color: white;
+  background-image: linear-gradient(to left, #1c0e57, rgb(133, 25, 160));
+  transform: scale(1.2);
+  border: none;
+  color: white;
 }
-
-.errorMessage {
-    background-color: lightpink;
-    border-radius: 0.5rem;
-    color: firebrick;
-    font-weight: bold;
-    padding: 0.7rem;
-    margin-bottom: 0.5em;
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
-

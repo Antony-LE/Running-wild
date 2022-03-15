@@ -1,46 +1,24 @@
 .profileCardList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 7rem;
-}
-
-.forbidden {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem 0.5rem;
-    color: red;
-    font-size: 2em;
-    font-family: var(--font-family);
-    background-image: url(../../../Assets/forbidden.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 7rem;
 }
 
 /********************************** Responsive ************************************/
 
 @media screen and (max-width: 1024px) {
-
 }
 
 @media screen and (max-width: 615px) {
-
- }
+}
 
 @media screen and (max-width: 430px) {
-
 }
 
 @media screen and (max-width: 415px) {
-
 }
 
 @media screen and (max-width: 320px) {
-
 }
-

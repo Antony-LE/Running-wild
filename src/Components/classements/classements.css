@@ -27,7 +27,7 @@
   height: 750px;
   background-color: rgb(31, 41, 55, 0.7);
   overflow: scroll;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .runningwild__classements-main-section_infos {
