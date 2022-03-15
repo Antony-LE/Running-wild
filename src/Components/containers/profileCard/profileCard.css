@@ -103,10 +103,64 @@
 }
 
 @media screen and (max-width: 430px) {
+  .runningwild_profileCard {
+    width: 65%;
+    opacity: 0.85;
+    height: 50vh;
+    margin-bottom: 7.5em;
+    font-size: 0.7em;
+    overflow: auto;
+  }
+  .runningwild_profileCard-lowerContainer{
+    margin-top: 1.5em;
+    height: 50vh;
+  }
+  .runningwild_profileCard-upperContainer {
+    display: none;
+  }
+  .runningwild_profileCard-imageContainer {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 415px) {
+  .runningwild_profileCard {
+    width: 65%;
+    opacity: 0.85;
+    height: 50vh;
+    margin-bottom: 7.5em;
+    font-size: 0.7em;
+    overflow: auto;
+  }
+  .runningwild_profileCard-lowerContainer{
+    margin-top: 1.5em;
+    height: 50vh;
+  }
+  .runningwild_profileCard-upperContainer {
+    display: none;
+  }
+  .runningwild_profileCard-imageContainer {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 320px) {
+  .runningwild_profileCard {
+    width: 65%;
+    opacity: 0.85;
+    height: 50vh;
+    margin-bottom: 7.5em;
+    font-size: 0.7em;
+    overflow: auto;
+  }
+  .runningwild_profileCard-lowerContainer{
+    margin-top: 1.5em;
+    height: 50vh;
+  }
+  .runningwild_profileCard-upperContainer {
+    display: none;
+  }
+  .runningwild_profileCard-imageContainer {
+    display: none;
+  }
 }
