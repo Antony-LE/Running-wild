@@ -180,15 +180,21 @@
 
 
 @media screen and (max-width: 1024px) {
-  .video {
+  video {
     display: none ;
+  }
+  .runningwild__login-left {
+    width: 100vw;
   }
 }
 
 @media screen and (max-width: 615px) {
 
-   .video {
+   video {
     display: none ;
+      }
+  .runningwild__login-left {
+        width: 100vw;
       }
  }
 
@@ -197,6 +203,9 @@
   video {
       display: none ;
      }
+  .runningwild__login-left {
+      width: 100vw;
+    }
 }
 
 
@@ -205,6 +214,28 @@
   video {
       display: none ;
      }
+  .runningwild__login-container img {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      width: 5em;
+      height: 5em;
+    }
+  .runningwild__login-container h1 {
+      font-size: 1.1em;
+      width: 80vw;
+      margin-bottom: 0.5em;
+    }
+  
+  .runningwild__login-form {
+    padding-top: 0.5em;
+    margin-top: 0.5em;
+    width: 80%;
+    height: 48%;
+  }
+
+  .runningwild__login-left {
+    width: 100vw;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -212,4 +243,13 @@
   video {
     display: none ;
      };
+     .runningwild__login-container img {
+      margin-top: 1em;
+      width: 6em;
+      height: 6em;
+    }
+
+  .runningwild__login-left {
+      width: 100vw;
+    }
 }
