@@ -11,6 +11,8 @@ function Navbar({ className }) {
   // the first variable will show us if are we currently showing the mobile menu
   // the second is going to be a function that will let us change that variable
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  // to do : add hidding state to burger menu
   return (
     <div className="runningwild__navbar-container">
       <img src={logo} alt="logo de running wild" />
@@ -35,7 +37,7 @@ function Navbar({ className }) {
       >
         Classements
       </NavLink>
-      <div className="runningwild__navbar-menu puff-in-center2">
+      <div className="runningwild__navbar-menu">
         {toggleMenu ? (
           <RiCloseLine
             color="#fff"
