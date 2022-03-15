@@ -119,3 +119,148 @@
 .runningwild__classements-main-section_comparatif {
   text-align: center;
 }
+
+/********************************** Responsive ************************************/
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 615px) {
+  .runningwild__classements-main-section_classement-categories {
+    display:none;
+    
+  }
+
+  .runningwild__classements-main-section_classement ul{
+    width: 90vw;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    
+  }
+
+  .runningwild__classements-main-section_classement li{
+    height:fit-content;
+    font-size: 0.7em;
+  }
+
+  .runningwild__classements-main-section_classement {
+    border: none;
+    background: none;
+  }
+
+  .runningwild__classements-main {
+    
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .runningwild__classements-main-section_classement-categories {
+    display:none;
+    
+  }
+
+  .runningwild__classements-main-section_classement ul{
+    width: 90vw;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .runningwild__classements-main-section_classement li{
+    height:fit-content;
+    font-size: 0.7em;
+    width: 70vw;
+  }
+
+  .runningwild__classements-main-section_classement {
+    border: none;
+    background: none;
+  }
+
+  .runningwild__classements-main {
+    
+  }
+  
+}
+
+@media screen and (max-width: 320px) {
+  .runningwild__classements-main-section_classement-categories {
+    display:none;
+  }
+
+  .runningwild__classements-main-section_classement ul{
+    width: 100vw;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .runningwild__classements-main-section_classement li{
+    height:fit-content;
+    font-size: 0.7em;
+  }
+
+  .runningwild__classements-main-section_classement {
+    border: none;
+    background: none;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .runningwild__classements-main-section_classement-categories {
+    display:none;
+    
+  }
+
+  .runningwild__classements-main-section_classement ul{
+    width: 90vw;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .runningwild__classements-main-section_classement li{
+    height:fit-content;
+    font-size: 0.7em;
+    width: 70vw;
+  }
+
+  .runningwild__classements-main-section_classement {
+    border: none;
+    background: none;
+  }
+
+  .runningwild__classements-main {
+    
+  }
+  
+}
+
+@media screen and (max-width: 320px) {
+  .runningwild__classements-main-section_classement-categories {
+    display:none;
+  }
+
+  .runningwild__classements-main-section_classement ul{
+    width: 100vw;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .runningwild__classements-main-section_classement li{
+    height:fit-content;
+    font-size: 0.7em;
+  }
+
+  .runningwild__classements-main-section_classement {
+    border: none;
+    background: none;
+  }
+}

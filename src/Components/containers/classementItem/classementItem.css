@@ -19,3 +19,46 @@
   width: 2rem;
   height: 2rem;
 }
+
+/********************************** Responsive ************************************/
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 615px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+  }
+
+@media screen and (max-width: 320px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+  }
+
+@media screen and (max-width: 320px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+  
+}
+
+@media screen and (max-width: 415px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+  }
+
+@media screen and (max-width: 320px) {
+  .runningwild__classements-items {
+    border: none;
+  }
+}
+
