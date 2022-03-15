@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-useless-fragment */
@@ -26,8 +27,8 @@ const ZIPCODE_REGEX = /^0[1-9]\d{3}$|^20[1-2]\d{2}$|^20300$|^[13-8]\d{4}$|^9[0-6
 const BIRTHDATE_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 // Regex for the city validation (1 to 45 letters only)
 const CITY_REGEX = /^[A-Za-zÀ-ÖØ-öø-ÿ-]{1,45}$/;
-// Regex for the gender validation ("man", "women", "neutral")
-const GENDER_REGEX = /^(?:h|H|homme|Homme|f|F|femme|Femme|n|N|neutre|Neutre)$/;
+// // Regex for the gender validation ("man", "women", "neutral")
+// const GENDER_REGEX = /^(?:h|H|homme|Homme|f|F|femme|Femme|n|N|neutre|Neutre)$/;
 /* Regex for the username validation (at least one character lower,
 one character upper, one digit ,one special characters and 8 to 24 characters ) */
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -55,8 +56,8 @@ function Registration() {
   const [userCity, setUserCity] = useState('');
   const [validCity, setValidCity] = useState(false);
 
-  const [userGender, setUserGender] = useState('');
-  const [validGender, setValidGender] = useState(false);
+  // const [userGender, setUserGender] = useState('');
+  // const [validGender, setValidGender] = useState(false);
 
   // handle states related to paswword
   const [pwd, setPwd] = useState('');
@@ -101,9 +102,9 @@ function Registration() {
     setValidDateOfBirth(BIRTHDATE_REGEX.test(userDateOfBirth));
   }, [userDateOfBirth]);
 
-  useEffect(() => {
-    setValidGender(GENDER_REGEX.test(userGender));
-  }, [userGender]);
+  // useEffect(() => {
+  //   setValidGender(GENDER_REGEX.test(userGender));
+  // }, [userGender]);
 
   // Handle both password and confirmed password validation
   useEffect(() => {
@@ -123,7 +124,7 @@ function Registration() {
     userPseudo,
     userPostalcode,
     userCity,
-    userGender,
+    // userGender,
     userDateOfBirth,
     pwd,
     matchPwd]);
@@ -140,7 +141,7 @@ function Registration() {
           name: userFirstname,
           surname: userLastname,
           dob: userDateOfBirth,
-          sex: userGender,
+          // sex: userGender,
           pseudo: userPseudo,
           password: pwd,
           city: userCity,
@@ -356,15 +357,15 @@ function Registration() {
               format AAAA-MM-JJ
             </p>
             {/* ********************************gender input******************************* */}
-            <label
+            {/* <label
               className="runningwild__registration-form-label"
               htmlFor="gender"
-            >
-              Genre:
+            > */}
+            {/* Genre:
               <FontAwesomeIcon icon={faCheck} className={validGender ? 'valid' : 'hide'} />
               {/* If we want to display or not the regex */}
-              <FontAwesomeIcon icon={faTimes} className={validGender || !userGender ? 'hide' : 'invalid'} />
-            </label>
+            {/* <FontAwesomeIcon icon={faTimes} className={validGender || !userGender ? 'hide' : 'invalid'} /> */}
+            {/* </label>
             <input
               type="text"
               className="runningwild__registration-form-input"
@@ -374,11 +375,11 @@ function Registration() {
               onChange={(e) => setUserGender(e.target.value)}
               value={userGender}
               required
-            />
-            <p id="uidnote" className={userGender && !validGender ? 'instructions' : 'offscreen'}>
+            /> */}
+            {/* <p id="uidnote" className={userGender && !validGender ? 'instructions' : 'offscreen'}>
               <FontAwesomeIcon icon={faInfoCircle} />
               Homme / Femme / Neutre
-            </p>
+            </p> */}
             {/* ********************************password input******************************* */}
             <label
               className="runningwild__registration-form-label"
@@ -452,7 +453,7 @@ function Registration() {
             || !validPostalCode
             || !validCity
             || !validDateOfBirth
-            || !validGender
+            // || !validGender
             || !validPwd
             || !validMatch)}
             >
