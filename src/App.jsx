@@ -17,6 +17,7 @@ import Challenges from './Components/challenges/Challenges';
 import Classement from './Components/classements/Classements';
 import Profile from './Components/profile/Profile';
 import Faq from './Components/faq/Faq';
+import Cgu from './Components/cgu/Cgu';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/parcours" element={<Parcours />} />
           <Route path="/classements" element={<Classement />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/cgu" element={<Cgu />} />
         </Routes>
       </div>
     </BrowserRouter>
