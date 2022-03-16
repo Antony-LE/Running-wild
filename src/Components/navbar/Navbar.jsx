@@ -1,62 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './navbar.css';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../Assets/wildwhite.png';
-import Navmenu from '../containers/navmenu/Navmenu';
-import navData from '../../data/navdata';
+import Navmenuburger from '../containers/navmenuburger/Navmenuburger';
 
 function Navbar({ className }) {
-  // the first variable will show us if are we currently showing the mobile menu
-  // the second is going to be a function that will let us change that variable
-  const [toggleMenu, setToggleMenu] = useState(false);
-
-  // to do : add hidding state to burger menu
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakPoint = 700;
+  React.useEffect(() => {
+    /* I added an event listener inside of a "useEffect" hook that updates
+       the "width" state variable when the window size changes */
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+    /* An empty array passed as the dependencies of the effect will cause this
+       effect to only run when the component mounts, and not each time it updates.
+    */
+  }, []);
   return (
     <div className="runningwild__navbar-container">
       <img src={logo} alt="logo de running wild" />
-      <NavLink className={({ isActive }) => (isActive ? `${className}-active` : className)} to="/homepage">
-        Accueil
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => (isActive ? `${className}-active` : className)}
-        to="/parcours"
-      >
-        Parcours
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => (isActive ? `${className}-active` : className)}
-        to="/challenges"
-      >
-        Challenges
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => (isActive ? `${className}-active` : className)}
-        to="/classements"
-      >
-        Classements
-      </NavLink>
-      <div className="runningwild__navbar-menu">
-        {toggleMenu ? (
-          <RiCloseLine
-            color="#fff"
-            size={27}
-            onClick={() => setToggleMenu(false)}
-          />
-        ) : (
-          <RiMenu3Line
-            color="#fff"
-            size={27}
-            onClick={() => setToggleMenu(true)}
-          />
-        )}
-        {toggleMenu && (
-          <div className="runningwild__navbar-menu_container">
-            <Navmenu navData={navData} />
-          </div>
-        )}
-      </div>
+      {width > breakPoint ? (
+        <>
+          <NavLink className={({ isActive }) => (isActive ? `${className}-active` : className)} to="/homepage">
+            Accueil
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? `${className}-active` : className)}
+            to="/parcours"
+          >
+            Parcours
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? `${className}-active` : className)}
+            to="/challenges"
+          >
+            Challenges
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? `${className}-active` : className)}
+            to="/classements"
+          >
+            Classements
+          </NavLink>
+        </>
+      ) : (<Navmenuburger />)}
     </div>
   );
 }

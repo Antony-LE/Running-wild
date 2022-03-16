@@ -5,16 +5,17 @@ import PropTypes from 'prop-types';
 
 function Navmenu({ navData, linkClass }) {
   return (
-    <>
+    <div className="runningwild__navmenu-links_container">
       {navData.map(({ link, text }) => (
         <NavLink
+          key={text}
           className={linkClass}
           to={link}
         >
           {text}
         </NavLink>
       ))}
-    </>
+    </div>
   );
 }
 
