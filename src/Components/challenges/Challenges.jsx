@@ -46,9 +46,6 @@ function Challenges() {
               <header className="runningwild__challenges-header">
                 <Navbar />
                 <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-                <NavLink to="/profile">
-                  <button className="runningwild__profile-button" type="button">Mon profil</button>
-                </NavLink>
               </header>
               <main className="runningwild__challenges-main">
                 <ChallengesCardList />

@@ -7,6 +7,7 @@
   font-family: var(--font-family);
   text-align: center;
   overflow-y: scroll;
+  margin-bottom: 4.1rem;
 }
 
 .runningwild_adminCard-upperContainer {
