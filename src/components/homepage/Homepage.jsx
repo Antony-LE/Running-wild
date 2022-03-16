@@ -32,33 +32,33 @@ function Homepage() {
   };
   return (
     <>
-      {isLoggedIn ? (
-        <>
-          {logout ? (
-            <section className="runningwild__logout-success gradient__bg">
-              <h1>
-                Vous êtes déconnecté !
-              </h1>
-              <p>
-                <NavLink to="/">
-                  Me connecter
-                </NavLink>
-              </p>
-            </section>
-          ) : (
-            <div className="runningwild__homepage-container">
-              <header className="runningwild__homepage-header">
-                <Navbar />
-                <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-              </header>
-              <main className="runningwild__homepage-main">
-                <HomepageCardList cardData={cardData} />
-              </main>
-              <Footer />
-            </div>
-          )}
-        </>
-      ) : (
+      {/* {isLoggedIn ? ( */}
+      <>
+        {logout ? (
+          <section className="runningwild__logout-success gradient__bg">
+            <h1>
+              Vous êtes déconnecté !
+            </h1>
+            <p>
+              <NavLink to="/">
+                Me connecter
+              </NavLink>
+            </p>
+          </section>
+        ) : (
+          <div className="runningwild__homepage-container">
+            <header className="runningwild__homepage-header">
+              <Navbar />
+              <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
+            </header>
+            <main className="runningwild__homepage-main">
+              <HomepageCardList cardData={cardData} />
+            </main>
+            <Footer />
+          </div>
+        )}
+      </>
+      {/* ) : (
         <div className="forbidden">
           <div className="forbidden-text">
             <h2>Veuillez d&apos;abord vous connecter à votre compte !</h2>
@@ -69,7 +69,7 @@ function Homepage() {
             </p>
           </div>
         </div>
-      )}
+      )} */}
 
     </>
   );

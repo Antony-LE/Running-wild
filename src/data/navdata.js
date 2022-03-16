@@ -1,5 +1,9 @@
 export default [
   {
+    link: '/homepage',
+    text: 'Accueil',
+  },
+  {
     link: '/parcours',
     text: 'Parcours',
   },
