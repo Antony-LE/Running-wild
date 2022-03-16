@@ -18,32 +18,40 @@ function Navbar({ className }) {
   }, []);
   return (
     <div className="runningwild__navbar-container">
-      <img src={logo} alt="logo de running wild" />
-      {width > breakPoint ? (
-        <>
-          <NavLink className={({ isActive }) => (isActive ? `${className}-active` : className)} to="/homepage">
-            Accueil
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? `${className}-active` : className)}
-            to="/parcours"
-          >
-            Parcours
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? `${className}-active` : className)}
-            to="/challenges"
-          >
-            Challenges
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? `${className}-active` : className)}
-            to="/classements"
-          >
-            Classements
-          </NavLink>
-        </>
-      ) : (<Navmenuburger />)}
+      <img className="runningWildLogo" src={logo} alt="logo de running wild" />
+      <div className="runningwild__navbar-linksContainer">
+        {width > breakPoint ? (
+          <>
+            <NavLink className={({ isActive }) => (isActive ? `${className}-active` : className)} to="/homepage">
+              Accueil
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${className}-active` : className)}
+              to="/parcours"
+            >
+              Parcours
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${className}-active` : className)}
+              to="/challenges"
+            >
+              Challenges
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${className}-active` : className)}
+              to="/classements"
+            >
+              Classements
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? `${className}-active` : className)}
+              to="/profile"
+            >
+              Profil
+            </NavLink>
+          </>
+        ) : (<Navmenuburger />)}
+      </div>
     </div>
   );
 }

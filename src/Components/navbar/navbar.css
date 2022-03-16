@@ -9,10 +9,10 @@
 .runningwild__navbar-links {
   display: flex;
   align-items: center;
-
 }
 
-.runningwild__navbar-rightlinks, .runningwild__navbar-leftlinks {
+.runningwild__navbar-rightlinks,
+.runningwild__navbar-leftlinks {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -73,4 +73,12 @@
   background-color: rgb(31, 41, 55, 0.7);
   border: solid 2px #717d97;
   cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .runningwild__navbar-linksContainer {
+    position: absolute;
+    left: 9rem;
+    top: 2.8rem
+  }
 }

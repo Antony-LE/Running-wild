@@ -50,9 +50,6 @@ function Homepage() {
               <header className="runningwild__homepage-header">
                 <Navbar />
                 <button className="runningwild__logout-button" type="button" onClick={handleLogoutClick}>Se déconnecter</button>
-                <NavLink to="/profile">
-                  <button className="runningwild__profile-button" type="button">Mon profil</button>
-                </NavLink>
               </header>
               <main className="runningwild__homepage-main">
                 <HomepageCardList cardData={cardData} />

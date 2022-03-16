@@ -4,6 +4,7 @@
   background-image: url(../../Assets/background.png);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 .runningwild__homepage-header {
@@ -17,6 +18,8 @@
 .runningwild__homepage-main {
   text-align: center;
   color: white;
+  margin-top: 7rem;
+  padding-bottom: 4.82rem;
 }
 
 .runningwild__logout-button {

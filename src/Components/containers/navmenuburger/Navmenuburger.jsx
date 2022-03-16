@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { RiMenu2Line, RiCloseLine } from 'react-icons/ri';
 import './navmenuburger.css';
 import Navmenu from '../navmenu/Navmenu';
 import navData from '../../../data/navdata';
@@ -17,7 +17,7 @@ function Navmenuburger() {
           onClick={() => setToggleMenu(false)}
         />
       ) : (
-        <RiMenu3Line
+        <RiMenu2Line
           color="#fff"
           size={27}
           onClick={() => setToggleMenu(true)}

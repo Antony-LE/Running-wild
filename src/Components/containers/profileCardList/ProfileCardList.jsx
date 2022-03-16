@@ -4,8 +4,6 @@
 import React, { useState } from 'react';
 import './profileCardList.css';
 import ProfileCard from '../profileCard/ProfileCard';
-import Navbar from '../../navbar/Navbar';
-import Footer from '../../footer/Footer';
 import AdminCard from '../adminCard/AdminCard';
 
 // Import of axios
@@ -139,7 +137,6 @@ function ProfileCardList() {
             ) }
 
           </div>
-          <Footer />
         </>
       ) : (<div className="forbidden"> Veuillez d&apos;abord vous connecter à votre compte !</div>)}
 
