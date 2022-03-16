@@ -6,6 +6,18 @@
   margin-left: 1rem;
 }
 
+.runningwild__navbar-links {
+  display: flex;
+  align-items: center;
+
+}
+
+.runningwild__navbar-rightlinks, .runningwild__navbar-leftlinks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .runningwild__navbar-link {
   padding: 1rem;
   font-family: var(--font-family);
@@ -31,4 +43,34 @@
 .runningwild__navbar-container img {
   height: 100px;
   width: 100px;
+}
+
+.runningwild__navbar-menu_container p {
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5625rem;
+  text-transform: capitalize;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.runningwild__navbar-menu_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  text-align: end;
+  padding: 0.5rem;
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  margin-top: 1rem;
+  min-width: 10rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  background-color: rgb(31, 41, 55, 0.7);
+  border: solid 2px #717d97;
+  cursor: pointer;
 }
