@@ -5,19 +5,12 @@ Running Wild is a website that makes running fun and motivating by adding "ranki
 
 ## How to launch the application ?
 
-Use the command line `yarn start` in the root directory to launch the project
+Use the command line `yarn start` in the root directory to launch the project or simply reach the following URL : https://running-wild-e6097.web.app/
 
-
-## Available Scripts
-
-# `yarn start`
-
-# `yarn build`
 
 ## Technologies
 
-Create-react-app (https://create-react-app.dev/)
-Font-awesome (https://fontawesome.com/)
+React,PostgreSQL, nodeJS, vanilla CSS
 
 
 
